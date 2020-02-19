@@ -1,0 +1,8 @@
+{% extends 'base.html' %} 
+{% block page_title %}{{user}} Profile {% endblock %} 
+{% block page_heading %} Welcome {{user}}{% endblock %}
+
+{% block content %}
+<p> Your email is {{ profile.email }}
+
+{% endblock %}
