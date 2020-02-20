@@ -1,1 +1,1 @@
-web: gunicorn django nutristore.wsgi:application
+web: gunicorn nutristore.wsgi:application
