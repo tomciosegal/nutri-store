@@ -5,18 +5,6 @@ class Customer(models.Model):
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
 
-class ProductCategory(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-
-class Product(models.Model):
-    id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    price = models.FloatField()
-    category_id = models.IntegerField()
-    quantity = models.IntegerField()
-
 class Order(models.Model):
     id = models.AutoField(primary_key=True)
     customer_id = models.IntegerField()

@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import dj_database_url
+from dotenv import load_dotenv
+
+
+load_dotenv(verbose=True)
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -39,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_forms_bootstrap',
     'accounts',
+    'products',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+                'cart.contexts.cart_contents'
             ],
         },
     },
@@ -75,13 +84,23 @@ WSGI_APPLICATION = 'nutristore.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+if "DATABASE_URL" in os.environ:
+    DATABASES = {'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))}
+else:
+    print("Database URL not found. Using SQLite instead")
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
+    }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES={'default': dj_database_url.parse("postgres://fxizbhcaulldlf:c89f183d2125b00175cdc3634842d6fd84811b4bd795fa7096eda8238f1b2dee@ec2-54-246-90-10.eu-west-1.compute.amazonaws.com:5432/d3v94f2g4ksj89")}
+# DATABASES={'default': dj_database_url.parse("postgres://fxizbhcaulldlf:c89f183d2125b00175cdc3634842d6fd84811b4bd795fa7096eda8238f1b2dee@ec2-54-246-90-10.eu-west-1.compute.amazonaws.com:5432/d3v94f2g4ksj89")}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -122,6 +141,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")

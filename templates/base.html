@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
         
@@ -26,14 +27,40 @@
             <li><a href="{% url 'login' %}">Login</a></li>
             <li><a href="{% url 'registration' %}">Register</a></li>
             {% endif %}
-        </ul>
+                                <li>
+                        <a href="{% url 'view_cart' %}">
+                            <i class="fa fa-shipping-cart"></i>Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
-     {% if messages %}
-    <div>
-        {% for message in messages %} {{ message }} {% endfor %}
+    {% if messages %}
+        <div class="alert alert-success">
+            <div class="messages">
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+    <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type="search">Search</button>
+            </form>
+        </div>
+        {% block content %} {% endblock %}
     </div>
-    {% endif %} {% block content %}{% endblock %}
+    <footer>
+        <div class="container">
+            <p>Made by Code Institute bootcampers</p>
+        </div>
+    </footer>
 </body>
-
 </html>
