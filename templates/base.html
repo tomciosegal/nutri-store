@@ -4,11 +4,15 @@
 
     <html lang="en">
     <meta charset="UTF-8">
+    <title>Nutristore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    
+    
         
         <!-- custom css -->
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
@@ -19,7 +23,7 @@
 <body>
   
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light small-box-shadow">
-        <ul class="navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
             {% if user.is_authenticated %}
             <li><a href="{% url 'profile' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -59,7 +63,7 @@
     </div>
     <footer>
         <div class="container">
-            <p>Made by Code Institute bootcampers</p>
+            <p>Tomasz Cygal CI student</p>
         </div>
     </footer>
 </body>
