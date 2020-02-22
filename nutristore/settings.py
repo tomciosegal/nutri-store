@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import dj_database_url
 from dotenv import load_dotenv
+import env
 
 
 load_dotenv(verbose=True)
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'accounts',
     'products',
     'cart',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -151,6 +153,9 @@ STATICFILES_DIRS = [
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
