@@ -1,7 +1,18 @@
+.custom-navbar{
+    background-image: none;
+    background-color: #90878740;
+}
+
+.header-container{
+    /* background-image: url( "{% media 'images/strongmen-header.jpg' %}"); */
+    background-color: blue;
+    background-image: url(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/strongmen-header.jpg);
+}
+
+
 form {
     width: 30%;
-    
-}
+    }
 
 body {
     font-family: Arial;
