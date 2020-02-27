@@ -3,12 +3,27 @@
     background-color: #90878740;
 }
 
+
 .header-container{
     /* background-image: url( "{% media 'images/strongmen-header.jpg' %}"); */
     background-color: blue;
     background-image: url(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/strongmen-header.jpg);
 }
 
+.contact-form-wrapper {
+  background-color: white;
+  border-radius: 6px;
+  padding: 1rem;
+}
+
+.strong-men-background {
+  background-image: url("");
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100%;
+  background-position: center 5%;
+}
 
 form {
     width: 30%;

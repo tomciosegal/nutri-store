@@ -76,7 +76,7 @@
     <div class="container">
         <div class="display">
             <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q">
+                <input type="text" name="q" id="search_input">
                 <button type="search">Search</button>
             </form>
         </div>
@@ -87,5 +87,21 @@
             <p>Tomasz Cygal CI student</p>
         </div>
     </footer>
+
+    <style>
+        body.search_blur{
+            background: rgba(0,0,0,0.8);
+        }
+    </style>
+
+    <script>
+        $('#search_input').focus(function(){
+            $('body').addClass('search_blur');
+        });
+
+         $('#search_input').blur(function(){
+            $('body').removeClass('search_blur');
+        });
+    </script>
 </body>
 </html>

@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse
+from django.http import HttpResponse
+from products.models import Product
 
 # Create your views here.
 def view_cart(request):
@@ -14,7 +16,9 @@ def add_to_cart(request, id):
     cart[id] = cart.get(id, quantity)
 
     request.session['cart'] = cart
-    return redirect(reverse('index'))
+    # return redirect(reverse('index'))
+
+    return HttpResponse(1)
 
 
 def adjust_cart(request, id):
