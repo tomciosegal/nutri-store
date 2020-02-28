@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <title>Nutristore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -24,8 +24,61 @@
 </head>
 
 <body>
+
+        <nav class="navbar navbar-expand-md {-sm|-md|-lg|-xl} navbar-light bg-light">
+  <a class="navbar-brand" href="#">Logo</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+         Shop By Range
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">View all</a>
+          <div class="dropdown-divider"></div>
+                {% for category in categories %}
+          <a class="dropdown-item" href="{% url 'index' %}?category_id={{category.id}}">{{category.name}}</a>
+          <div class="dropdown-divider"></div>
+                {% endfor %}
+
+       </ul>
+        <div class="collapse navbar-collapse" id="navbar-right">
+        <ul class="navbar-nav navbar-right">
+            {% if user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-users"></i> Profile</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+            {% else %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
+            {% endif %}
+                                <li>
+                        <a class="nav-link"href="{% url 'view_cart' %}">
+                            <i class="fas fa-shopping-cart"></i>Cart
+                            {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                            {% endif %}
+                        </a>
+                    </li>
+                </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+    </div>
+   </div>
+</nav>
   
-    <nav class="navbar sticky-top navbar-expand-lg  small-box-shadow custom-navbar">
+    <!-- <nav class="navbar sticky-top navbar-expand-lg  small-box-shadow custom-navbar">
         <ul class= "nav navbar-nav mr-auto">
             <li> <a href="{% url 'contact' %}">Contact</a> </li>
             <li class="nav-item dropdown">
@@ -63,7 +116,7 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav> -->
     {% if messages %}
         <div class="alert alert-success">
             <div class="messages">
@@ -90,7 +143,7 @@
 
     <style>
         body.search_blur{
-            background: rgba(0,0,0,0.8);
+            background: rgba(0,0,0,0.2);
         }
     </style>
 
