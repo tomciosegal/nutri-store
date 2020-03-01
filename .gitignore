@@ -3,3 +3,5 @@
 __pycache__/
 .theia/
 env.py
+media/
+static/

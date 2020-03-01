@@ -2,22 +2,7 @@
 {% block content %}
 
 
-  <!-- Header -->
-
-   
-   <header>
-    
-    <div class="header-container">
-      <div class="intro-text">
-        <div class="intro-lead-inn d-none d-md-block">Welcome To Our Fitness Kitchen!<br> We are here to help you find healthy dishes that don’t 
-        sacrifice any of the flavor that can be found in their full-fat origins.<br> People may think eating healthy is boring but 
-        that’s furthest from the truth.<br>You can still enjoy delicious tasting meals with healthier alternatives.<br>Enjoy</div>
-        
-        
-      </div>
-    </div>
-  </header>
-
+  
 <div class="row row-flex">
     {% for product in products %}
         <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
@@ -28,12 +13,12 @@
 
                 <h3>{{ product.name }}</h3>
                 <p class="product-description">{{ product.description }}</p>
-                <p>{{ product.price }} €</p>
+                <p>{{ product.price }} <i class="fas fa-euro-sign"></i></p>
 
                 <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
                     {% csrf_token %}
                     <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="form-control quantity-input" value="{{ request.session.cart }}" placeholder="Quantity">
+                        <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Quantity">
                         <span class="input-group-btn">
                             <button class="btn btn-success" type="submit">Add</button>
                         </span>
@@ -44,15 +29,7 @@
     {% endfor %}
 </div>
 
-<style>
-    .product_image{
-        max-width: 100%;
-        height: 215px;
-        object-fit: cover;
-        display: block;
-        margin: 0 auto 20px auto;
-    }
-</style>
+<!---------------script to add item without reloading page------------------>
 
 <script>
     $('[data-add-basket-form]').submit(function(e){
