@@ -67,6 +67,11 @@ def user_profile(request):
     user = User.objects.get(email=request.user.email)
     return render(request, 'profile.html', {"profile": user})
 
-def contact (request):
+def contact(request):
     return render(request, "contact.html")
 
+def about(request):
+    return render(request, "about.html")
+
+def delivery(request):
+    return render(request, 'delivery.html')

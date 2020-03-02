@@ -4,17 +4,41 @@ body {
     font-family: 'Work Sans';
     color: #000;
 }
-
+                                    /*---------------- NAVBAR----------------------*/
 .custom-navbar{
     background-image: none;
-    background-color: #90878740;
+    background-color: #90878770;
+    border: none;
 }
 
 .my-page-header{
-    margin-bottom: -6px;
+    margin-bottom: -10px;
     margin-top: 0px;
+    border: none;
 }
 
+.search-btn{
+    border-color: green;
+    border-radius: 8px;
+    width: 80px;
+}
+
+.nav-link{
+    color:#3c2e19;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 8px;
+    font-family:"Work Sans";
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color:#3c2e19;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    padding: 8px;
+}
 /* contact form style */
 
 .contact-control {
@@ -178,6 +202,31 @@ caption p {
     padding: 5px 0px;
     text-align: center;
     background-color: #c0e0c0
+}
+                                        /*about page styles*/
+.about h2 {
+    color: #3c2e19;
+    font-size: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 12px;
+    margin-bottom: 26px;
+    line-height: 51px;
+}
+
+.about p {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 29px;
+    color: #3c2e19;
+}
+
+.img-fluid{
+    border: 8px solid #3c2e19;
+    padding-left: 29px;
+    max-width: 100%;
+    padding-top: 50%;
 }
 
 /*pruduct details styles  taken from https://bootsnipp.com/ and styled to project needs*/
