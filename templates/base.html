@@ -27,19 +27,18 @@
                             <!---------------HEADER------------------>
 <header class="page-header my-page-header">
     <div class="header--wrapper">
-            
-            
+        <img id="logo" src="/media/images/logo.jpg" alt="Nutri Store logo">
         
-        <div class="card text-center">
-                <div class="card-search">
-                <img id="logo" src="/media/images/logo.jpg" alt="Nutri Store logo">
-                    <form class="form-inline my-2 my-lg-0 mx-auto">
-                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" placeholder= "Search"type="search" aria-label="Search">
-                        <a class="nav-link" href="/search/">
-                            <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
-                        </a>
-                                            
-        <ul class="navbar-nav mx-right">
+        <div class="card-search">
+            <form class="d-flex">
+                <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" placeholder= "Search"type="search" aria-label="Search" />
+                <a class="nav-link" href="/search/">
+                    <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
+                </a>
+            </form>
+        </div>
+                                        
+        <ul class="navbar-nav mx-right flex-row top-menu">
             {% if user.is_authenticated %}
             <li class="nav-item active"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-users"></i> Profile</a></li>
             <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
@@ -47,26 +46,38 @@
             <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
             <li class="nav-item active"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
             {% endif %}
-                                <li>
-                        <a class="nav-link"href="{% url 'view_cart' %}">
-                            <i class="fas fa-shopping-cart"></i>Cart
-                            {% if product_count > 0 %}
-                            <label class="badge badge-warning">{{ product_count }}</label>
-                            {% endif %}
-                        </a>
-                    </li>
-                </ul>
-    
-                </div>
- 
-        </div>
-    
-    </div>
+            <li>
+                <a class="nav-link"href="{% url 'view_cart' %}">
+                    <i class="fas fa-shopping-cart"></i>Cart
+                    {% if product_count > 0 %}
+                    <label class="badge badge-warning">{{ product_count }}</label>
+                    {% endif %}
+                </a>
+            </li>
+        </ul>
+</div>
 </header>
+
+<style>
+    .header--wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 0;
+    }
+
+    .search-input{
+        width: 250px;
+    }
+
+    .top-menu li{
+        margin-right:20px;
+    }
+</style>
 
                             <!---------------NAVBAR------------------>
 
-<nav class="navbar navbar-expand-md {-sm|-md|-lg|-xl} navbar-light bg-light custom-navbar">
+<nav class="navbar navbar-expand-md {-sm|-md|-lg|-xl} navbar-light custom-navbar">
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 
             <ul class="navbar-nav mr-auto">

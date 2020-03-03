@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-
+<div class="container">
   
 <div class="row row-flex">
     {% for product in products %}
@@ -11,23 +11,35 @@
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" />
                 </a>
 
-                <h3>{{ product.name }}</h3>
-                <p class="product-description">{{ product.description }}</p>
+                <h3 style="min-height: 60px;">{{ product.name }}</h3>
                 <p>{{ product.price }} <i class="fas fa-euro-sign"></i></p>
+                <p class="product-description">{{ product.description }}</p>
+                
 
                 <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
                     {% csrf_token %}
-                    <div class="input-group">
+                    <div style="display: flex; justify-content: center;;">
                         <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Quantity">
-                        <span class="input-group-btn">
-                            <button class="btn btn-success" type="submit">Add</button>
-                        </span>
+                        <button class="btn btn-success" type="submit">Add</button>
                     </div>
                 </form>
             </div>
         </div>
     {% endfor %}
 </div>
+
+</div>
+
+<style>
+    .product-description{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        min-height: 60px;
+    }
+</style>
 
 <!---------------script to add item without reloading page------------------>
 
