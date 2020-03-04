@@ -5,13 +5,13 @@
   
 <div class="row row-flex">
     {% for product in products %}
-        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class=" col-lg-3 col-md-4 col-sm-6 display panel panel-default">
             <div class="panel-body">
-                <a href="#">
+                <a href="{% url 'product_details' %}">
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" />
                 </a>
 
-                <h3 style="min-height: 60px;">{{ product.name }}</h3>
+                <h3 style="min-height: 60px; font-size:19px;">{{ product.name }}</h3>
                 <p>{{ product.price }} <i class="fas fa-euro-sign"></i></p>
                 <p class="product-description">{{ product.description }}</p>
                 
@@ -38,6 +38,12 @@
         -webkit-box-orient: vertical;
         -webkit-line-clamp: 3;
         min-height: 60px;
+        text-align: justify;
+        
+    }
+    .custom-navbar{
+        border-color: #77ac3c;
+        border-width: 1px;
     }
 </style>
 

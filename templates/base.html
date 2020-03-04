@@ -27,7 +27,9 @@
                             <!---------------HEADER------------------>
 <header class="page-header my-page-header">
     <div class="header--wrapper">
-        <img id="logo" src="/media/images/logo.jpg" alt="Nutri Store logo">
+        <div id="logo"> <img src="/media/images/logo.jpg" alt="Nutri Store logo">
+        </div>
+        
         
         <div class="card-search">
             <form class="d-flex">
@@ -39,19 +41,19 @@
         </div>
                                         
         <ul class="navbar-nav mx-right flex-row top-menu">
-            {% if user.is_authenticated %}
+                {% if user.is_authenticated %}
             <li class="nav-item active"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-users"></i> Profile</a></li>
             <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-            {% else %}
+                {% else %}
             <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
             <li class="nav-item active"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
-            {% endif %}
+                {% endif %}
             <li>
                 <a class="nav-link"href="{% url 'view_cart' %}">
                     <i class="fas fa-shopping-cart"></i>Cart
-                    {% if product_count > 0 %}
+                        {% if product_count > 0 %}
                     <label class="badge badge-warning">{{ product_count }}</label>
-                    {% endif %}
+                        {% endif %}
                 </a>
             </li>
         </ul>
@@ -59,28 +61,16 @@
 </header>
 
 <style>
-    .header--wrapper{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 25px 0;
-    }
 
-    .search-input{
-        width: 250px;
-    }
-
-    .top-menu li{
-        margin-right:20px;
     }
 </style>
 
                             <!---------------NAVBAR------------------>
 
-<nav class="navbar navbar-expand-md {-sm|-md|-lg|-xl} navbar-light custom-navbar">
+<nav class="navbar navbar-expand-md fixed-top custom-navbar">
         <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
 
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav mr-auto custom-ul">
             <li class="nav-item active">
                 <a class="nav-link" href="{% url 'products' %}">Home <span class="sr-only"></span></a>
             </li>
@@ -128,7 +118,7 @@
     </div>
 
     <footer class="footer">
-    <div class="container text-center text-md-left">
+    
 
     
         <div class="row top">
@@ -137,7 +127,7 @@
             <div class="col-md-3 mr-auto">
 
             <!-- Links -->
-                <ul class="list-unstyled">
+                <ul class="list-unstyled footer-list">
                     <li>
                         <a href="{% url 'contact' %}">Contact</a>
                     </li>
@@ -149,26 +139,44 @@
                     </li>
                 </ul>
             </div>
-            <div class="footer-info ml-auto">
+                    <div class="col-md-3 bottom">
+                        <div class="payment-methods">
+                            <li class="list-inline-item">
+                                <i class="fab fa-cc-visa fa-2x"></i>
+                            </li>
+                            <li class="list-inline-item">
+                            <i class="fab fa-cc-amex fa-2x"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                <i class="fab fa-cc-mastercard fa-2x"></i>
+                            </li>
+                            <li class="list-inline-item">
+                                   <i class="fab fa-cc-paypal fa-2x"></i>
+                            </li>
+
+                        </div>   
+                    
+                    </div>
+            <div class="col-md-3 footer-info ml-auto">
                 <div class="social-icons">
                     <li class="list-inline-item">
                         <a href="https://github.com/tomciosegal" target="_blank">
-                            <i class="fab fa-github"></i>
+                            <i class="fab fa-github foot-fab fa-2x"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://www.instagram.com/bulkpowders/" target="_blank">
-                            <i class="fab fa-instagram"></i>
+                            <i class="fab fa-instagram foot-fab fa-2x"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://www.facebook.com/BulkPowdersIE/?brand_redir=169468793065757" target="_blank">
-                            <i class="fab fa-facebook-f"></i>
+                            <i class="fab fa-facebook-f foot-fab fa-2x"></i>
                         </a>
                     </li>
                     <li class="list-inline-item">
                         <a href="https://www.youtube.com/user/BulkPowderscouk" target="_blank">
-                            <i class="fab fa-youtube"></i>
+                            <i class="fab fa-youtube foot-fab fa-2x"></i>
                         </a>
                     </li>
                 </div>
@@ -177,30 +185,14 @@
                         Customer Service 012345678
                     </div>
                     <div class="customer-service--opening-times">
-                        Mon to Fri 08:00 to 20:00. Sat & Sun 09:00 to 17:00
+                        Mon to Fri 08:00 to 20:00 <br>
+                        Sat & Sun 09:00 to 17:00
                     </div>
-                    <div class="bottom">
-                        <div class="payment-methods">
-                            <li class="list-inline-item">
-                                <i class="fab fa-cc-visa fa-3x"></i>
-                            </li>
-                            <li class="list-inline-item">
-                            <i class="fab fa-cc-amex fa-3x"></i>
-                            </li>
-                            <li class="list-inline-item">
-                                <i class="fab fa-cc-mastercard fa-3x"></i>
-                            </li>
-                            <li class="list-inline-item">
-                                   <i class="fab fa-cc-paypal fa-3x"></i>
-                            </li>
 
-                        </div>   
-                    
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    
     </footer>
   
 
