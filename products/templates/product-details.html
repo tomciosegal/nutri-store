@@ -8,12 +8,12 @@
 					<div class="preview col-md-6">
 						
 						<div class="preview-pic tab-content">
-						  <div class="tab-pane active" id="pic-1"><img src="http://placekitten.com/400/252" /></div>
+						  <div class="tab-pane active" id="pic-1"><img src="{{ MEDIA_URL }}{{ product.image }}" /></div>
 						</div>
 					
 					</div>
 					<div class="details col-md-6">
-						<h3 class="product-title">"product name"</h3>
+						<h3 class="product-title">{{ product }}</h3>
 						<div class="rating">
 							<div class="stars">
 								<span class="fa fa-star checked"></span>
@@ -24,10 +24,11 @@
 							</div>
 							<span class="review-no">41 reviews</span>
 						</div>
-						<p class="product-description">product description</p>
-						<h4 class="price">Price: <span> <i class="fas fa-euro-sign"></i> Price </span></h4>
+						<p class="product-description">{{ product.description }}</p>
+						<h4 class="price">Price: <span> <i class="fas fa-euro-sign"></i> {{ product.price }}</span></h4>
 						<p class="vote"><strong>91%</strong> of buyers enjoyed this product! <strong>(87 votes)</strong></p>
 						<div class="action">
+                    
 							<button class="add-to-cart btn btn-default" type="button">Add to Cart</button>
                             <button class="add-to-cart btn btn-default" type="button">Continue Shppping</button>
                             <button class="add-to-cart btn btn-default" type="button">Go Checkout</button>

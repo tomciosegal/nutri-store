@@ -5,9 +5,11 @@
   
 <div class="row row-flex">
     {% for product in products %}
+    
+   
         <div class=" col-lg-3 col-md-4 col-sm-6 display panel panel-default">
             <div class="panel-body">
-                <a href="{% url 'product_details' %}">
+                <a href="{% url 'product_details' product.id %}">
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" />
                 </a>
 
@@ -18,7 +20,7 @@
 
                 <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
                     {% csrf_token %}
-                    <div style="display: flex; justify-content: center;;">
+                    <div style="display: flex; justify-content: center;">
                         <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Quantity">
                         <button class="btn btn-success" type="submit">Add</button>
                     </div>
