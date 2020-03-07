@@ -3,17 +3,17 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="row row-flex">
+<div class="row row-flex cart-row">
     {% for item in cart_items %}
     
-    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-display">
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel cart-panel">
         
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
         
         <div class="caption">
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
-            <p>{{ item.product.price }}</p>
+            <p>Price: <i class="fas fa-euro-sign"></i>{{ item.product.price }}</p>
             <p>
                 
                 <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
@@ -33,11 +33,11 @@
     </div>
     {% endfor %}
 </div>
-<div class="row">
+<div class="row summary-cart">
     <p>Total</p>
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
-    <a href="{% url 'checkout' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
-    <a href="{% url 'index' %}" class="btn btn-success" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back Shoppping</a>
+    <a href="{% url 'checkout' %}" class="btn btn-success btn-succes-cart" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+    <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back Shopping</a>
 </div>
 
 {% endblock %}
