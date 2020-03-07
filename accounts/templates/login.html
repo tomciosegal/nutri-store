@@ -13,6 +13,8 @@
             <p class="text-muted mb-3 border-bottom">Need an account? <a href="/accounts/registration/"
             class="blue-link">Register here.</a></p>
                 <form method="POST">
+                {% csrf_token %}
+                {{ login_form | as_bootstrap}}
                     <input type="hidden" name="csrfmiddlewaretoken" value="CYCDL1s87RYjsB2dAuapnMQQ8S0iNVOpoCur9hk9tZFMYG0b27iX3og7zHykVhCb">
                     <fieldset class="form-group">
                         <div id="div_id_username" class="form-group"> <label for="id_username" class=" requiredField">
@@ -25,10 +27,10 @@
                         </div>
                 </form>
     </div>
-<form method="POST">
+<!-- <form method="POST">
         {% csrf_token %}
         {{ login_form | as_bootstrap}}
         <button type="submit" class="btn btn-default">Login</button>
-    </form>
+    </form> -->
 <p><a href="{% url 'password_reset' %}">Forgot Password ?</a></p>
 {% endblock %}
