@@ -4,16 +4,9 @@
 
 <div class="container-fluid p-0">
     <div class="row no-gutters">
-        <div class="col-12">
-            {% if messages %}
-            {% for message in messages %}
+    {% if messages %}
 
-            <div class="alert alert-{{ message.tags }} text-center">
-                {{ message }}
-            </div>
-            {% endfor %}
-            {% endif %}
-        </div>
+    {% endif %}
     </div>
 </div>
 

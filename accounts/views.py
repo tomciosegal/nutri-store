@@ -68,6 +68,8 @@ def user_profile(request):
     return render(request, 'profile.html', {"profile": user})
 
 def contact(request):
+    if request.method == "POST":
+        messages.success(request, "Thank You For Contatcting Us!")
     return render(request, "contact.html")
 
 def about(request):
