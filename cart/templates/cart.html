@@ -16,7 +16,7 @@
             <p>Price: <i class="fas fa-euro-sign"></i>{{ item.product.price }}</p>
             <p>
                 
-                <form class="form-inline" method="post" action="{% url 'adjust_cart' item.id %}">
+                <form class="form-inline justify-content-center" method="post" action="{% url 'adjust_cart' item.id %}">
                     {% csrf_token %}
                     <div class="form-group">
                         <label for="exampleInputAmount" class="sr-only">New Qty</label>

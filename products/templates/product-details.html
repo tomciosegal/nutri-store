@@ -34,10 +34,13 @@
                             <div style="display: flex; justify-content: center;">
                                 <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Quantity">
                                     <button class="btn btn-success" type="submit">Add</button>
+                                    <a href="{% url 'index' %}" class="add-to-cart btn btn-default" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back Shppping</a>
+                                    <a href="{% url 'checkout' %}" class="add-to-cart btn btn-default" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+                            
+                            
                             </div>
                         </form>
-                            <a href="{% url 'index' %}" class="add-to-cart btn btn-default" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Back Shppping</a>
-                            <a href="{% url 'checkout' %}" class="add-to-cart btn btn-default" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
+                            
                         </div>
 					</div>
 				</div>
@@ -45,17 +48,16 @@
 		</div>
 	</div>
 
+    <script>
 
-<script>
     $('[data-add-basket-form]').submit(function(e){
         e.preventDefault();
 
         const elem = $(this);
-        const quantity = parseInt($(elem).find('input[name="quantity"]').val());
+        let quantity = parseInt($(elem).find('input[name="quantity"]').val());
 
         if(isNaN(quantity)){
-            alert('Quantity must be greater than 0!');
-            return 1;
+            quantity = 1;
         }
 
         const token = $(elem).find('input[name="csrfmiddlewaretoken"]').val();
@@ -68,6 +70,10 @@
                 quantity: quantity
             },
             success: function(response){
+
+                $('#product_count').text(parseInt($('#product_count').text()) + 1);
+
+
                 $(elem).find('input[name="quantity"]').val('')
                 alert('Product succefully addded to basket!');
             }
@@ -78,4 +84,6 @@
         })
     });
 </script>
+
+
 {% endblock %}
