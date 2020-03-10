@@ -32,6 +32,11 @@
 
 </div>
 
+<style>
+    body{
+        position: static;
+    }
+</style>
 
 <!---------------script to add item without reloading page------------------>
 
@@ -40,11 +45,10 @@
         e.preventDefault();
 
         const elem = $(this);
-        const quantity = parseInt($(elem).find('input[name="quantity"]').val());
+        let quantity = parseInt($(elem).find('input[name="quantity"]').val());
 
         if(isNaN(quantity)){
-            alert('Quantity must be greater than 0!');
-            return 1;
+            quantity = 1;
         }
 
         const token = $(elem).find('input[name="csrfmiddlewaretoken"]').val();
@@ -57,6 +61,10 @@
                 quantity: quantity
             },
             success: function(response){
+
+                $('#product_count').text(parseInt($('#product_count').text()) + 1);
+
+
                 $(elem).find('input[name="quantity"]').val('')
                 alert('Product succefully addded to basket!');
             }

@@ -25,77 +25,79 @@
 
 <body>
                             <!---------------HEADER------------------>
-<header class="page-header my-page-header">
-    <div class="header--wrapper">
-        <div id="logo">
-        </div>
-        <div> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
-        <div class="card-search">
-            <form class="d-flex">
-                <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" placeholder= "Search"type="search" aria-label="Search" />
-                <a class="nav-link" href="/search/">
-                    <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
-                </a>
-            </form>
-        </div>
-                                        
-        <ul class="navbar-nav mx-right flex-row top-menu">
-                {% if user.is_authenticated %}
-            <li class="nav-item active"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-users"></i> Profile</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
-                {% else %}
-            <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
-            <li class="nav-item active"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
-                {% endif %}
-            <li>
-                <a class="nav-link"href="{% url 'view_cart' %}">
-                    <i class="fas fa-shopping-cart"></i>Cart
-                        {% if product_count > 0 %}
-                    <label class="badge badge-warning">{{ product_count }}</label>
-                        {% endif %}
-                </a>
-            </li>
-        </ul>
-</div>
-</header>
-
-<style>
-
-    }
-</style>
-
-                            <!---------------NAVBAR------------------>
-
-<nav class="navbar navbar-expand-md fixed-top custom-navbar">
-        <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent"> -->
-
-            <ul class="navbar-nav mr-auto custom-ul">
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'products' %}">Home <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="{% url 'about' %}">About</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'contact' %}">Contact <span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Shop By Range
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="{% url 'index' %}">View all</a>
-                <div class="dropdown-divider"></div>
-                        {% for category in categories %}
-                <a class="dropdown-item" href="{% url 'index' %}?category_id={{category.id}}">{{category.name}}</a>
-                <div class="dropdown-divider"></div>
-                        {% endfor %}
-
+<div class= "menu-wrapper">
+    <header class="page-header my-page-header">
+        <div class="header-wrapper">
+            <div id="logo"> <img src="/media/images/logo.jpg" alt="Nutri Store logo"></div>
+            <div> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
+            <div class="card-search">
+                <form class="d-flex">
+                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" placeholder= "Search"type="search" aria-label="Search" />
+                    <a class="nav-link" href="/search/">
+                        <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
+                    </a>
+                </form>
+            </div>
+                                            
+            <ul class="navbar-nav mx-right flex-row top-menu">
+                    {% if user.is_authenticated %}
+                <li class="nav-item active"><a class="nav-link" href="{% url 'profile' %}"><i class="fas fa-users"></i> Profile</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i>Logout</a></li>
+                    {% else %}
+                <li class="nav-item active"><a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i>Login</a></li>
+                <li class="nav-item active"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
+                    {% endif %}
+                <li>
+                    <a class="nav-link"href="{% url 'view_cart' %}">
+                        <i class="fas fa-shopping-cart"></i>Cart
+                            {% if product_count > 0 %}
+                        <label class="badge badge-warning" id="product_count">{{ product_count }}</label>
+                            {% endif %}
+                    </a>
+                </li>
             </ul>
+    </div>
+    </header>
+
+    <style>
+
+        }
+    </style>
+
+                                <!---------------NAVBAR------------------>
+
+    <nav class="navbar navbar-expand-md fixed-top custom-navbar">
+            
+
+                <ul class="navbar-nav mr-auto custom-ul">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'products' %}">Home <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'contact' %}">Contact <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Shop By Range
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="{% url 'index' %}">View all</a>
+                    <div class="dropdown-divider"></div>
+                            {% for category in categories %}
+                    <a class="dropdown-item" href="{% url 'index' %}?category_id={{category.id}}">{{category.name}}</a>
+                    <div class="dropdown-divider"></div>
+                            {% endfor %}
+
+                </ul>
 
 
-        <!-- </div> -->
-</nav>
+            
+    </nav>
+
+</div>
   
     {% if messages %}
         <div class="alert alert-success">
