@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="container">
+<div class="container product-wrapper">
   
 <div class="row row-flex">
     {% for product in products %}
-    
-   
         <div class=" col-lg-3 col-md-4 col-sm-6 display panel panel-default">
             <div class="panel-body">
                 <a href="{% url 'product_details' product.id %}">
@@ -31,12 +29,6 @@
 </div>
 
 </div>
-
-<style>
-    body{
-        position: static;
-    }
-</style>
 
 <script>
 
