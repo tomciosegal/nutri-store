@@ -32,10 +32,11 @@
             <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
             <div class="card-search">
                 <form class="d-flex">
-                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" placeholder= "Search"type="search" aria-label="Search" />
-                    <a class="nav-link" href="/search/">
+                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search"type="search" aria-label="Search" />
+                    <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x" title="Search">Search</button>
+                    <!-- <a class="nav-link" href="">
                         <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
-                    </a>
+                    </a> -->
                 </form>
             </div>
                                             
@@ -55,6 +56,7 @@
                             {% endif %}
                     </a>
                 </li>
+                {{ request.session.total}}
             </ul>
     </div>
     </header>

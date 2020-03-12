@@ -3,8 +3,9 @@
 {% block content %}
 <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5">
             <h6 class="checkout-heading">Shipping address</h6>
-
+            
             <!-- Form to collect shipping information -->
+            
         <form method="POST">
             <input type="hidden" name="csrfmiddlewaretoken" value="sndPfbzpZTnqtKZD1ccLmeBlayg10ohY6Z09Z3753j9kupGkL38xIsKcvAGA9pDY">
                 
@@ -42,6 +43,7 @@
                     </select> 
                 </div> 
             </div>
+            {% csrf_token %}
             <button type="submit" class="btn btn-cta checkout-btn">Continue to payment</button>
         </form>
 

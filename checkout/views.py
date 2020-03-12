@@ -66,4 +66,6 @@ def checkout(request):
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
 
 def shipping(request):
+    if request.method == "POST":
+        return redirect("checkout")
     return render(request, "shipping.html")
