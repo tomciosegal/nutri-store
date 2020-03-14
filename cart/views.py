@@ -6,12 +6,12 @@ from django.contrib import auth, messages
 # Create your views here.
 def view_cart(request):
     """A View that renders the cart contents page"""
-    return render(request, "cart.html")
+    return render(request, "cart.html") 
 
 
 def add_to_cart(request, id):
     """Add a quantity of the specified product to the cart"""
-    quantity = int(request.POST.get('quantity'))
+    quantity = int(request.POST.get('quantity') or 1)
 
     product = Product.objects.get(id= id)
     if quantity > product.quantity:
@@ -21,7 +21,10 @@ def add_to_cart(request, id):
 
     cart = request.session.get('cart', {})
 
-    cart[id] = cart.get(id, quantity)
+    if not cart.get(id):
+        cart[id] = cart.get(id, quantity)
+    else:
+        cart[id] += quantity
 
     request.session['cart'] = cart
     total = float(product.price) * quantity
@@ -34,7 +37,8 @@ def add_to_cart(request, id):
 
     
 
-    return HttpResponse(1)
+    return redirect(reverse('products'))
+
 
 
 def adjust_cart(request, id):

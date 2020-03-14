@@ -35,7 +35,11 @@
 </div>
 <div class="row summary-cart">
     <p>Total</p>
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+    {% if total > 50 %}
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount}} 10% discount included</p>
+    {% else %}
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }} get 10% discount when you spend 50euro</p>
+    {% endif %}
     <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Checkout</a>
     <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span>Keep Shopping</a>
 </div>

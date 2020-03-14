@@ -48,42 +48,4 @@
 		</div>
 	</div>
 
-    <script>
-
-    $('[data-add-basket-form]').submit(function(e){
-        e.preventDefault();
-
-        const elem = $(this);
-        let quantity = parseInt($(elem).find('input[name="quantity"]').val());
-
-        if(isNaN(quantity)){
-            quantity = 1;
-        }
-
-        const token = $(elem).find('input[name="csrfmiddlewaretoken"]').val();
-
-        $.ajax({
-            url: $(elem).attr('action'),
-            method: 'post',
-            data: {
-                csrfmiddlewaretoken: token,
-                quantity: quantity
-            },
-            success: function(response){
-
-                $('#product_count').text(parseInt($('#product_count').text()) + 1);
-
-
-                $(elem).find('input[name="quantity"]').val('')
-                alert('Product succefully addded to basket!');
-            }
-
-        })
-        .fail(function(xhr, textStatus, errorThrown){
-            console.log(xhr.responseText);
-        })
-    });
-</script>
-
-
 {% endblock %}

@@ -12,13 +12,16 @@ def index(request):
 @login_required
 def logout(request):
     """Log the user out"""
+    username = ""
+    if request.user.is_authenticated():
+        username = request.user.username
     auth.logout(request)
-    messages.success(request, "You have been logged out")
+    messages.success(request, f"You have been logged out {username}")
     return redirect(reverse('index'))
 
 def login(request):
     """Return a login page"""
-    if request.user.is_authenticated:
+    if request.user.is_authenticated():
         return redirect(reverse('index'))
     if request.method == "POST":
         login_form = UserLoginForm(request.POST)
@@ -30,7 +33,7 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully logged in!")
+                messages.success(request, f"You have successfully logged in {user.username}")
                 return redirect(reverse('index'))
             else:
                 login_form.add_error(None, "Your username or password is incorrect")
@@ -77,3 +80,6 @@ def about(request):
 
 def delivery(request):
     return render(request, 'delivery.html')
+
+def return_policy(request):
+    return render(request, 'return-policy.html')

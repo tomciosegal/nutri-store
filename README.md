@@ -49,3 +49,34 @@ The Goals of The Nutristore business are:
 - Build The Nutristore newsletter subscriptions.
 - Fast and efficient delivery.
 - Make sales of products easy for buyers to increase sales conversion.
+
+## Design Choices
+
+The Nutristore website has an overall Lab style, where viewer can feel cleanneses of the product and used clean ingredients.
+
+### Fonts
+- The primary font 'Work Sans' was chosen for the main text of the site because of it clear readability.
+
+### Colours
+
+- light green: #77ac3c;
+- green: #79b03e
+- light grey: #e3e1e1
+
+- The brand colours for this project were chosen because the two shades of pink and two shades of grey are taken from the felt mice ears and standard body color. This helps to pull the colours of the site together with the product photographs. 
+
+- The blue was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
+
+## Wireframes
+
+- [Home]()
+- [About]()
+- [FAQs]()
+- [Account]()
+- [Shop/Search Results]()
+- [Catagories]()
+- [Listing]()
+- [Cart]()
+- [Checkout - Shipping]()
+- [Checkout - Payment]()
+

@@ -33,7 +33,7 @@
             <div class="card-search">
                 <form class="d-flex">
                     <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search"type="search" aria-label="Search" />
-                    <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x" title="Search">Search</button>
+                    <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x search-btn" title="Search"></button>
                     <!-- <a class="nav-link" href="">
                         <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
                     </a> -->
@@ -110,30 +110,20 @@
             </div>
         </div>
     {% endif %}
-    <!-- <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <input type="text" name="q" >
-                <button type="search">Search</button>
-            </form>
-        </div> -->
 
         <!----styling this div will adjust content and "stick" footer to the bottom in all templates--> 
-
+    
         <div class="template-content">
         
             {% block content %} {% endblock %}
         </div>
-    </div>
+    
 
     <footer class="footer">
     
+    <div class="row top">
 
-    
-        <div class="row top">
-
-        
-            <div class="col-md-3 mr-auto">
+        <div class="col-md-3 mr-auto">
 
             <!-- Links -->
                 <ul class="list-unstyled footer-list">
@@ -141,13 +131,13 @@
                         <a href="{% url 'contact' %}">Contact</a>
                     </li>
                     <li>
-                        <a href="#!">Return Policy</a>
+                        <a href="{% url 'return-policy' %}">Return Policy</a>
                     </li>
                     <li>
                         <a href="{% url 'delivery' %}">Delivery Information</a>
                     </li>
                 </ul>
-            </div>
+        </div>
                     <div class="col-md-3 bottom">
                         <div class="payment-methods">
                             <li class="list-inline-item">
@@ -200,7 +190,7 @@
 
                 </div>
             </div>
-        </div>
+    </div>
     
     </footer>
   
@@ -214,5 +204,6 @@
             $('body').removeClass('search_blur');
         });
     </script>
+    <script src="{% static 'js/basket.js' %}"></script>
 </body>
 </html>
