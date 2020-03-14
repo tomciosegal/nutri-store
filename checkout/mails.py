@@ -1,13 +1,14 @@
 from django.core.mail import send_mail
+from django.conf import settings
 
 
 
-def send_checkout_mail():
+def send_checkout_mail(user, cart):
     send_mail(
         'Subject here',
-        'Here is the message.',
-        'from@example.com',
-        ['to@example.com'],
+        f'Here is the message. {user.username}, {cart}',
+        settings.FROM_EMAIL,
+        [user.email],
         fail_silently=False,
     )
     

@@ -52,10 +52,10 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
             
             if customer.paid:
+                send_checkout_mail(request.user, request.session['cart'])
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
                 request.session['total'] = 0
-                send_checkout_mail()
                 return redirect(reverse('products'))
             else:
                 messages.error(request, "Unable to take payment")
