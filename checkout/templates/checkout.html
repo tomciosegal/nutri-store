@@ -1,5 +1,4 @@
- 
-	{% extends "base.html" %}
+    {% extends "base.html" %}
 	{% load static from staticfiles %}
 	{% load bootstrap_tags %}
 
@@ -23,10 +22,10 @@
 					url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
 
 					<div class="caption">
-						<h3>{{ item.product.name }}</h3>
+						<h3 class="text-center">{{ item.product.name }}</h3>
 						<p class="product-description">{{ item.product.description }}</p>
-						<p>Quantity: {{ item.quantity }}</p>
-						<p>Price: <i class="fas fa-euro-sign"></i>{{ item.product.price }} </p>
+						<p class="text-center checkout-par">Quantity: {{ item.quantity }}</p>
+						<p class="text-center checkout-par">Price: <i class="fas fa-euro-sign"></i>{{ item.product.price }} </p>
 					</div>
 				</div>
 			</div>
@@ -37,26 +36,26 @@
 		<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
 	</div>
     <div>
-	<form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-		<legend>Payment Details</legend>
+        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+            <legend>Payment Details</legend>
 
-		<div id="credit-card-errors" style="display: none;">
-			<div id="alert-message block-message error" id="stripe-error-message"></div>
-		</div>
+            <div id="credit-card-errors" style="display: none;">
+                <div id="alert-message block-message error" id="stripe-error-message"></div>
+            </div>
 
-		<div class="form-group col-md-6">
-			{{ order_form | as_bootstrap }}
-		</div>
+            <div class="form-group col-md-6">
+                {{ order_form | as_bootstrap }}
+            </div>
 
-		<div class="form-group col-md-6">
-			{{ payment_form | as_bootstrap }}
-		</div>
+            <div class="form-group col-md-6">
+                {{ payment_form | as_bootstrap }}
+            </div>
 
-		{% csrf_token %}
-		<div class="form-group col-md-12">
-			<input class=" btn btn-primary" id="submit_payment_btn" name="commit" 
-			type="submit" value="Submit Payment">
-		</div>
-	</form>
+            {% csrf_token %}
+            <div class="form-group col-md-12">
+                <input class=" btn btn-primary" id="submit_payment_btn" name="commit" 
+                type="submit" value="Submit Payment">
+            </div>
+        </form>
     </div>
 	{% endblock %}
