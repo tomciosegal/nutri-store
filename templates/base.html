@@ -28,15 +28,12 @@
 <div class= "menu-wrapper">
     <header class="page-header my-page-header">
         <div class="header-wrapper">
-            <div id="logo"> <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/logo.jpg"alt="Nutri Store logo"></div>
+            <div id="logo"> <a href="{% url 'products' %}"><img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/logo.jpg"alt="Nutri Store logo"></a></div>
             <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
             <div class="card-search">
                 <form class="d-flex">
                     <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search"type="search" aria-label="Search" />
                     <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x search-btn" title="Search"></button>
-                    <!-- <a class="nav-link" href="">
-                        <i class="fas fa-search navbar-search-icon fa-2x" title="Search"></i>
-                    </a> -->
                 </form>
             </div>
                                             
@@ -50,13 +47,14 @@
                     {% endif %}
                 <li>
                     <a class="nav-link"href="{% url 'view_cart' %}">
-                        <i class="fas fa-shopping-cart"></i>Cart
+                        <i class="fas fa-shopping-cart cart-icon"></i>
                             {% if product_count > 0 %}
                         <label class="badge badge-warning" id="product_count">{{ product_count }}</label>
                             {% endif %}
                     </a>
                 </li>
-                {{ request.session.total}}
+                <li class="basket-nav-total"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ request.session.total}}</li>
+                
             </ul>
     </div>
     </header>
@@ -195,7 +193,7 @@
     
     </footer>
   
-
+<!-- Script to blur body when clicking on search input -->
     <script>
         $('#search_input').focus(function(){
             $('body').addClass('search_blur');
@@ -206,5 +204,6 @@
         });
     </script>
     <script src="{% static 'js/basket.js' %}"></script>
+    
 </body>
 </html>

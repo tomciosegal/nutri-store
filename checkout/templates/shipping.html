@@ -44,17 +44,13 @@
                 </div> 
             </div>
             {% csrf_token %}
-            <button type="submit" class="btn btn-cta checkout-btn">Continue to payment</button>
+            <!-- <button type="submit" class="btn btn-cta checkout-btn text-uppercase">Continue to payment</button> -->
+            <a href="{% url 'checkout' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Continue to payment</a>
+            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
         </form>
 
 </div>
 
-        <!-- order summary section, hidden on medium screens and up -->
-        <!-- <div id="shopping-cart-contents" class="d-none d-md-block col-md-6 card">
-            <div class="row">
-                <div class="col-9">
-                    <h3 class="checkout-heading pb-3 px-3">Your order summary</h3>
-                </div>
-                <div class="col-3 text-right"><a href="/cart/">Change</a></div> -->
+
 
 {% endblock %}

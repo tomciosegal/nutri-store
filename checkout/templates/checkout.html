@@ -53,8 +53,9 @@
 
             {% csrf_token %}
             <div class="form-group col-md-12">
-                <input class=" btn btn-primary" id="submit_payment_btn" name="commit" 
+                <input class=" btn btn-success btn-succes-cart" id="submit_payment_btn" name="commit" 
                 type="submit" value="Submit Payment">
+                 <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
             </div>
         </form>
     </div>
