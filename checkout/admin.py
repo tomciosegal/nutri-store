@@ -22,5 +22,5 @@ class OrderHistoryAdmin(admin.ModelAdmin):
 
 admin.site.register(OrderHistory, OrderHistoryAdmin)
 
-
+ 
 

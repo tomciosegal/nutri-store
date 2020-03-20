@@ -8,53 +8,23 @@
     <div class="row justify-content-center contact-row">
         <div class="col-12 col-md-6 profile-form-wrapper">
             <div class=" mx-auto my-3">
-                <h4 class="profile-welcome">Welcome "username"</h4>
-                    <form class="form" action="##" method="post" id="registrationForm">
-                        <div class="form-group">
+
+                <h4 class="profile-welcome">Welcome {{user.username}}. specify your details below</h4>
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        {% for field in form %}
+                        <div class="forms-group">
                             
                             <div class="col-xs-6">
-                                <label for="first_name"><h4 class= "input-details">First name <span class="asteriskField">*</span> </h4></label>
-                                <input type="text" class="form-control profile-input" name="first_name" id="first_name" placeholder="first name" title="first name">
+                                <label><h4 class= "input-details">{{field.label_tag}} <span class="asteriskField">*</span></h4></label>
+                                {{field}}
+                                <!-- <input  class="form-control profile-input" name={{field.label_tag}} id="password" placeholder="county" title="enter your password."> -->
                             </div>
-                        </div>
-                        <div class="form-group">
                             
-                            <div class="col-xs-6">
-                                <label for="last_name"><h4 class= "input-details">Last name <span class="asteriskField">*</span></h4></label>
-                                <input type="text" class="form-control profile-input" name="last_name" id="last_name" placeholder="last name" title="last name">
-                            </div>
                         </div>
-            
-                                
-                        <div class="form-group">
-                            <div class="col-xs-6">
-                                <label for="mobile"><h4 class= "input-details">Mobile <span class="asteriskField">*</span></h4></label>
-                                <input type="text" class="form-control profile-input" name="mobile" id="mobile" placeholder="mobile number" title="mobile number">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="email"><h4 class= "input-details">Email <span class="asteriskField">*</span></h4></label>
-                                <input type="email" class="form-control profile-input" name="email" id="email" placeholder="you@email.com" title="email.">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="email"><h4 class= "input-details">Location <span class="asteriskField">*</span></h4></label>
-                                <input type="email" class="form-control profile-input" id="location" placeholder="somewhere" title="enter a location">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            
-                            <div class="col-xs-6">
-                                <label for="password"><h4 class= "input-details">Password <span class="asteriskField">*</span></h4></label>
-                                <input type="password" class="form-control profile-input" name="password" id="password" placeholder="password" title="enter your password.">
-                            </div>
-                        </div>
+                            {% endfor %}
+                            <button type="submit" class="save btn btn-default">Save</button>
                     </form>
-                </div>
+            </div>
             </div>
         </div>
     </div>

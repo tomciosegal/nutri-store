@@ -27,7 +27,7 @@ def add_to_cart(request, id):
         cart[id] += quantity
 
     request.session['cart'] = cart
-    total = float(product.price) * quantity
+    total = round(float(product.price) * quantity, 2)
     if request.session.get("total") :
         request.session["total"] += total
 
@@ -49,10 +49,23 @@ def adjust_cart(request, id):
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
+    previous_quantity=cart[id]
     if quantity > 0:
         cart[id] = quantity
     else:
         cart.pop(id)
+        
     
     request.session['cart'] = cart
+    product = Product.objects.get(id= id)
+    if quantity > product.quantity:
+        messages.error(request, f"Only {product.quantity} availible")
+        
+        return redirect(reverse('view_cart'))
+    total = round(float(product.price) * quantity, 2)
+    if request.session.get("total") :
+        request.session["total"] += total
+        request.session['total'] -= round(float(product.price) *  previous_quantity, 2)
+    else: 
+        request.session["total"] = total
     return redirect(reverse('view_cart'))

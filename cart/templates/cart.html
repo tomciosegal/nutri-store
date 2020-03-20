@@ -4,19 +4,17 @@
 
 {% block content %}
 
-                <!-- {% if nothing_in_cart %}
+                {% if not cart_items %}
 <div class="row justify-content-center">
 
            <heading class="col-11 col-md-8 col-lg-6 text-center">
                 
                 <h1 class="cart-heading">Your cart is empty!</h1>
                 <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5">Let's go shopping</a>
-                {% else %}
-                <h1>Your shopping cart</h1>
-                {% endif %}
+                            
             </heading>
-</div> -->
-    
+</div>
+             {% endif %}
 
 <div class="row row-flex cart-row">
     {% for item in cart_items %}
@@ -48,15 +46,17 @@
     </div>
     {% endfor %}
 </div>
+     {% if cart_items %}
 <div class="row summary-cart total-price">
     <p>Total</p>
     {% if total > 50 %}
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount}} <span class="text-danger">10% off included</span></p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount | floatformat:2}} <span class="text-danger">you saved  {{diference | floatformat:2}}</span></p>
     {% else %}
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }} <span class="text-danger">get 10% off when over 50&#8364; </span></p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total | floatformat:2}} <span class="text-danger">get 10% off when over 50&#8364; </span></p>
     {% endif %}
     <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Checkout</a>
     <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Keep Shopping</a>
 </div>
+    {% endif %}
 
 {% endblock %}

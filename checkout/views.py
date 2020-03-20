@@ -9,6 +9,9 @@ from products.models import Product
 import stripe
 from checkout.mails import send_checkout_mail
 from checkout.utils import create_order_history
+from accounts.models import Customer
+from checkout.forms import ShippingForm
+from accounts.forms import CustomerForm
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
@@ -21,26 +24,29 @@ def checkout(request):
         Links up the backend data to the frontend 
         user interface
     """
+    customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
-        order_form = OrderForm(request.POST)
+        customer_form = CustomerForm(request.POST, instance=customer)
         payment_form = MakePaymentForm(request.POST)
-        if order_form.is_valid() and payment_form.is_valid():
-            order = order_form.save(commit=False)
-            order.date = timezone.now()
-            order.save()
+        if  customer_form.is_valid() and payment_form.is_valid():
+            customer=customer_form.save(commit=False)
+            customer.user=request.user
+            customer.save()
+        
+            # cart = request.session.get('cart', {})
+            # total = 0
+            # for id, quantity in cart.items():
+            #     product = get_object_or_404(Product, pk=id)
+            #     total += quantity * product.price
+            #     order_line_item = OrderLineItem(
+            #         order=order,
+            #         product=product,
+            #         quantity=quantity
+            #     )
+            #     order_line_item.save()
 
-            cart = request.session.get('cart', {})
-            total = 0
-            for id, quantity in cart.items():
-                product = get_object_or_404(Product, pk=id)
-                total += quantity * product.price
-                order_line_item = OrderLineItem(
-                    order=order,
-                    product=product,
-                    quantity=quantity
-                )
-                order_line_item.save()
-   
+            if total < 60:
+                total = total + shipping
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
@@ -52,7 +58,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                send_checkout_mail(request.user, request.session['cart'])
+                # send_checkout_mail(request.user, request.session['cart'])
                 create_order_history(request.user, request.session)
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
@@ -65,14 +71,31 @@ def checkout(request):
             messages.error(request, "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
-        order_form = OrderForm()
+        order_form = CustomerForm(instance=customer)
     
     return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
 
+
 def shipping(request):
+    customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
-        return redirect("checkout")
-    return render(request, "shipping.html")
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            customer=form.save(commit=False)
+            customer.user=request.user
+            customer.save()
+            return redirect("checkout")
+    else:
+        form=CustomerForm(instance=customer)
+    return render(request, 'shipping.html', {'customer': Customer.objects.filter(user=request.user).first(), 'form': form})
+
+    # if request.method == "POST":
+    #     form=ShippingForm(request.POST)
+    #     if not form.is_valid():
+    #         messages.error(request, f"Error occured: {form.errors}")
+    #         return render(request, "shipping.html", {'customer': Customer.objects.filter(user=request.user).first()})
+    #     return redirect("checkout")
+    # return render(request, "shipping.html", {'customer': Customer.objects.filter(user=request.user).first()})
 
 def order_confirmation(request):
     return ("order-confirmation.html")

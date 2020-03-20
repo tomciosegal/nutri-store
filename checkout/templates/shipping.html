@@ -1,34 +1,68 @@
 {% extends 'base.html' %}
-
+{% load bootstrap_tags %}
 {% block content %}
 <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5">
-            <h6 class="checkout-heading">Shipping address</h6>
+            <h3 class="checkout-heading text-body">Shipping address</h3>
             
             <!-- Form to collect shipping information -->
+
+            <div>
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        {{form | as_bootstrap}}
+                            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
+                            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
+            <h3 class="checkout-heading mt-4">Shipping method</h3>
+            <div class="checkout-card mb-3">
+                    <div class="container-fluid">
+                        <div class="row justify-content-between">
+                            <div class="col-8">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="upsRadio" id="ups" checked="">
+                                    <label class="form-check-label" for="ups">
+                                        UPS 
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-4 form-check-label">
+                            {% if request.session.total >= 60 %}
+                                free shipping
+                                {% else %}
+                                €4.99
+                            {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
+                   </form>
+
+            </div>
+
             
-        <form method="POST">
+            
+        <!-- <form method="POST">
             <input type="hidden" name="csrfmiddlewaretoken" value="sndPfbzpZTnqtKZD1ccLmeBlayg10ohY6Z09Z3753j9kupGkL38xIsKcvAGA9pDY">
                 
 
             <div id="div_id_full_name" class="form-group"> <label for="id_full_name" class=" requiredField">
-                        Full name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="full_name" value="" maxlength="150" class="textinput textInput form-control" required id="id_full_name"> </div> 
+                        Full name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="full_name" value="{{customer.full_name}}" maxlength="150" class="textinput textInput form-control" required> </div> 
             </div> 
             <div id="div_id_address_line_1" class="form-group"> <label for="id_address_line_1" class=" requiredField">
-                        Address line 1<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="address_line_1" value="" maxlength="150" class="textinput textInput form-control" required id="id_address_line_1"> </div> 
+                        Address line 1<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="address_line_1" value="{{customer.street_address1}}" maxlength="150" class="textinput textInput form-control" required> </div> 
             </div> 
             <div id="div_id_address_line_2" class="form-group"> <label for="id_address_line_2" class="">
-                        Address line 2
-                    </label> <div class=""> <input type="text" name="address_line_2" value="" maxlength="150" class="textinput textInput form-control" id="id_address_line_2"> </div> 
+                        Address line 2 <span class="asteriskField">*</span>
+                    </label> <div class=""> <input type="text" name="address_line_2" value="{{customer.street_address2}}" maxlength="150" class="textinput textInput form-control" required> </div> 
             </div> 
             <div id="div_id_town_or_city" class="form-group"> <label for="id_town_or_city" class=" requiredField">
-                        Town or city<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="town_or_city" value="" maxlength="150" class="textinput textInput form-control" required id="id_town_or_city"> </div> 
+                        Town or city<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="town_or_city" value="{{customer.town_city}}" maxlength="150" class="textinput textInput form-control" required id="id_town_or_city"> </div> 
             </div> 
             <div id="div_id_postcode" class="form-group"> <label for="id_postcode" class=" requiredField">
-                        Postcode<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="postcode" value="" maxlength="10" class="textinput textInput form-control" required id="id_postcode"> </div> 
+                        Postcode<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="postcode" value="{{customer.postcode}}" maxlength="10" class="textinput textInput form-control" required id="id_postcode"> </div> 
             </div> 
             <div id="div_id_country" class="form-group"> <label for="id_country" class=" requiredField">
-                        Country<span class="asteriskField">*</span> </label> 
-                <div class=""> 
+                        County<span class="asteriskField">*</span> </label> 
+                <div class="county-selector"> 
                     <select name="country" class="select form-control" required id="id_county"> 
                         <option value="">---------</option> 
                         <option value="1">Antrim</option> <option value="2">Carlow</option> 
@@ -42,12 +76,13 @@
                         <option value="22">Wicklow</option>
                     </select> 
                 </div> 
+                
             </div>
+
             {% csrf_token %}
-            <!-- <button type="submit" class="btn btn-cta checkout-btn text-uppercase">Continue to payment</button> -->
-            <a href="{% url 'checkout' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Continue to payment</a>
+            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
             <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
-        </form>
+        </form> -->
 
 </div>
 

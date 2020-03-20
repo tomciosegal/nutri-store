@@ -15,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     {% block head_js %}
-    {% endblock head_js %}
+    {% endblock %}
     
         
 
@@ -53,7 +53,7 @@
                             {% endif %}
                     </a>
                 </li>
-                <li class="basket-nav-total"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ request.session.total}}</li>
+                <li class="basket-nav-total"><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ request.session.total | floatformat:2}}</li>
                 
             </ul>
     </div>
@@ -111,12 +111,12 @@
     {% endif %}
 
         <!----styling this div will adjust content and "stick" footer to the bottom in all templates--> 
-    
+    <div class = "template-wrapper">
         <div class="template-content">
         
             {% block content %} {% endblock %}
         </div>
-    
+    </div>
 
     <footer class="footer">
     

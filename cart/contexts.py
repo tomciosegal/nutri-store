@@ -23,14 +23,15 @@ def cart_contents(request):
     if total  and total > 50:
         total_after_discount = round(float(total) * 0.9, 2)
     elif total:
-        total_after_discount = float(total)
-    
-    
+        total_after_discount = round(float(total), 2)
+    request.session['total_after_discount']=total_after_discount
+    diference=round(float(total) - total_after_discount, 2)
 
     return {
         'cart_items': cart_items,  
         'total': total, 
         'product_count': product_count, 
         "total_after_discount": total_after_discount,
-        "categories": ProductCategory.objects.all()
+        "categories": ProductCategory.objects.all(),
+        "diference": diference
     }

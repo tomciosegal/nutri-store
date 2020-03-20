@@ -2,8 +2,10 @@ from django.shortcuts import render,redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from accounts.forms import UserLoginForm, UserRegistrationForm
+from accounts.forms import UserLoginForm, UserRegistrationForm, CustomerForm
+from accounts.models import Customer
 # Create your views here.
+
 
 def index(request):
     """Return the index.html file"""
@@ -18,6 +20,7 @@ def logout(request):
     auth.logout(request)
     messages.success(request, f"You have been logged out {username}")
     return redirect(reverse('index'))
+
 
 def login(request):
     """Return a login page"""
@@ -41,6 +44,7 @@ def login(request):
         login_form = UserLoginForm()
     return render(request, 'login.html', {'login_form': login_form})
 
+
 def registration(request):
     """Render the registration page
        will create a new user"""
@@ -57,7 +61,7 @@ def registration(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully registered")
+                messages.success(request, f"You have successfully registered {user.username}")
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:
@@ -65,21 +69,35 @@ def registration(request):
     return render(request, 'registration.html', {
         "registration_form": registration_form})
 
+
 def user_profile(request):
     """The user's profile page"""
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    customer=Customer.objects.filter(user=request.user).first()
+    if request.method == "POST":
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            
+            customer=form.save(commit=False)
+            customer.user=request.user
+            customer.save()
+    else:
+        form=CustomerForm(instance=customer)
+    return render(request, 'profile.html', {"user": request.user, 'form': form})
+
 
 def contact(request):
     if request.method == "POST":
         messages.success(request, "Thank You For Contatcting Us!")
     return render(request, "contact.html")
 
+
 def about(request):
     return render(request, "about.html")
 
+
 def delivery(request):
     return render(request, 'delivery.html')
+
 
 def return_policy(request):
     return render(request, 'return-policy.html')

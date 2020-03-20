@@ -33,7 +33,14 @@
 	</div>
 	<div class="row total-price">
 		<p>Total: </p>
-		<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+		<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+        {% if request.session.total >= 60 %}
+        {{ request.session.total_after_discount | floatformat:2}} - free shipping
+        {% else %}
+          {{ request.session.total_after_discount | floatformat:2}} + 4.99 shipping
+            {% endif %}
+        </p>
+    
 	</div>
     <div>
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">

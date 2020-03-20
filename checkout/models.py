@@ -2,9 +2,9 @@ from django.db import models
 from products.models import Product
 from django.contrib.auth.models import User
 
+
 class Order(models.Model):
     full_name = models.CharField(max_length=50, blank=False)
-    phone_number = models.CharField(max_length=20, blank=False)
     country = models.CharField(max_length=40, blank=False)
     postcode = models.CharField(max_length=20, blank=True)
     town_or_city = models.CharField(max_length=40, blank=False)
@@ -26,6 +26,8 @@ class OrderLineItem(models.Model):
         return "{0} {1} @ {2}".format(
             self.quantity, self.product.name, self.product.price)
 
+    #this model will post exact time when product was purchased
+
 
 class TimestampedModel(models.Model):
     class Meta : 
@@ -33,10 +35,14 @@ class TimestampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    #this model will post order to admin databse with order history
+
 
 class OrderHistory(TimestampedModel):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
     total_cost = models.DecimalField(decimal_places=2, max_digits=6 )
+
+    #this model will post order to admin databse with order history
 
 
 class OrderItemHistory(TimestampedModel):
