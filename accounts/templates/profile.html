@@ -10,6 +10,7 @@
             <div class=" mx-auto my-3">
 
                 <h4 class="profile-welcome">Welcome {{user.username}}. specify your details below</h4>
+                <a href= "{% url 'order_history' %}">Your order history</a>
                     <form method="POST" class="post-form">{% csrf_token %}
                         {% for field in form %}
                         <div class="forms-group">

@@ -89,7 +89,7 @@
                     <a class="dropdown-item" href="{% url 'index' %}">View all</a>
                     <div class="dropdown-divider"></div>
                             {% for category in categories %}
-                    <a class="dropdown-item" href="{% url 'index' %}?category_id={{category.id}}">{{category.name}}</a>
+                    <a class="dropdown-item" href="{% url 'index' %}?category_id={{category.id}}">{{category.name | title}}</a>
                     <div class="dropdown-divider"></div>
                             {% endfor %}
 

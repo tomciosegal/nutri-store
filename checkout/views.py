@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm, OrderForm
-from .models import OrderLineItem
+from .models import OrderLineItem, OrderHistory, OrderItemHistory
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -12,6 +12,7 @@ from checkout.utils import create_order_history
 from accounts.models import Customer
 from checkout.forms import ShippingForm
 from accounts.forms import CustomerForm
+
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET
@@ -33,20 +34,14 @@ def checkout(request):
             customer.user=request.user
             customer.save()
         
-            # cart = request.session.get('cart', {})
-            # total = 0
-            # for id, quantity in cart.items():
-            #     product = get_object_or_404(Product, pk=id)
-            #     total += quantity * product.price
-            #     order_line_item = OrderLineItem(
-            #         order=order,
-            #         product=product,
-            #         quantity=quantity
-            #     )
-            #     order_line_item.save()
-
+            cart = request.session.get('cart', {})
+            total = 0
+            for id, quantity in cart.items():
+                product = get_object_or_404(Product, pk=id)
+                total += quantity * product.price
+               
             if total < 60:
-                total = total + shipping
+                total = float(total) + 4.99
             try:
                 customer = stripe.Charge.create(
                     amount=int(total * 100),
@@ -97,5 +92,15 @@ def shipping(request):
     #     return redirect("checkout")
     # return render(request, "shipping.html", {'customer': Customer.objects.filter(user=request.user).first()})
 
-def order_confirmation(request):
-    return ("order-confirmation.html")
+def order_history(request):
+    orders=OrderHistory.objects.filter(user=request.user).order_by('-created_at')
+    orders_with_items=[]
+    for order in orders:
+        order_items=OrderItemHistory.objects.filter(order_history=order)
+        orders_with_items.append(
+            {
+                'order': order, 
+                'items': order_items
+            }
+        )
+    return render(request, "order_history.html", {'orders': orders_with_items})
