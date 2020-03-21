@@ -17,29 +17,7 @@ class Customer(models.Model):
     def __str__(self):
         return self.user.email
 
-class Order(models.Model):
-    id = models.AutoField(primary_key=True)
-    customer_id = models.IntegerField()
-    total_cost = models.FloatField()
-    shipment_address = models.TextField()
-    status = models.IntegerField()
-    delivery_type = models.IntegerField()
 
-class OrderItem(models.Model):
-     id = models.AutoField(primary_key=True)
-     order_id = models.IntegerField()
-     product_id = models.IntegerField()
-     quantity = models.IntegerField()
-
-class Cart(models.Model):
-    id = models.AutoField(primary_key=True)
-    user_id = models.IntegerField()
-
-class CartItem(models.Model):
-     id = models.AutoField(primary_key=True)
-     cart_id = models.IntegerField()
-     product_id = models.IntegerField()
-     quantity = models.IntegerField()
 
 
 

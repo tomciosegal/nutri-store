@@ -1,9 +1,14 @@
 from django.shortcuts import render
 from .models import Product, ProductCategory
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from products.mails import send_subscribe_mail
+from django.contrib import messages
 
 
 def all_products(request):
+    if request.method == 'POST':
+        send_subscribe_mail(request.POST)
+        messages.success(request, "Thank you for subscribtion. Check your mailbox.")
     products= Product.objects.all()
     name= request.GET.get("q")
     category_id = request.GET.get("category_id")

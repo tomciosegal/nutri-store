@@ -1,15 +1,7 @@
 from django.contrib import admin
-from .models import Order, OrderLineItem, OrderItemHistory, OrderHistory
+from .models import OrderItemHistory, OrderHistory
 
 
-class OrderLineAdminInline(admin.TabularInline):
-	model = OrderLineItem
-
-
-class OrderAdmin(admin.ModelAdmin):
-	inlines = (OrderLineAdminInline, )
-
-admin.site.register(Order, OrderAdmin)
 admin.site.register(OrderItemHistory)
 
 class OrderItemHistoryInline(admin.TabularInline):

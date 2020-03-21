@@ -1,8 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import MakePaymentForm, OrderForm
-from .models import OrderLineItem, OrderHistory, OrderItemHistory
+from .forms import MakePaymentForm
+from .models import OrderHistory, OrderItemHistory
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -53,7 +53,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                # send_checkout_mail(request.user, request.session['cart'])
+                send_checkout_mail(request.user, request.session['cart'])
                 create_order_history(request.user, request.session)
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}

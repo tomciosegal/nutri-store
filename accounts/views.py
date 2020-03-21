@@ -46,9 +46,12 @@ def login(request):
 
 
 def registration(request):
+
     """Render the registration page
        will create a new user"""
+
     if request.user.is_authenticated:
+        print("git")
         return redirect(reverse('index'))
 
     if request.method == "POST":
@@ -80,6 +83,7 @@ def user_profile(request):
             customer=form.save(commit=False)
             customer.user=request.user
             customer.save()
+            messages.success(request, "You have updated your profile")
     else:
         form=CustomerForm(instance=customer)
     return render(request, 'profile.html', {"user": request.user, 'form': form})
