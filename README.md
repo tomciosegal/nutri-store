@@ -36,9 +36,10 @@ User goals are:
 - Be able to navigate the shop easily, find what I need and make a safe and secure purchase.
 
 
+
 The Nutristore online shop is a great way to meet these needs because:
 - The website has been designed to provide a clear view of product visitors are looking for.
-- Header was placed above navbar where visitor can find search box basic info acces to account and cart.
+- Header was placed above navbar where visitor can find search box basic info access to account and cart.
 - Using navbar Nutristore website can be searched by category, similar items and using text search, making it easy for customers to find specific things that interest them.
 
 ### Business Goals
@@ -49,10 +50,43 @@ The Goals of The Nutristore business are:
 - Build The Nutristore newsletter subscriptions.
 - Fast and efficient delivery.
 - Make sales of products easy for buyers to increase sales conversion.
+- The presentation and layout of the site may not cause consternation, loss, or a desire to resign from shopping.
+
+## User Stories
+
+A Visitor to The Nutristore website  expects/wants/needs:
+
+1. The site to be easy to navigate from any device, desktop, tablet or phone. For the content to look good and be useable on all of these devices.
+
+1. The ability to search through small amounts of information to find what I need, and then be able to easily click to get more detailed information.
+
+1. Not to be confused by the layout or process of payment, and be able to easy find what i am looking for.
+
+1. The information presented on the site must be clear and easy to understand. they cannot cause misinformation
+
+1. To be able to subscribe for the newest products and promotions.
+
+1. All information and photos must be arranged in a clear and eye-catching manner, regardless of the size of the screen I use
+
+1. In order to avoid unawareness of purchase, product information must be sufficiently clear to understand.
+
+1. A clear terms and conditions and privacy policy.
+
+1. A text search function so that I can quickly narrow down my search when looking for something specific.
+
+1. To be able to see a summary of my order on every page of the checkout process.
+
+1. When I am logged in I can access my account details and update them if I need to. 
+
+1. To be able to find information on my past orders. 
+
+1. To be able to easily get in contact with the shop owner via a contact form.
+
 
 ## Design Choices
 
-The Nutristore website has an overall Lab style, where viewer can feel cleanneses of the product and used clean ingredients.
+The Nutristore website has an overall Lab style, where viewer can feel cleanneses of the product and used clean ingredients
+to build formula.
 
 ### Fonts
 - The primary font 'Work Sans' was chosen for the main text of the site because of it clear readability.
@@ -63,20 +97,57 @@ The Nutristore website has an overall Lab style, where viewer can feel cleannese
 - green: #79b03e
 - light grey: #e3e1e1
 
-- The brand colours for this project were chosen because the two shades of pink and two shades of grey are taken from the felt mice ears and standard body color. This helps to pull the colours of the site together with the product photographs. 
-
-- The blue was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
+- The brand colours for this project were chosen to make to create the impression of a clean, sterile room where natural supplements are produced. thus, we want to ensure a potential customer about the purity of our product.
+- The grenn was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
 
 ## Wireframes
 
-- [Home]()
-- [About]()
-- [FAQs]()
-- [Account]()
-- [Shop/Search Results]()
-- [Catagories]()
-- [Listing]()
-- [Cart]()
-- [Checkout - Shipping]()
-- [Checkout - Payment]()
+- [Home](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/lg-screen-nutristore.jpg)
+- [About](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/about.jpg)
+- [Profile](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/profile.jpg)
+- [Contact](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/contact.jpg)
+
+# Features
+ 
+## Existing Features
+
+### Elements on every page
+
+#### Header:
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/header.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+- The navbar features on every page, however developer would like to implement a functionality where footer nabar are not rendering oon checkout pages,
+    unfortnatelly could not find proper guindence to do it.
+
+- The navigation bar features The Nutristore logo on the far left, which links to the home page of the site.
+
+- **In desktop view** on the left side of the navbar is a list of the key website pages: Home, Shop, About and FAQs. The Shop link is a dropdown menu which lists out the sections of shop products.
+
+- On the right side of the navbar are the links to contact page, search page and shopping cart.
+
+- A user who is currently logged out will also see options to register or log into the website.
+
+- A user who is logged in will see options to view their account page or log out.
+
+- The shopping cart icon is located to the far right of the navigation bar. Once a user has added at least one item to their cart a blue circle will appear with the total number of items in their cart displayed within it. If the total number is 10 or more then the circle will display "9+" to save from extending the text over the size of the blue circle indicator. 
+
+    - The indicator was chosen to mimic notification icons users are used to seeing in online shops and social media etc.
+
+    - The blue color was chosen because it contrasts well with the rest of the sites colors and draws the eye.
+
+    - The shopping cart counter works even for a user who is not logged in. This is because all the information about which products the user has added to their cart is stored in their session data. This makes it possible for a new user to add things to their cart before being asked to log in or register. 
+
+- When a user is on a page listed in the navbar the text for that page is highlighted with a deeper color, and `<span class="sr-only">(current)</span>` is added to the relevant html for screen readers to tell which page the user is on.
+
+
+#### Navbar:
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar.jpg" alt="TheNutristore Navbar on desktop devices" aria-label="Nutristore" />
+</div>
+
+
+
 
