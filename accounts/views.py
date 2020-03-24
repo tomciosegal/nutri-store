@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm, CustomerForm
 from accounts.models import Customer
-# Create your views here.
+from cart.utils import load_cart
 
 
 def index(request):
@@ -47,6 +47,7 @@ def login(request):
 
             if user:
                 auth.login(user=user, request=request)
+                load_cart(request, user)
                 messages.success(request, f"You have successfully logged in {user.username}")
                 return redirect(reverse('index'))
             else:
@@ -76,7 +77,9 @@ def registration(request):
                                      password=request.POST['password1'])
             if user:
                 auth.login(user=user, request=request)
+
                 messages.success(request, f"You have successfully registered {user.username}")
+                return redirect(reverse('index'))
             else:
                 messages.error(request, "Unable to register your account at this time")
     else:

@@ -10,11 +10,10 @@ import stripe
 from checkout.mails import send_checkout_mail
 from checkout.utils import create_order_history
 from accounts.models import Customer
-from checkout.forms import ShippingForm
 from accounts.forms import CustomerForm
 
 
-# Create your views here.
+
 stripe.api_key = settings.STRIPE_SECRET
 
 
@@ -27,13 +26,9 @@ def checkout(request):
     """
     customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
-        customer_form = CustomerForm(request.POST, instance=customer)
         payment_form = MakePaymentForm(request.POST)
-        if  customer_form.is_valid() and payment_form.is_valid():
-            customer=customer_form.save(commit=False)
-            customer.user=request.user
-            customer.save()
-        
+        if  payment_form.is_valid():
+                    
             cart = request.session.get('cart', {})
             total = 0
             for id, quantity in cart.items():
@@ -62,13 +57,11 @@ def checkout(request):
             else:
                 messages.error(request, "Unable to take payment")
         else:
-            print(payment_form.errors)
             messages.error(request, "We were unable to take a payment with that card!")
     else:
         payment_form = MakePaymentForm()
-        order_form = CustomerForm(instance=customer)
-    
-    return render(request, "checkout.html", {"order_form": order_form, "payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+        
+    return render(request, "checkout.html", {"payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
 
 
 def shipping(request):
@@ -84,16 +77,9 @@ def shipping(request):
         form=CustomerForm(instance=customer)
     return render(request, 'shipping.html', {'customer': Customer.objects.filter(user=request.user).first(), 'form': form})
 
-    # if request.method == "POST":
-    #     form=ShippingForm(request.POST)
-    #     if not form.is_valid():
-    #         messages.error(request, f"Error occured: {form.errors}")
-    #         return render(request, "shipping.html", {'customer': Customer.objects.filter(user=request.user).first()})
-    #     return redirect("checkout")
-    # return render(request, "shipping.html", {'customer': Customer.objects.filter(user=request.user).first()})
 
 def order_history(request):
-    orders=OrderHistory.objects.filter(user=request.user).order_by('-created_at')
+    orders=OrderHistory.objects.filter(customer=request.user.customer).order_by('-created_at')
     orders_with_items=[]
     for order in orders:
         order_items=OrderItemHistory.objects.filter(order_history=order)

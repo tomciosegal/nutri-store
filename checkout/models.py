@@ -1,6 +1,6 @@
 from django.db import models
 from products.models import Product
-from django.contrib.auth.models import User
+from accounts.models import Customer
 
 
 class TimestampedModel(models.Model):
@@ -19,7 +19,8 @@ class OrderHistory(TimestampedModel):
     """
     this model holds the user order history 
     """
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+
+    customer = models.ForeignKey(Customer, on_delete = models.CASCADE)
     total_cost = models.DecimalField(decimal_places=2, max_digits=6 )
 
     

@@ -53,7 +53,6 @@ class CustomerForm(forms.ModelForm):
         fields=[
             'full_name',
             'phone_number',
-            'country',
             'postcode',
             'town_city',
             'street_address1',

@@ -3,7 +3,7 @@ from checkout.models import OrderHistory, OrderItemHistory
 
 def create_order_history(user, session):
     order = OrderHistory.objects.create(
-        user=user,
+        customer=user.customer,
         total_cost=session.get('total', 0)
     )
 
