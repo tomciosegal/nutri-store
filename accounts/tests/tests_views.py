@@ -39,7 +39,7 @@ class RegisterTestCases(TestCase):
             'password2': "test_password1"
             }
         response=self.client.post("/accounts/register/", data=data)
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
         User = get_user_model()
         user=User.objects.get(email='test@test.com')
         self.assertIsNotNone(user)

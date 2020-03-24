@@ -21,9 +21,7 @@ def logout(request):
     Log the user out
     """
 
-    username = ""
-    if request.user.is_authenticated():
-        username = request.user.username
+    username = request.user.username
     auth.logout(request)
     messages.success(request, f"You have been logged out {username}")
     return redirect(reverse('index'))

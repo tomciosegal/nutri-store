@@ -19,12 +19,15 @@ stripe.api_key = settings.STRIPE_SECRET
 
 @login_required()
 def checkout(request):
+
     """The view will render the html page and 
         pass in forms and contents of the cart
         Links up the backend data to the frontend 
         user interface
     """
-    customer=Customer.objects.filter(user=request.user).first()
+    customer=None
+    if request.user.is_authenticated():
+        customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
         payment_form = MakePaymentForm(request.POST)
         if  payment_form.is_valid():
@@ -65,7 +68,9 @@ def checkout(request):
 
 
 def shipping(request):
-    customer=Customer.objects.filter(user=request.user).first()
+    customer=None
+    if request.user.is_authenticated():
+        customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
@@ -75,11 +80,13 @@ def shipping(request):
             return redirect("checkout")
     else:
         form=CustomerForm(instance=customer)
-    return render(request, 'shipping.html', {'customer': Customer.objects.filter(user=request.user).first(), 'form': form})
+    return render(request, 'shipping.html', {'customer': customer, 'form': form})
 
 
 def order_history(request):
-    orders=OrderHistory.objects.filter(customer=request.user.customer).order_by('-created_at')
+    orders=[]
+    if request.user.is_authenticated():
+        orders=OrderHistory.objects.filter(customer=request.user.customer).order_by('-created_at')
     orders_with_items=[]
     for order in orders:
         order_items=OrderItemHistory.objects.filter(order_history=order)
