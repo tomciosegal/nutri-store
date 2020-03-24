@@ -50,7 +50,7 @@
 <div class="row summary-cart total-price">
     <p>Total</p>
     {% if total > 50 %}
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount | floatformat:2}} <span class="text-danger">you saved  {{diference | floatformat:2}}</span></p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount | floatformat:2}} <span class="text-danger">you saved <i class="fas fa-euro-sign"></i> {{diference | floatformat:2}}</span></p>
     {% else %}
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total | floatformat:2}} <span class="text-danger">get 10% off when over 50&#8364; </span></p>
     {% endif %}

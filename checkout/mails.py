@@ -1,9 +1,13 @@
 from django.core.mail import send_mail
 from django.conf import settings
 
-#this function send confirmation email with order
+
 
 def send_checkout_mail(user, cart):
+    
+    """
+    this function send confirmation email with order
+    """
     send_mail(
         'Subject here',
         f'Here is the message. {user.username}, {cart}',

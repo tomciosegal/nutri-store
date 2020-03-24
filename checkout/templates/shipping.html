@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block content %}
-<div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5">
+<div class="">
             <h3 class="checkout-heading text-body">Shipping address</h3>
             
             <!-- Form to collect shipping information -->
@@ -9,11 +9,10 @@
             <div>
                     <form method="POST" class="post-form">{% csrf_token %}
                         {{form | as_bootstrap}}
-                            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
-                            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
-            <h3 class="checkout-heading mt-4">Shipping method</h3>
+
+        <h3 class="checkout-heading mt-4">Shipping method</h3>
             <div class="checkout-card mb-3">
-                    <div class="container-fluid">
+    
                         <div class="row justify-content-between">
                             <div class="col-8">
                                 <div class="form-check">
@@ -31,61 +30,17 @@
                             {% endif %}
                             </div>
                         </div>
-                    </div>
+                    
                 </div>
+                        <div class="col-12 button-wrapper">
+                            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
+                            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
+                        </div>
                    
                    </form>
 
             </div>
-
-            
-            
-        <!-- <form method="POST">
-            <input type="hidden" name="csrfmiddlewaretoken" value="sndPfbzpZTnqtKZD1ccLmeBlayg10ohY6Z09Z3753j9kupGkL38xIsKcvAGA9pDY">
-                
-
-            <div id="div_id_full_name" class="form-group"> <label for="id_full_name" class=" requiredField">
-                        Full name<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="full_name" value="{{customer.full_name}}" maxlength="150" class="textinput textInput form-control" required> </div> 
-            </div> 
-            <div id="div_id_address_line_1" class="form-group"> <label for="id_address_line_1" class=" requiredField">
-                        Address line 1<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="address_line_1" value="{{customer.street_address1}}" maxlength="150" class="textinput textInput form-control" required> </div> 
-            </div> 
-            <div id="div_id_address_line_2" class="form-group"> <label for="id_address_line_2" class="">
-                        Address line 2 <span class="asteriskField">*</span>
-                    </label> <div class=""> <input type="text" name="address_line_2" value="{{customer.street_address2}}" maxlength="150" class="textinput textInput form-control" required> </div> 
-            </div> 
-            <div id="div_id_town_or_city" class="form-group"> <label for="id_town_or_city" class=" requiredField">
-                        Town or city<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="town_or_city" value="{{customer.town_city}}" maxlength="150" class="textinput textInput form-control" required id="id_town_or_city"> </div> 
-            </div> 
-            <div id="div_id_postcode" class="form-group"> <label for="id_postcode" class=" requiredField">
-                        Postcode<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="postcode" value="{{customer.postcode}}" maxlength="10" class="textinput textInput form-control" required id="id_postcode"> </div> 
-            </div> 
-            <div id="div_id_country" class="form-group"> <label for="id_country" class=" requiredField">
-                        County<span class="asteriskField">*</span> </label> 
-                <div class="county-selector"> 
-                    <select name="country" class="select form-control" required id="id_county"> 
-                        <option value="">---------</option> 
-                        <option value="1">Antrim</option> <option value="2">Carlow</option> 
-                        <option value="3">Cavan</option> <option value="4">Clare</option> <option value="5">Cork</option> 
-                        <option value="6">Derry</option> <option value="7">Donegal</option> <option value="8">Galway</option> 
-                        <option value="9">Kerry</option> <option value="10">Kildare</option> <option value="11" selected>Dublin</option> 
-                        <option value="12">Kilkenny</option> <option value="13">Laois</option> <option value="14">Leitrim</option> 
-                        <option value="15">Limerick</option> <option value="16">Longford</option> <option value="17">Meath</option> 
-                        <option value="18">Louth</option> <option value="19">Mayo</option> <option value="20">Offaly</option> 
-                        <option value="21">Sligo</option> <option value="23">Tipperary</option> <option value="24">Wexford</option> 
-                        <option value="22">Wicklow</option>
-                    </select> 
-                </div> 
-                
-            </div>
-
-            {% csrf_token %}
-            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
-            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
-        </form> -->
-
 </div>
-
 
 
 {% endblock %}

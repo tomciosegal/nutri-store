@@ -8,12 +8,19 @@ from accounts.models import Customer
 
 
 def index(request):
-    """Return the index.html file"""
+
+    """
+    Return the index.html file
+    """
     return render(request, 'index.html')
 
 @login_required
 def logout(request):
-    """Log the user out"""
+
+    """
+    Log the user out
+    """
+
     username = ""
     if request.user.is_authenticated():
         username = request.user.username
@@ -23,7 +30,11 @@ def logout(request):
 
 
 def login(request):
-    """Return a login page"""
+
+    """
+    Return a login page
+    """
+
     if request.user.is_authenticated():
         return redirect(reverse('index'))
     if request.method == "POST":
@@ -47,11 +58,12 @@ def login(request):
 
 def registration(request):
 
-    """Render the registration page
-       will create a new user"""
+    """
+    Render the registration page
+    will create a new user
+    """
 
     if request.user.is_authenticated:
-        print("git")
         return redirect(reverse('index'))
 
     if request.method == "POST":
@@ -74,7 +86,11 @@ def registration(request):
 
 
 def user_profile(request):
-    """The user's profile page"""
+
+    """
+    The user's profile page
+    """
+    
     customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
         form = CustomerForm(request.POST, instance=customer)
