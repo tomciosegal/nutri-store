@@ -1,45 +1,43 @@
 {% extends 'base.html' %}
 {% load bootstrap_tags %}
 {% block content %}
-<div class="">
+<div class="flex-container position-relative">
             <h3 class="checkout-heading text-body">Shipping address</h3>
             
             <!-- Form to collect shipping information -->
 
-            <div>
-                    <form method="POST" class="post-form">{% csrf_token %}
+    <div class="shipping-form-wrapper">
+        <form method="POST" class="post-form">{% csrf_token %}
                         {{form | as_bootstrap}}
 
-        <h3 class="checkout-heading mt-4">Shipping method</h3>
-            <div class="checkout-card mb-3">
-    
-                        <div class="row justify-content-between">
-                            <div class="col-8">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="upsRadio" id="ups" checked="">
-                                    <label class="form-check-label" for="ups">
-                                        UPS 
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-4 form-check-label">
-                            {% if request.session.total >= 60 %}
-                                free shipping
-                                {% else %}
-                                €4.99
-                            {% endif %}
+            <h3 class="checkout-heading mt-4">Shipping method</h3>
+                <div class="checkout-card mb-3">
+                    <div class="row justify-content-between">
+                        <div class="col-8">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="upsRadio" id="ups" checked="">
+                                <label class="form-check-label" for="ups">
+                                    UPS 
+                                </label>
                             </div>
                         </div>
-                    
-                </div>
-                        <div class="col-12 button-wrapper">
-                            <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
-                            <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
+                        <div class="col-4 form-check-label">
+                        {% if request.session.total >= 60 %}
+                            free shipping
+                            {% else %}
+                            €4.99
+                        {% endif %}
                         </div>
-                   
-                   </form>
-
+                    </div>
+                
             </div>
+                    <div class="col-12 button-wrapper">
+                        <button type="submit" class="btn btn-success btn-succes-cart" >Continue to payment</button>
+                        <a href="{% url 'view_cart' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
+                    </div>
+                   
+        </form>
+    </div>
 </div>
 
 

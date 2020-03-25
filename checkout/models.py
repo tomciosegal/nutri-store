@@ -15,7 +15,7 @@ class TimestampedModel(models.Model):
     
 
 
-class OrderHistory(TimestampedModel):
+class Order(TimestampedModel):
     """
     this model holds the user order history 
     """
@@ -26,11 +26,11 @@ class OrderHistory(TimestampedModel):
     
 
 
-class OrderItemHistory(TimestampedModel):
+class OrderItem(TimestampedModel):
 
     """
     this model holds the user order history item
     """
-    order_history = models.ForeignKey(OrderHistory, on_delete=models.CASCADE)
+    order_history = models.ForeignKey(Order, on_delete=models.CASCADE)
     product = models.ForeignKey('products.Product', on_delete=models.CASCADE)
     quantity = models.IntegerField()

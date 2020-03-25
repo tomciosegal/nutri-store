@@ -40,6 +40,11 @@
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
+                    
+                </form>
+                <form action="{% url 'cart_item_delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bin-btn"><span><i class="fas fa-trash-alt"></i></span></button>
                 </form>
             </p>
         </div>
@@ -52,7 +57,7 @@
     {% if total > 50 %}
     <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount | floatformat:2}} <span class="text-danger">you saved <i class="fas fa-euro-sign"></i> {{diference | floatformat:2}}</span></p>
     {% else %}
-    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total | floatformat:2}} <span class="text-danger">get 10% off when over 50&#8364; </span></p>
+    <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total | floatformat:2}} <span class="text-danger">get 10% off when over <i class="fas fa-euro-sign"></i> 50; </span></p>
     {% endif %}
     <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Checkout</a>
     <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Keep Shopping</a>

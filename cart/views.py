@@ -34,7 +34,7 @@ def add_to_cart(request, id):
 
     else: 
         request.session["total"] = total
-    if request.user:
+    if request.user.is_authenticated():
         user_cart, created=Cart.objects.get_or_create(user=request.user)
         item=CartItem.objects.filter(cart=user_cart, product_id=id).first()
         if item:
@@ -83,3 +83,20 @@ def adjust_cart(request, id):
         else:
             CartItem.objects.create(cart=cart, product_id=id, quntity=cart[id])
     return redirect(reverse('view_cart'))
+
+def cart_item_delete(request, item_id):
+    if request.method == 'POST':
+        if request.user:
+            cart, created=Cart.objects.get_or_create(user=request.user)
+            item=CartItem.objects.filter(cart=cart, product_id=item_id).first()
+            if item:
+                item.delete()
+        cart=request.session.get('cart')
+        if cart and cart.get(item_id):
+            cart.pop(item_id)
+            request.session['cart']=cart
+    
+    return redirect(reverse('view_cart'))
+
+
+

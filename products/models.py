@@ -8,7 +8,7 @@ class Product(models.Model):
     currency= models.CharField(max_length=3, default= "EUR")
     image = models.ImageField(upload_to='images')
     category= models.ForeignKey("products.ProductCategory", blank= True, null= True, on_delete= models.CASCADE)
-    
+    quantity = models.IntegerField()
 
     def __str__(self):
         return self.name
