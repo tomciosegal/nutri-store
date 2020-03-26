@@ -108,7 +108,7 @@
 <footer class="footer">
     
     <div class="row top">
-        <div class="col-md-3 mr-auto">
+        <div class="col-md-4 mr-auto">
 
             <!-- Links -->
                 <ul class="list-unstyled footer-list">
@@ -126,7 +126,7 @@
                     </li>
                 </ul>
         </div>
-                    <div class="col-md-3 bottom">
+                    <div class="col-md-4 bottom">
                         <div class="payment-methods">
                             <li class="list-inline-item">
                                 <i class="fab fa-cc-visa fa-2x"></i>
@@ -144,7 +144,7 @@
                         </div>   
                     
                     </div>
-            <div class="col-md-3 footer-info ml-auto">
+            <div class="col-md-4 footer-info ml-auto">
                 <div class="social-icons">
                     <li class="list-inline-item">
                         <a href="https://github.com/tomciosegal" target="_blank">
@@ -184,18 +184,8 @@
     </div>
     
 </footer>
-  
-<!-- Script to blur body when clicking on search input -->
-    <script>
-        $('#search_input').focus(function(){
-            $('body').addClass('search_blur');
-        });
-
-         $('#search_input').blur(function(){
-            $('body').removeClass('search_blur');
-        });
-    </script>
-    <script src="{% static 'js/basket.js' %}"></script>
+    <script src="{% static 'js/search.js' %}"></script>
     
+  
 </body>
 </html>

@@ -41,9 +41,10 @@ def add_to_cart(request, id):
             item.quntity=cart[id]
             item.save()
         else:
-            CartItem.objects.create(cart=user_cart, product_id=id, quantity=cart[id])
+            CartItem.objects.create(cart=user_cart, product_id=id, quantity=cart[id])   
+       
 
-    return redirect(reverse('products'))
+        return redirect(reverse('products'))
 
 
 
@@ -81,7 +82,7 @@ def adjust_cart(request, id):
             item.quantity = cart[id]
             item.save()
         else:
-            CartItem.objects.create(cart=cart, product_id=id, quntity=cart[id])
+            CartItem.objects.create(cart=cart, product_id=id, quantity=cart[id])
     return redirect(reverse('view_cart'))
 
 def cart_item_delete(request, item_id):
