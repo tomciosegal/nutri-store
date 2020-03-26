@@ -78,7 +78,7 @@ def adjust_cart(request, id):
         cart, created=Cart.objects.get_or_create(user=request.user)
         item=CartItem.objects.filter(cart=cart, product_id=id).first()
         if item:
-            item.quntity=cart[id]
+            item.quantity = cart[id]
             item.save()
         else:
             CartItem.objects.create(cart=cart, product_id=id, quntity=cart[id])
