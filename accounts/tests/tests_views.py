@@ -4,13 +4,14 @@ from django.contrib.auth import get_user_model
 
 class TestViews(TestCase):
 
-    """
-    functiion that runs before test starts
-    """
-    
+   
     def setUp(self):
+        """
+        functiion that runs before test starts
+        """
+
         User = get_user_model()
-        user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
+        User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
     
     def test_get_home_page(self):
         page = self.client.get("/")

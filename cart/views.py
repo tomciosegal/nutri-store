@@ -44,7 +44,7 @@ def add_to_cart(request, id):
             CartItem.objects.create(cart=user_cart, product_id=id, quantity=cart[id])   
        
 
-        return redirect(reverse('products'))
+    return redirect(reverse('products'))
 
 
 
@@ -53,7 +53,14 @@ def adjust_cart(request, id):
     Adjust the quantity of the specified product to the specified
     amount
     """
-    quantity = int(request.POST.get('quantity'))
+    quantity = request.POST.get('quantity')
+    if not quantity:
+        messages.error(request, "Choose quantity")
+        return redirect(reverse('view_cart'))
+    quantity=int(quantity)
+    if quantity<1:
+        messages.error(request, "Quantity must be higher then 0")
+        return redirect(reverse('view_cart'))
     cart = request.session.get('cart', {})
 
     previous_quantity=cart[id]
@@ -76,20 +83,20 @@ def adjust_cart(request, id):
     else: 
         request.session["total"] = total
     if request.user:
-        cart, created=Cart.objects.get_or_create(user=request.user)
-        item=CartItem.objects.filter(cart=cart, product_id=id).first()
+        cart_object, created=Cart.objects.get_or_create(user=request.user)
+        item=CartItem.objects.filter(cart=cart_object, product_id=id).first()
         if item:
             item.quantity = cart[id]
             item.save()
         else:
-            CartItem.objects.create(cart=cart, product_id=id, quantity=cart[id])
+            CartItem.objects.create(cart=cart_object, product_id=id, quantity=cart[id])
     return redirect(reverse('view_cart'))
 
 def cart_item_delete(request, item_id):
     if request.method == 'POST':
         if request.user:
-            cart, created=Cart.objects.get_or_create(user=request.user)
-            item=CartItem.objects.filter(cart=cart, product_id=item_id).first()
+            cart_object, created=Cart.objects.get_or_create(user=request.user)
+            item=CartItem.objects.filter(cart=cart_object, product_id=item_id).first()
             if item:
                 item.delete()
         cart=request.session.get('cart')

@@ -18,8 +18,11 @@
 
 <div class="row row-flex cart-row">
     {% for item in cart_items %}
+    
     <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel cart-panel">
+        
         <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
+        
         <div class="caption">
             <h3>{{ item.product.name }}</h3>
             <p class="product-description">{{ item.product.description }}</p>
@@ -38,9 +41,14 @@
                     </div>
                     <div class="flex-container position-relative">
                         <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-                        <button type="submit" class="bin-btn"><span><i class="fas fa-trash-alt"></i></span></button>
-                    </div>
+                         </form> 
+                <form action="{% url 'cart_item_delete' item.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="bin-btn"><span><i class="fas fa-trash-alt"></i></span></button>
                 </form>
+                    </div>
+              
+                
          
             </p>
         </div>

@@ -32,9 +32,6 @@ def all_products(request):
 
 
 def product_details(request, id):
-    print('REQUEST: ', request)
     product = Product.objects.get(id=id)
-
-    print('product: ', product)
     return render(request, 'product-details.html', {"product": product})
 
