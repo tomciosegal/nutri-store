@@ -14,7 +14,7 @@
                     <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" />
                 </a>
 
-                <h3 class="product-header">{{ product.name }}</h3>
+                <a href="{% url 'product_details' product.id %}"><h3 class="product-header">{{ product.name }}</h3></a>
                 <p class="price-tag"><i class="fas fa-euro-sign"></i> {{ product.price }} </p>
                 <p class="product-description">{{ product.description }}</p>
                 
