@@ -10,7 +10,7 @@ class TestViews(TestCase):
         User = get_user_model()
         self.user=User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
         self.cart=Cart.objects.create(user=self.user)
-        self.product=Product.objects.create(name='test product', description='descr test', price='10', quantity=1)
+        self.product=Product.objects.create(name='test product', description='descr test', price='10', quantity=10)
         self.cart_item=CartItem.objects.create(cart=self.cart, product_id=self.product.id, quantity=1)
 
     def test_registration(self):
@@ -44,7 +44,13 @@ class TestViews(TestCase):
         cart=Cart.objects.filter(user=self.user).first()
         self.assertIsNotNone(cart)
         self.assertEqual(CartItem.objects.filter(product_id=self.product.id).count(), 1)
-        print(CartItem.objects.last().quantity)
+        
+        # check if no amend is made when we try to update with to high quantity
+        page = self.client.post(f"/cart/adjust/{self.product.id}/", {'quantity': 12})
+        self.assertEqual(self.client.session['cart'], {str(self.product.id): 3})
+        # check if the is no update when quantity=0
+        page = self.client.post(f"/cart/adjust/{self.product.id}/", {'quantity': 0})
+        self.assertEqual(self.client.session['cart'], {str(self.product.id): 3})
 
 
     def test_cart_item_delete(self):
@@ -52,6 +58,7 @@ class TestViews(TestCase):
         response=self.client.post(f'/cart/delete/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(CartItem.objects.filter(product_id=self.product.id).count(), 0)
+
         
 
 

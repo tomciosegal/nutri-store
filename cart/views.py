@@ -61,6 +61,11 @@ def adjust_cart(request, id):
     if quantity<1:
         messages.error(request, "Quantity must be higher then 0")
         return redirect(reverse('view_cart'))
+    product = Product.objects.get(id= id)
+    if quantity > product.quantity:
+        messages.error(request, f"Only {product.quantity} availible")
+        
+        return redirect(reverse('view_cart'))
     cart = request.session.get('cart', {})
 
     previous_quantity=cart[id]
@@ -71,11 +76,7 @@ def adjust_cart(request, id):
         
     
     request.session['cart'] = cart
-    product = Product.objects.get(id= id)
-    if quantity > product.quantity:
-        messages.error(request, f"Only {product.quantity} availible")
-        
-        return redirect(reverse('view_cart'))
+    
     total = round(float(product.price) * quantity, 2)
     if request.session.get("total") :
         request.session["total"] += total
