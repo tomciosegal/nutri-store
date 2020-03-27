@@ -30,7 +30,7 @@
         <div class="header-wrapper">
             <div id="logo"> <a href="{% url 'products' %}"><img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/logo.jpg"alt="Nutri Store logo"></a></div>
             <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
-            <div class="card-search">
+            <div class="card-search d-none d-sm-block">
                 <form class="d-flex">
                     <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search"type="search" aria-label="Search" />
                     <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x search-btn" title="Search"></button>
@@ -98,12 +98,13 @@
     {% endif %}
 
         <!----styling this div will adjust content and "stick" footer to the bottom in all templates--> 
-    <div class = "template-wrapper">
-        <div class="template-content">
-        
+    <!-- <div class = "template-wrapper">
+        <div class="template-content"> -->
+        <div class="flex-container">
             {% block content %} {% endblock %}
         </div>
-    </div>
+        <!-- </div>
+    </div> -->
 
 <footer class="footer">
     

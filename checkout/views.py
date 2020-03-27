@@ -30,6 +30,7 @@ def checkout(request):
     if request.user.is_authenticated():
         customer=Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
+        print(request.POST)
         payment_form = MakePaymentForm(request.POST)
         if  payment_form.is_valid():
                     
@@ -73,6 +74,9 @@ def shipping(request):
     customer=None
     if request.user.is_authenticated():
         customer=Customer.objects.filter(user=request.user).first()
+    else:
+         messages.error(request, "Need to be logged in to do checkout")
+         return redirect(reverse ("login"))
     if request.method == "POST":
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():

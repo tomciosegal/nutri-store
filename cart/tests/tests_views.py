@@ -29,11 +29,30 @@ class TestViews(TestCase):
         page = self.client.get(f"/cart/adjust/{self.product.id}/")
         self.assertEqual(page.status_code, 302)
 
+    def test_adjust_cart_post(self):
+        """
+        check if cart is adjusted with product quantity both in session and Cart Model
+        """
+        self.client.login(username= 'temporary', password= 'temporary')
+        session=self.client.session
+        session['cart']={self.product.id: 7}
+        session.save()
+        page = self.client.post(f"/cart/adjust/{self.product.id}/", {'quantity': 3})
+        
+        
+        self.assertEqual(self.client.session['cart'], {str(self.product.id): 3})
+        cart=Cart.objects.filter(user=self.user).first()
+        self.assertIsNotNone(cart)
+        self.assertEqual(CartItem.objects.filter(product_id=self.product.id).count(), 1)
+        print(CartItem.objects.last().quantity)
+
+
     def test_cart_item_delete(self):
         self.client.login(username= 'temporary', password= 'temporary')   
         response=self.client.post(f'/cart/delete/{self.product.id}/')
         self.assertEqual(response.status_code, 302)
         self.assertEqual(CartItem.objects.filter(product_id=self.product.id).count(), 0)
+        
 
 
     

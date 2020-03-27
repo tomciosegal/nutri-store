@@ -82,7 +82,7 @@ def adjust_cart(request, id):
         request.session['total'] -= round(float(product.price) *  previous_quantity, 2)
     else: 
         request.session["total"] = total
-    if request.user:
+    if request.user.is_authenticated():
         cart_object, created=Cart.objects.get_or_create(user=request.user)
         item=CartItem.objects.filter(cart=cart_object, product_id=id).first()
         if item:
@@ -94,7 +94,7 @@ def adjust_cart(request, id):
 
 def cart_item_delete(request, item_id):
     if request.method == 'POST':
-        if request.user:
+        if request.user.is_authenticated():
             cart_object, created=Cart.objects.get_or_create(user=request.user)
             item=CartItem.objects.filter(cart=cart_object, product_id=item_id).first()
             if item:
