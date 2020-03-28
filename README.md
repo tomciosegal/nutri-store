@@ -194,6 +194,30 @@ to build formula.
 
 - In the mobile view footer aligns all features one under another one.
 
+### Home Page
+
+![Top of Home Page]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg)
+
+
+- The home page hero slider/carousel features 3 slides of promotional images from The House of Mouse. 
+  There are 4 images in total used as the last slides image is different for mobile and desktop. 
+  The reason for this was that the image gets too cropped when in a wide screen, while looks much better 
+  when the dimensions are taller than wide. So this image was saved for mobile screens, and another chosen for wider screens. 
+
+**Introduction and brief pitch**
+- Below the hero slider is a concise introduction to The House of Mouse, what it is, who created it and what their mission is.
+- A "learn more" button leads a user to the About page where they can read the story behind The House of Mouse. 
+- Icons are used to deliver information on the quality and scope of the shop quickly. The information here is deliberately short and to the point, as this page is most likely where a brand new customer would land first and it is important to use this space effectively to help convert sales.
+
+
+![Bottom of Home Page]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg
+)
+
+
+
+
 
 
 
