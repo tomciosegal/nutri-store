@@ -200,20 +200,24 @@ to build formula.
 (https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg)
 
 
-- The home page hero slider/carousel features 3 slides of promotional images from The House of Mouse. 
-  There are 4 images in total used as the last slides image is different for mobile and desktop. 
-  The reason for this was that the image gets too cropped when in a wide screen, while looks much better 
-  when the dimensions are taller than wide. So this image was saved for mobile screens, and another chosen for wider screens. 
+- The home page comprises of two rows of products devided on 4 colums in each row, and it will display maximum of
+  8 products per page. 
 
-**Introduction and brief pitch**
-- Below the hero slider is a concise introduction to The House of Mouse, what it is, who created it and what their mission is.
-- A "learn more" button leads a user to the About page where they can read the story behind The House of Mouse. 
-- Icons are used to deliver information on the quality and scope of the shop quickly. The information here is deliberately short and to the point, as this page is most likely where a brand new customer would land first and it is important to use this space effectively to help convert sales.
+- Every product is wrapped in panel-body that nicely hovers when mouse on.
 
+- When clicking on the image or product name user will be directed to product details where more info will be displayed.
 
 ![Bottom of Home Page]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg
-)
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg)
+
+- At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
+mobile and tablet same same feature provided.
+
+- Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+
+
+
+
 
 
 
