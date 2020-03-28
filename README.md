@@ -158,10 +158,18 @@ to build formula.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-tablet.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
+- In tablet view the logo remains in the left side of the navigation bar, where users would expect it to be.
+
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
+
+- In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
+    the navigation bar changes to dropdown toggle with categories to choose from.
+
+
+
 
 
 
