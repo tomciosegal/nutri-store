@@ -170,6 +170,32 @@ to build formula.
 
 
 
+#### Footer
+
+![Footer]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-lg-screen.jpg)
+
+- The footer background of grey was chosen to provide same contrast as navbar. The Headings are displayed same color as navbar.
+
+- The footer features the copyright information for The Nutristore.
+
+- In the center of the footer icons with ways of payment swoing acceped ways to finalise trnasaction. 
+
+- A social media icons are listed on the right hand side of the footer. Under media icons visitor can find
+  usefull info about store (opening times phone number location)
+
+- Footer also contains about, delivery information, return policy, contact pages where user would expect to find important
+    information about policy and store it self.
+
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
+- In the mobile view footer aligns all features one under another one.
+
+
+
 
 
 
