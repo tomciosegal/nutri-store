@@ -28,7 +28,7 @@
 <div class= "menu-wrapper">
     <header class="page-header my-page-header">
         <div class="header-wrapper">
-            <div id="logo"> <a href="{% url 'products' %}"><img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/logo.jpg"alt="Nutri Store logo"></a></div>
+            <div id="logo"> <a href="{% url 'products' %}"><img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/logo.jpg" alt="Nutri Store logo"></a></div>
             <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
             <div class="card-search d-none d-sm-block">
                 <form class="d-flex">
@@ -46,10 +46,10 @@
                 <li class="nav-item active"><a class="nav-link" href="{% url 'registration' %}"><i class="fas fa-user-plus"></i>Register</a></li>
                     {% endif %}
                 <li>
-                    <a class="nav-link"href="{% url 'view_cart' %}">
+                    <a class="nav-link" href="{% url 'view_cart' %}">
                         <i class="fas fa-shopping-cart cart-icon"></i>
                             {% if product_count > 0 %}
-                        <label class="badge badge-warning" id="product_count">{{ product_count }}</label>
+                        <span class="badge badge-warning" id="product_count">{{ product_count }}</span>
                             {% endif %}
                     </a>
                 </li>
@@ -59,11 +59,7 @@
     </div>
     </header>
 
-    <style>
-
-        }
-    </style>
-
+   
                                 <!---------------NAVBAR------------------>
 
     <nav class="navbar navbar-expand-sm fixed-top custom-navbar ">
@@ -111,22 +107,22 @@
 
             <!-- Links -->
                 <ul class="list-unstyled footer-list">
-                    <li class="nav-item">
+                    <li class="links-footer">
                         <a href="{% url 'about' %}">About</a>
                     </li>
-                    <li>
+                    <li class="links-footer">
                         <a href="{% url 'contact' %}">Contact</a>
                     </li>
-                    <li>
+                    <li class="links-footer">
                         <a href="{% url 'return-policy' %}">Return Policy</a>
                     </li>
-                    <li>
+                    <li class="links-footer">
                         <a href="{% url 'delivery' %}">Delivery Information</a>
                     </li>
                 </ul>
         </div>
                     <div class="col-md-4 bottom">
-                        <div class="payment-methods">
+                        <ul class="payment-methods">
                             <li class="list-inline-item">
                                 <i class="fab fa-cc-visa fa-2x"></i>
                             </li>
@@ -140,7 +136,7 @@
                                    <i class="fab fa-cc-paypal fa-2x"></i>
                             </li>
 
-                        </div>   
+                        </ul>   
                     
                     </div>
             <div class="col-md-4 footer-info ml-auto">

@@ -45,10 +45,10 @@
 	</div>
     <div class="form-group checkout-form">
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-            <legend>Payment Details</legend>
+            <span>Payment Details</span>
 
             <div id="credit-card-errors" style="display: none;">
-                <div id="alert-message block-message error" id="stripe-error-message"></div>
+                <div id="stripe-error-message"></div>
             </div>
 
             <div class="form-group col-md-6">
