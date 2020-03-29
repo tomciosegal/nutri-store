@@ -48,21 +48,4 @@ class RegisterTestCases(TestCase):
         User = get_user_model()
         user=User.objects.get(email='test@test.com')
         self.assertIsNotNone(user)
-
-
-        
-
-    
-        
-    
-
-    
-    
-
-
-    
-
-
-        
-        
-        
+                
