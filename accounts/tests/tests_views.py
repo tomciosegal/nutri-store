@@ -9,13 +9,9 @@ class TestViews(TestCase):
         """
 
         User = get_user_model()
-        User.objects.create_user(
+        self.user = User.objects.create_user(
             "temporary", "temporary@gmail.com", "temporary"
         )
-
-    def test_get_home_page(self):
-        page = self.client.get("/")
-        self.assertEqual(page.status_code, 200)
 
     def test_user_profile(self):
         self.client.login(username="temporary", password="temporary")
@@ -33,6 +29,36 @@ class TestViews(TestCase):
         page = self.client.get("/accounts/register/")
         self.assertEqual(page.status_code, 200)
 
+    def test_contact(self):
+        page = self.client.get("/accounts/contact/")
+        self.assertEqual(page.status_code, 200)
+        page = self.client.post("/accounts/contact/")
+        self.assertEqual(page.status_code, 200)
+
+    def test_about(self):
+        page = self.client.get("/accounts/about/")
+        self.assertEqual(page.status_code, 200)
+
+    def test_return_policy(self):
+        page = self.client.get("/accounts/return-policy/")
+        self.assertEqual(page.status_code, 200)
+
+    def test_delivery(self):
+        page = self.client.get("/accounts/delivery/")
+        self.assertEqual(page.status_code, 200)
+
+    def test_login(self):
+        page = self.client.post("/accounts/login/", {'username': 'invalid', 'passsword': 'invalid'})
+        self.assertNotIn("_auth_user_id", self.client.session)
+        self.assertEqual(page.status_code, 200)
+        data = {
+            'username': self.user.username,
+            'password': 'temporary'
+        }
+        page = self.client.post("/accounts/login/", data)
+        self.assertEqual(page.status_code, 302)
+        page = self.client.post("/accounts/login/", data)
+        self.assertEqual(page.status_code, 302)
 
 class RegisterTestCases(TestCase):
     def test_registration_post(self):
@@ -47,3 +73,4 @@ class RegisterTestCases(TestCase):
         User = get_user_model()
         user = User.objects.get(email="test@test.com")
         self.assertIsNotNone(user)
+    

@@ -6,14 +6,6 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, reverse
 
 
-def index(request):
-
-    """
-    Return the index.html file
-    """
-    return render(request, "index.html")
-
-
 @login_required
 def logout(request):
 
