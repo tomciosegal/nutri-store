@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import MakePaymentForm
-from .models import OrderHistory, OrderItemHistory
+from .models import Order, OrderItem
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
@@ -11,6 +11,7 @@ from checkout.mails import send_checkout_mail
 from checkout.utils import create_order_history
 from accounts.models import Customer
 from accounts.forms import CustomerForm
+from cart.utils import clear_cart
 
 
 
@@ -53,6 +54,7 @@ def checkout(request):
             if customer.paid:
                 send_checkout_mail(request.user, request.session['cart'])
                 create_order_history(request.user, request.session)
+                clear_cart(request.user)
                 messages.error(request, "You have successfully paid")
                 request.session['cart'] = {}
                 request.session['total'] = 0
@@ -86,10 +88,10 @@ def shipping(request):
 def order_history(request):
     orders=[]
     if request.user.is_authenticated():
-        orders=OrderHistory.objects.filter(customer=request.user.customer).order_by('-created_at')
+        orders=Order.objects.filter(customer=request.user.customer).order_by('-created_at')
     orders_with_items=[]
     for order in orders:
-        order_items=OrderItemHistory.objects.filter(order_history=order)
+        order_items=OrderItem.objects.filter(order_history=order)
         orders_with_items.append(
             {
                 'order': order, 

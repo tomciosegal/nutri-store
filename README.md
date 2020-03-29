@@ -173,7 +173,9 @@ to build formula.
 #### Footer
 
 ![Footer]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-lg-screen.jpg)
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-lg-screen.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
 
 - The footer background of grey was chosen to provide same contrast as navbar. The Headings are displayed same color as navbar.
 
@@ -197,7 +199,10 @@ to build formula.
 ### Home Page
 
 ![Top of Home Page]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg)
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
 
 
 - The home page comprises of two rows of products devided on 4 colums in each row, and it will display maximum of
@@ -208,7 +213,11 @@ to build formula.
 - When clicking on the image or product name user will be directed to product details where more info will be displayed.
 
 ![Bottom of Home Page]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg)
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
 
 - At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
 mobile and tablet same same feature provided.

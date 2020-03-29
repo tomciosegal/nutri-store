@@ -3,7 +3,11 @@ from django.contrib.auth import get_user_model
 
 
 class TestViews(TestCase):
-    """functiion that runs before test starts"""
+
+    """
+    functiion that runs before test starts
+    """
+    
     def setUp(self):
         User = get_user_model()
         user = User.objects.create_user('temporary', 'temporary@gmail.com', 'temporary')
