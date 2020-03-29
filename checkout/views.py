@@ -1,19 +1,17 @@
-from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.contrib.auth.decorators import login_required
-from django.contrib import messages
-from .forms import MakePaymentForm
-from .models import Order, OrderItem
-from django.conf import settings
-from django.utils import timezone
-from products.models import Product
 import stripe
+from accounts.forms import CustomerForm
+from accounts.models import Customer
+from cart.utils import clear_cart
 from checkout.mails import send_checkout_mail
 from checkout.utils import create_order_history
-from accounts.models import Customer
-from accounts.forms import CustomerForm
-from cart.utils import clear_cart
+from django.conf import settings
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404, redirect, render, reverse
+from products.models import Product
 
-
+from .forms import MakePaymentForm
+from .models import Order, OrderItem
 
 stripe.api_key = settings.STRIPE_SECRET
 
@@ -21,25 +19,24 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
 
-    """The view will render the html page and 
+    """The view will render the html page and
         pass in forms and contents of the cart
-        Links up the backend data to the frontend 
+        Links up the backend data to the frontend
         user interface
     """
-    customer=None
+    customer = None
     if request.user.is_authenticated():
-        customer=Customer.objects.filter(user=request.user).first()
+        customer = Customer.objects.filter(user=request.user).first()
     if request.method == "POST":
-        print(request.POST)
         payment_form = MakePaymentForm(request.POST)
-        if  payment_form.is_valid():
-                    
-            cart = request.session.get('cart', {})
+        if payment_form.is_valid():
+
+            cart = request.session.get("cart", {})
             total = 0
             for id, quantity in cart.items():
                 product = get_object_or_404(Product, pk=id)
                 total += quantity * product.price
-               
+
             if total < 60:
                 total = float(total) + 4.99
             try:
@@ -47,59 +44,76 @@ def checkout(request):
                     amount=int(total * 100),
                     currency="EUR",
                     description=request.user.email,
-                    card=payment_form.cleaned_data['stripe_id']
+                    card=payment_form.cleaned_data["stripe_id"],
                 )
             except stripe.error.CardError:
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                send_checkout_mail(request.user, request.session['cart'])
+                send_checkout_mail(request.user, request.session["cart"])
                 create_order_history(request.user, request.session)
                 clear_cart(request.user)
                 messages.error(request, "You have successfully paid")
-                request.session['cart'] = {}
-                request.session['total'] = 0
-                return redirect(reverse('products'))
+                request.session["cart"] = {}
+                request.session["total"] = 0
+                return redirect(reverse("products"))
             else:
                 messages.error(request, "Unable to take payment")
         else:
-            messages.error(request, "We were unable to take a payment with that card!")
+            messages.error(
+                request, "We were unable to take a payment with that card!"
+            )
     else:
         payment_form = MakePaymentForm()
-        
-    return render(request, "checkout.html", {"payment_form": payment_form, "publishable": settings.STRIPE_PUBLISHABLE})
+
+    return render(
+        request,
+        "checkout.html",
+        {
+            "payment_form": payment_form,
+            "publishable": settings.STRIPE_PUBLISHABLE,
+            "disable_header": True,
+            "disable_footer": True,
+        },
+    )
 
 
 def shipping(request):
-    customer=None
+    customer = None
     if request.user.is_authenticated():
-        customer=Customer.objects.filter(user=request.user).first()
+        customer = Customer.objects.filter(user=request.user).first()
     else:
-         messages.error(request, "Need to be logged in to do checkout")
-         return redirect(reverse ("login"))
+        messages.error(request, "Need to be logged in to do checkout")
+        return redirect(reverse("login"))
     if request.method == "POST":
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
-            customer=form.save(commit=False)
-            customer.user=request.user
+            customer = form.save(commit=False)
+            customer.user = request.user
             customer.save()
             return redirect("checkout")
     else:
-        form=CustomerForm(instance=customer)
-    return render(request, 'shipping.html', {'customer': customer, 'form': form})
+        form = CustomerForm(instance=customer)
+    return render(
+        request,
+        "shipping.html",
+        {
+            "customer": customer,
+            "form": form,
+            "disable_header": True,
+            "disable_footer": True,
+        },
+    )
 
 
 def order_history(request):
-    orders=[]
+    orders = []
     if request.user.is_authenticated():
-        orders=Order.objects.filter(customer=request.user.customer).order_by('-created_at')
-    orders_with_items=[]
-    for order in orders:
-        order_items=OrderItem.objects.filter(order_history=order)
-        orders_with_items.append(
-            {
-                'order': order, 
-                'items': order_items
-            }
+        orders = Order.objects.filter(customer=request.user.customer).order_by(
+            "-created_at"
         )
-    return render(request, "order_history.html", {'orders': orders_with_items})
+    orders_with_items = []
+    for order in orders:
+        order_items = OrderItem.objects.filter(order_history=order)
+        orders_with_items.append({"order": order, "items": order_items})
+    return render(request, "order_history.html", {"orders": orders_with_items})

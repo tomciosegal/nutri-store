@@ -8,12 +8,9 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('checkout', '0003_auto_20200318_1730'),
+        ("checkout", "0003_auto_20200318_1730"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='order',
-            name='phone_number',
-        ),
+        migrations.RemoveField(model_name="order", name="phone_number",),
     ]

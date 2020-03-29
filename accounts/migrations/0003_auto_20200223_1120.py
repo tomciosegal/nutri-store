@@ -8,14 +8,10 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0002_auto_20200211_1120'),
+        ("accounts", "0002_auto_20200211_1120"),
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Product',
-        ),
-        migrations.DeleteModel(
-            name='ProductCategory',
-        ),
+        migrations.DeleteModel(name="Product",),
+        migrations.DeleteModel(name="ProductCategory",),
     ]

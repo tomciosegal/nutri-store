@@ -8,20 +8,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0005_customer'),
+        ("accounts", "0005_customer"),
     ]
 
     operations = [
-        migrations.DeleteModel(
-            name='Cart',
-        ),
-        migrations.DeleteModel(
-            name='CartItem',
-        ),
-        migrations.DeleteModel(
-            name='Order',
-        ),
-        migrations.DeleteModel(
-            name='OrderItem',
-        ),
+        migrations.DeleteModel(name="Cart",),
+        migrations.DeleteModel(name="CartItem",),
+        migrations.DeleteModel(name="Order",),
+        migrations.DeleteModel(name="OrderItem",),
     ]

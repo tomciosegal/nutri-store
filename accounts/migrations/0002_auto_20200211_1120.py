@@ -8,67 +8,67 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0001_initial'),
+        ("accounts", "0001_initial"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Cart',
+            name="Cart",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('user_id', models.IntegerField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("user_id", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='CartItem',
+            name="CartItem",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('cart_id', models.IntegerField()),
-                ('product_id', models.IntegerField()),
-                ('quantity', models.IntegerField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("cart_id", models.IntegerField()),
+                ("product_id", models.IntegerField()),
+                ("quantity", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='Order',
+            name="Order",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('customer_id', models.IntegerField()),
-                ('total_cost', models.FloatField()),
-                ('shipment_address', models.TextField()),
-                ('status', models.IntegerField()),
-                ('delivery_type', models.IntegerField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("customer_id", models.IntegerField()),
+                ("total_cost", models.FloatField()),
+                ("shipment_address", models.TextField()),
+                ("status", models.IntegerField()),
+                ("delivery_type", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='OrderItem',
+            name="OrderItem",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('order_id', models.IntegerField()),
-                ('product_id', models.IntegerField()),
-                ('quantity', models.IntegerField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("order_id", models.IntegerField()),
+                ("product_id", models.IntegerField()),
+                ("quantity", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='Product',
+            name="Product",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=255)),
-                ('description', models.TextField()),
-                ('price', models.FloatField()),
-                ('category_id', models.IntegerField()),
-                ('quantity', models.IntegerField()),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=255)),
+                ("description", models.TextField()),
+                ("price", models.FloatField()),
+                ("category_id", models.IntegerField()),
+                ("quantity", models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
-            name='ProductCategory',
+            name="ProductCategory",
             fields=[
-                ('id', models.AutoField(primary_key=True, serialize=False)),
-                ('name', models.CharField(max_length=255)),
+                ("id", models.AutoField(primary_key=True, serialize=False)),
+                ("name", models.CharField(max_length=255)),
             ],
         ),
         migrations.AlterField(
-            model_name='customer',
-            name='id',
+            model_name="customer",
+            name="id",
             field=models.AutoField(primary_key=True, serialize=False),
         ),
     ]

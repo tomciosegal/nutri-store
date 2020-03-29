@@ -8,13 +8,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('checkout', '0002_orderhistory_orderitemhistory'),
+        ("checkout", "0002_orderhistory_orderitemhistory"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='order',
-            name='phone_number',
+            model_name="order",
+            name="phone_number",
             field=models.IntegerField(max_length=20),
         ),
     ]

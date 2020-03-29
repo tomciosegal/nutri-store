@@ -8,17 +8,14 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0002_auto_20200226_1335'),
+        ("products", "0002_auto_20200226_1335"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='product',
-            name='price',
-        ),
+        migrations.RemoveField(model_name="product", name="price",),
         migrations.AddField(
-            model_name='product',
-            name='currency',
-            field=models.CharField(default='EUR', max_length=3),
+            model_name="product",
+            name="currency",
+            field=models.CharField(default="EUR", max_length=3),
         ),
     ]

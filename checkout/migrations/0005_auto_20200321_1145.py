@@ -8,22 +8,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('checkout', '0004_remove_order_phone_number'),
+        ("checkout", "0004_remove_order_phone_number"),
     ]
 
     operations = [
-        migrations.RemoveField(
-            model_name='orderlineitem',
-            name='order',
-        ),
-        migrations.RemoveField(
-            model_name='orderlineitem',
-            name='product',
-        ),
-        migrations.DeleteModel(
-            name='Order',
-        ),
-        migrations.DeleteModel(
-            name='OrderLineItem',
-        ),
+        migrations.RemoveField(model_name="orderlineitem", name="order",),
+        migrations.RemoveField(model_name="orderlineitem", name="product",),
+        migrations.DeleteModel(name="Order",),
+        migrations.DeleteModel(name="OrderLineItem",),
     ]

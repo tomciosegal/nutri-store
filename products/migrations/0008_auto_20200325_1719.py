@@ -8,13 +8,11 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0007_product_quantity'),
+        ("products", "0007_product_quantity"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='product',
-            name='quantity',
-            field=models.IntegerField(),
+            model_name="product", name="quantity", field=models.IntegerField(),
         ),
     ]

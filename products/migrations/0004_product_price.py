@@ -8,13 +8,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('products', '0003_auto_20200226_1934'),
+        ("products", "0003_auto_20200226_1934"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='price',
-            field=models.DecimalField(decimal_places=2, default=1, max_digits=6),
+            model_name="product",
+            name="price",
+            field=models.DecimalField(
+                decimal_places=2, default=1, max_digits=6
+            ),
         ),
     ]
