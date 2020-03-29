@@ -155,26 +155,29 @@ to build formula.
 - In desktop view on the left side of the navbar is a list of the categories:View All, Protein, Carbs, Merch.
 
 
+- In tablet view the logo remains in the left side of the navigation bar, where users would expect it to be.
+
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-tablet.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
-- In tablet view the logo remains in the left side of the navigation bar, where users would expect it to be.
 
+- In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
+    the navigation bar changes to dropdown toggle with categories to choose from.
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
-
-- In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
-    the navigation bar changes to dropdown toggle with categories to choose from.
 
 
 
 #### Footer
 
 ![Footer]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-lg-screen.jpg)
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
 
 - The footer background of grey was chosen to provide same contrast as navbar. The Headings are displayed same color as navbar.
 
@@ -189,9 +192,7 @@ to build formula.
     information about policy and store it self.
 
 
-<div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
-</div>
+
 
 - In the mobile view footer aligns all features one under another one.
 
@@ -224,16 +225,95 @@ mobile and tablet same same feature provided.
 - Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
 
 **Product details**
-- The product **title, price and description** are all clearly visible on top of the product panel.
-- Larger image gives a customer an better overview what is about to buy
-- Next to the product image is standard information that is applicable to all products in the shop. 
-- From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/product-details.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
+- The product **title, price and description** are all clearly visible on top of the product panel.
+- Larger image gives a customer an better overview what is about to buy
+- Next to the product image is standard information that is applicable to all products in the shop. 
+- From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
+
+
 ### About page
 
 - The about page features a The Nutristore logo and a informations that will bring a customer closer to a process of
   manufactiuring and ingredients used and chemical free produce.
+
+
+### Contact Page
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
+</div>
+
+
+- The contact page contains a form for the user to fill in to send the shop owner an email.
+- Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
+- If the user is logged in then their email address will already be populated in the email field.
+- When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
+
+### Register Page
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
+</div>
+
+
+- A user who is not logged in can create a new account using the register page. The page on this form includes a username (which must be unique), email address, password and password conformation fields. 
+- Information about what characters are accepted by these fields is displayed with the form.
+- If a user who is already logged in tries to access this page, they are redirected to the home page.
+
+### Login Page
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/login-page.jpg" alt="TheNutristore login-form" aria-label="Nutristore" />
+</div>
+
+- The login page features a standard login form asking for username and password.
+- Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
+
+### Profile Page
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/profile-page.jpg" alt="TheNutristore profile-form" aria-label="Nutristore" />
+</div>
+
+- The users account page can only be accessed by a logged in user if user not logged in the Profile icon is not displayed.
+
+- The account page has basic info about user. All this details are saved after after filling shipping details,
+  so user will have his profile filled after that step.
+
+- Another feature related to profile is that when customer will decide to fill the details in profile page they will be automatically 
+  saved and auto populated in shipping page from the first purchase.
+
+- **Profile Info** has also very important feature where user can update any of the details.by clicking update button.
+    This changes will be visible with the next checkout process as input will be autopopulated.
+
+- **My Orders**, where a user can see a summary of all their previous orders and all orders are populated by date for easier search. 
+
+### Log out page
+- Any user who clicks on "Log out" from the navigation bar is automatically logged out and their session data cleared. 
+  The message on top page will inform the user whataction was made. After loging back in the users cart will still remain
+  with all items prevoiusly selected to buy.
+
+### Cart page
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/cart-page.jpg" alt="TheNutristore cart-page" aria-label="Nutristore" />
+</div>
+
+
+- The shopping cart page features a summary of all the items the user has added to their cart.
+
+- Each list item includes a picture of the item, the item title and price.
+
+- A quantity field is displayed with each cart item, giving the user the ability to adjust the quantity in their cart. Any time a quantity is adjusted the subtotal displayed is updated to reflect the change.
+
+- User can avail 10% discount when spending at least 50 Euro, and this message will be populated under summary order
+  center of the page with exatc amuant saved depending on total amount.
+
+- User that is not logged in will be directed to login page that also gives option to register. Only registered customer will be able to proceed tothe checkout page. 
+
+
