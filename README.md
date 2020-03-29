@@ -118,28 +118,29 @@ to build formula.
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/header.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
-- The navbar features on every page, however developer would like to implement a functionality where footer nabar are not rendering oon checkout pages,
-    unfortnatelly could not find proper guindence to do it.
 
-- The navigation bar features The Nutristore logo on the far left, which links to the home page of the site.
+- The header features The Nutristore logo on the far left, which links to the home page of the site.
 
-- **In desktop view** on the left side of the navbar is a list of the key website pages: Home, Shop, About and FAQs. The Shop link is a dropdown menu which lists out the sections of shop products.
+- Next to the The Nutristore logo a free shipping icon is placed, this link will direct to a details how user can avail free shipping.
 
-- On the right side of the navbar are the links to contact page, search page and shopping cart.
+- In the middle of the header user can find a usefull search box where you look for desired item for example "protein"
+  
+- On the right side of the header visitor can find the links to login,and shopping cart.
 
-- A user who is currently logged out will also see options to register or log into the website.
+    - A user who is currently logged out will also see options to register or log into the website.
 
-- A user who is logged in will see options to view their account page or log out.
+    - A user who is logged in will see options to view their profile page or log out.
 
-- The shopping cart icon is located to the far right of the navigation bar. Once a user has added at least one item to their cart a blue circle will appear with the total number of items in their cart displayed within it. If the total number is 10 or more then the circle will display "9+" to save from extending the text over the size of the blue circle indicator. 
+- The shopping cart icon is located to the far right of the navigation bar. 
 
-    - The indicator was chosen to mimic notification icons users are used to seeing in online shops and social media etc.
+    
+    - The shopping cart counter works even for a user who is not logged in. This is because all the information about which products the user has added 
+      to their cart is stored in their session data. This makes it possible for a new user to add things to their cart before being asked to log in or register. 
+      This way user can add items to cart without registering, however when user will go to cart and will try to do checkout he/she will be directed to login/register page.
+    
+    - When user logs in a cart will remain with items picked as anonymous user.
 
-    - The blue color was chosen because it contrasts well with the rest of the sites colors and draws the eye.
-
-    - The shopping cart counter works even for a user who is not logged in. This is because all the information about which products the user has added to their cart is stored in their session data. This makes it possible for a new user to add things to their cart before being asked to log in or register. 
-
-- When a user is on a page listed in the navbar the text for that page is highlighted with a deeper color, and `<span class="sr-only">(current)</span>` is added to the relevant html for screen readers to tell which page the user is on.
+    - When user logs out and will log back in again a cart also will remain will items selected in session.
 
 
 #### Navbar:
@@ -147,6 +148,82 @@ to build formula.
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar.jpg" alt="TheNutristore Navbar on desktop devices" aria-label="Nutristore" />
 </div>
+
+- The navbar features on every page, however developer would like to implement a functionality where footer nabar are not rendering oon checkout pages,
+    unfortnatelly could not find proper guindence to do it.
+- In desktop view on the left side of the navbar is a list of the categories:View All, Protein, Carbs, Merch.
+
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-tablet.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
+- In tablet view the logo remains in the left side of the navigation bar, where users would expect it to be.
+
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
+- In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
+    the navigation bar changes to dropdown toggle with categories to choose from.
+
+
+
+#### Footer
+
+![Footer]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-lg-screen.jpg)
+
+- The footer background of grey was chosen to provide same contrast as navbar. The Headings are displayed same color as navbar.
+
+- The footer features the copyright information for The Nutristore.
+
+- In the center of the footer icons with ways of payment swoing acceped ways to finalise trnasaction. 
+
+- A social media icons are listed on the right hand side of the footer. Under media icons visitor can find
+  usefull info about store (opening times phone number location)
+
+- Footer also contains about, delivery information, return policy, contact pages where user would expect to find important
+    information about policy and store it self.
+
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/footer-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
+- In the mobile view footer aligns all features one under another one.
+
+### Home Page
+
+![Top of Home Page]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg)
+
+
+- The home page comprises of two rows of products devided on 4 colums in each row, and it will display maximum of
+  8 products per page. 
+
+- Every product is wrapped in panel-body that nicely hovers when mouse on.
+
+- When clicking on the image or product name user will be directed to product details where more info will be displayed.
+
+![Bottom of Home Page]
+(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg)
+
+- At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
+mobile and tablet same same feature provided.
+
+- Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+
+
+
+
+
+
+
+
+
+
 
 
 
