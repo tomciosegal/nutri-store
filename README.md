@@ -119,7 +119,7 @@ to build formula.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/header.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
-- The header features The Nutristore logo on the far left, which links to the home page of the site.
+- The header features on every page apart from the checkout pages. The Nutristore logo on the far left, which links to the home page of the site.
 
 - Next to the The Nutristore logo a free shipping icon is placed, this link will direct to a details how user can avail free shipping.
 
@@ -149,8 +149,9 @@ to build formula.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar.jpg" alt="TheNutristore Navbar on desktop devices" aria-label="Nutristore" />
 </div>
 
-- The navbar features on every page, however developer would like to implement a functionality where footer nabar are not rendering oon checkout pages,
-    unfortnatelly could not find proper guindence to do it.
+- The navbar features on every page  but along with header does not display on checkout pages in order to
+  to remove distractions and links that would take the user away from their cart once they decide to start the checkout process.
+
 - In desktop view on the left side of the navbar is a list of the categories:View All, Protein, Carbs, Merch.
 
 
@@ -197,7 +198,10 @@ to build formula.
 ### Home Page
 
 ![Top of Home Page]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg)
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
 
 
 - The home page comprises of two rows of products devided on 4 colums in each row, and it will display maximum of
@@ -208,12 +212,109 @@ to build formula.
 - When clicking on the image or product name user will be directed to product details where more info will be displayed.
 
 ![Bottom of Home Page]
-(https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg)
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-page-bottom.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
 
 - At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
 mobile and tablet same same feature provided.
 
 - Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+
+**Product details**
+- The product **title, price and description** are all clearly visible on top of the product panel.
+- Larger image gives a customer an better overview what is about to buy
+- Next to the product image is standard information that is applicable to all products in the shop. 
+- From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/product-details.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
+</div>
+
+### About page
+
+- The about page features a The Nutristore logo and a informations that will bring a customer closer to a process of
+  manufactiuring and ingredients used and chemical free produce.
+
+### Contact Page
+
+- The contact page contains a form for the user to fill in to send the shop owner an email.
+- Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
+- If the user is logged in then their email address will already be populated in the email field.
+- When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
+
+### Register Page
+
+![Register page on different screen sizes](https://i.ibb.co/TvR9Rn8/register-responsive.png)
+
+- A user who is not logged in can create a new account using the register page. The page on this form includes a username (which must be unique), email address, password and password conformation fields. 
+- Information about what characters are accepted by these fields is displayed with the form.
+- If a user who is already logged in tries to access this page, they are redirected to the home page.
+
+### Login Page
+- The login page features a standard login form asking for username and password.
+- Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
+
+### Account Page
+
+![Account page on different screen sizes](https://i.ibb.co/27GrNtP/account-responsive.png)
+
+- The users account page can only be accessed by a logged in user. Any user not logged in who tries to access this page will be redirected to the login page.
+- The account page is split into two sections:
+    - **Profile Info**, where the user can update their username and email address, and where they can add or update their first and last name.
+    - **My Orders**, where a user can see a summary of all their previous orders. request a cancellation, and view the order status. 
+
+### Log out page
+- Any user who clicks on "Log out" from the navigation bar is automatically logged out and their session data cleared. They are taken to a page that informs them that they have been logged out and provides a link to log back in if they wish.
+
+### Cart page
+
+- The shopping cart page features a summary of all the items the user has added to their cart.
+- Each list item includes a picture of the item, the item title and price.
+- A cross symbol at the top right of each list item gives the user the ability to delete that item from their cart.
+- A quantity field is displayed with each cart item, giving the user the ability to adjust the quantity in their cart. Any time a quantity is adjusted the subtotal displayed is updated to reflect the change.
+- Information is provided for the user to tell them that tax is already included in the price they saw, and that the shipping cost will be calculated during checkout.
+
+#### Checkout
+
+![Checkout page on different screen sizes]
+
+(https://i.ibb.co/vV2r6NL/checkout-responsive.png)
+
+- Each checkout page features an order summary, which lists all the items in the users cart, title, price and quantity. A link is provided at the top of this for the user to return to the cart page to make changes to the order.
+    - On mobile devices this order summary is part of a closed accordian, the top part of which displays the total cost. It can be clicked to open the full order details. This was done to save space on a smaller screen.
+    - On tablet devices and larger screens, the order summary is displayed in full on the right side of the screen on all checkout pages.
+
+- The checkout process is broken up into 4 stages. The reason for this was to break up the process into small steps as is common in online shops.
+
+    1. **Info**
+        - Here the user is asked to provide the shipping name and address to send their order to. They are also asked to select the country their order will go to, this is used to calculate the shipping price.
+        - Not every country in the world is currently included on the list of shipping destinations. This was done in part to save time in making multiple entries into the database, and also because after running this shop for over 10 years the owner knows which destinations her products are usually shipped to. 
+        - For the unlikely case that someone wishes to ship to a country not in the list, a link at the bottom of the form says "My country is not on the list?" and opens a modal encouraging the user to request their country be added to the shipping destinations.
+        - The "Continue to shipping" button leads the user to the shipping page.
+
+    2. **Shipping**
+        - The shipping page includes all the information that the user has provided so far: Their contact email address (taken from when they created their account), the shipping name and address, and their order summary. A link is provided where the shipping address is displayed so that the user can return to the info page to update it.
+        - This page provides the user with shipping options to choose from. At this point there is only one shipping option available, however this page and functionality have been left in so that other options such as expedited shipping may be added with a future release.
+        - As a shipping method is automatically selected, the order summary now reflects the total cost including shipping. 
+        - The "Continue to payment" button leads the user to the payment page hosted by Stripe.
+
+    3. **Payment**
+        - As stripe now offer a pre-built checkout in their latest version 3, I opted to use this as my payment page, as it hands over much of the back end coding needed for making payment to Stripe.
+        - The Stripe payment page includes a summary of what the user is buying, and fields to enter credit card information.
+        - All the validation and messages to the user on this page are handled by stripe.
+        - On clicking the "Pay" button and on successful completion of payment, the user is redirected to the order confirmation page back on The House of Mouse website.
+
+    4. **Confirmation of order**
+        - The order confirmation page gives the customer all the information they need going forward. The shipping address and expected shipping time are provided. As well as links to the users account page and the contact page should they need to get in touch with the shop owner.
+        - Finally the user is invited to return to the shop with a call to action button at the bottom of the page.
+
+#### Terms and Conditions / Privacy Policy pages
+
+- Every trustworthy online shop provides the legal documentation expected by the user on their site. Although these documents are a legal requirement of any online shop, including them also helps users to feel they can trust the outlet.
+
 
 
 
