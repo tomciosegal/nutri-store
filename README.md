@@ -389,8 +389,8 @@ mobile and tablet same same feature provided.
 <br/>
 
 - Here customer is introduced to items selected during shopping and total price.
-    - If applicable amount saved thank to discount provided will be displayed next to total.
-    - Here the user has option to:
+- If applicable, amount saved thanks to discount provided will be displayed next to total.
+- Here the user has option to:
     - amend amount of items purchased
     - delete item if neccessary 
     - keep shopping
@@ -407,7 +407,7 @@ mobile and tablet same same feature provided.
     2. **Shipping**
 
     <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/shipping-page.jpg" alt="TheNutristore shipping-page" aria-label="Nutristore" />
+    <img src="    https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/credit-cards.jpg" alt="TheNutristore shipping-page" aria-label="Nutristore" />
     </div>
 
     <br/>
@@ -427,7 +427,8 @@ mobile and tablet same same feature provided.
     3. **Payment**
 
     <br/>
-        <div align="center">
+
+    <div align="center">
     <img src="    https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/credit-cards.jpg" alt="TheNutristore credit-cards" aria-label="Nutristore" />
     </div>
 
