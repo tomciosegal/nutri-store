@@ -10,7 +10,7 @@ def send_checkout_mail(user, cart):
     """
     html_message = render_to_string('order-confirmation.html', {'user': user, 'cart': cart})
     send_mail(
-        "Subject here",
+        "Thank You For Shopping at Nutristore",
         f"Here is the message. {user.username}, {cart}",
         settings.FROM_EMAIL,
         [user.email],
