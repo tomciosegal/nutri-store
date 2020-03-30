@@ -218,10 +218,13 @@ to build formula.
 </div>
 
 
+
 - At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
 mobile and tablet same same feature provided.
 
 - Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+
+
 
 **Product details**
 
@@ -229,10 +232,13 @@ mobile and tablet same same feature provided.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/product-details.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
+
+
 - The product **title, price and description** are all clearly visible on top of the product panel.
 - Larger image gives a customer an better overview what is about to buy
 - Next to the product image is standard information that is applicable to all products in the shop. 
 - From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
+
 
 
 ### About page
@@ -248,12 +254,16 @@ mobile and tablet same same feature provided.
 </div>
 
 
+
 - The contact page contains a form for the user to fill in to send the shop owner an email.
 - Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
 - If the user is logged in then their email address will already be populated in the email field.
 - When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
 
+
+
 ### Register Page
+
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
@@ -264,20 +274,28 @@ mobile and tablet same same feature provided.
 - Information about what characters are accepted by these fields is displayed with the form.
 - If a user who is already logged in tries to access this page, they are redirected to the home page.
 
+
+
 ### Login Page
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/login-page.jpg" alt="TheNutristore login-form" aria-label="Nutristore" />
 </div>
 
+
+
 - The login page features a standard login form asking for username and password.
 - Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
+
+
 
 ### Profile Page
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/profile-page.jpg" alt="TheNutristore profile-form" aria-label="Nutristore" />
 </div>
+
+
 
 - The users account page can only be accessed by a logged in user if user not logged in the Profile icon is not displayed.
 
@@ -302,6 +320,7 @@ mobile and tablet same same feature provided.
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/cart-page.jpg" alt="TheNutristore cart-page" aria-label="Nutristore" />
 </div>
+
 
 
 - The shopping cart page features a summary of all the items the user has added to their cart.
