@@ -238,63 +238,69 @@ mobile and tablet same same feature provided.
 - Larger image gives a customer an better overview what is about to buy
 - Next to the product image is standard information that is applicable to all products in the shop. 
 - From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
-
-
+<br/>
+<br/>
 
 ### About page
 
 - The about page features a The Nutristore logo and a informations that will bring a customer closer to a process of
   manufactiuring and ingredients used and chemical free produce.
 
+<br/>
+<br/>
 
 ### Contact Page
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
 </div>
-
+<br/>
 
 
 - The contact page contains a form for the user to fill in to send the shop owner an email.
 - Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
 - If the user is logged in then their email address will already be populated in the email field.
 - When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
-
+<br/>
+<br/>
 
 
 ### Register Page
 
-
+<br/>
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
 </div>
-
+<br/>
+<br/>
 
 - A user who is not logged in can create a new account using the register page. The page on this form includes a username (which must be unique), email address, password and password conformation fields. 
 - Information about what characters are accepted by these fields is displayed with the form.
 - If a user who is already logged in tries to access this page, they are redirected to the home page.
 
 
-
+<br/>
+<br/>
 ### Login Page
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/login-page.jpg" alt="TheNutristore login-form" aria-label="Nutristore" />
 </div>
-
+<br/>
 
 
 - The login page features a standard login form asking for username and password.
 - Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
 
-
+<br/>
+<br/>
 
 ### Profile Page
-
+<br/>
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/profile-page.jpg" alt="TheNutristore profile-form" aria-label="Nutristore" />
 </div>
-
+<br/>
 
 
 - The users account page can only be accessed by a logged in user if user not logged in the Profile icon is not displayed.
@@ -309,18 +315,22 @@ mobile and tablet same same feature provided.
     This changes will be visible with the next checkout process as input will be autopopulated.
 
 - **My Orders**, where a user can see a summary of all their previous orders and all orders are populated by date for easier search. 
+<br/>
+<br/>
 
 ### Log out page
 - Any user who clicks on "Log out" from the navigation bar is automatically logged out and their session data cleared. 
   The message on top page will inform the user whataction was made. After loging back in the users cart will still remain
   with all items prevoiusly selected to buy.
+<br/>
+<br/>
 
 ### Cart page
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/cart-page.jpg" alt="TheNutristore cart-page" aria-label="Nutristore" />
 </div>
-
+<br/>
 
 
 - The shopping cart page features a summary of all the items the user has added to their cart.
