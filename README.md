@@ -172,7 +172,7 @@ to build formula.
 
 ***
 
-<br/>>
+<br/>
 
 #### Footer
 
@@ -311,6 +311,7 @@ mobile and tablet same same feature provided.
 - Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
 
 <br/>
+
 ***
 
 ### Profile Page
@@ -344,24 +345,97 @@ mobile and tablet same same feature provided.
 ***
 <br/>
 
-### Cart page
 
-<div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/cart-page.jpg" alt="TheNutristore cart-page" aria-label="Nutristore" />
-</div>
+#### Checkout
 
 <br/>
+
+- Checkout process starts when you click on cart that will show user summary of the shopping he made. From here you can either go back and
+  continue shopping or proceed to shipping details. 
+    
+- The checkout process is broken up into 3 stages. The reason for this was to break up the process into small steps as is common in online shops.
+
+    <br/>
+
+    ***
+
+    1. **Cart**
+
+        <br/>
+
+    <div align="center">
+        <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/cart-page.jpg" alt="TheNutristore cart-page" aria-label="Nutristore" />
+    </div>
+
+    <br/>
 
 
 - The shopping cart page features a summary of all the items the user has added to their cart.
 
 - Each list item includes a picture of the item, the item title and price.
 
+- The total amount and cart view is availible to see in top right corner of the page.
+
 - A quantity field is displayed with each cart item, giving the user the ability to adjust the quantity in their cart. Any time a quantity is adjusted the subtotal displayed is updated to reflect the change.
 
 - User can avail 10% discount when spending at least 50 Euro, and this message will be populated under summary order
-  center of the page with exatc amuant saved depending on total amount.
+  center of the page with exatc amount saved depending on total amount.
 
 - User that is not logged in will be directed to login page that also gives option to register. Only registered customer will be able to proceed tothe checkout page. 
 
+- Very important feature that starts in cart is that the user always have a two buttons to click KEEP SHOPPING or
+ CONTINUE to Payment, this way user is never forced to use back button in the browser.
 
+<br/>
+
+- Here customer is introduced to items selected during shopping and total price.
+    - If applicable amount saved thank to discount provided will be displayed next to total.
+    - Here the user has option to:
+    - amend amount of items purchased
+    - delete item if neccessary 
+    - keep shopping
+    - proceed to checkout
+
+        <br/>
+
+        - The "Checkout" button leads the user to the shipping page.
+
+    <br/>
+
+    ***
+
+    2. **Shipping**
+
+    <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/shipping-page.jpg" alt="TheNutristore shipping-page" aria-label="Nutristore" />
+    </div>
+
+    <br/>
+
+    ***
+    - Shipping details will be autopopulated if user filled form in profile,if not after that step all the user details will be saved in profile 
+        and in future shopping it will be filled automatically for customer.        
+        - As a shipping method is automatically selected, user need to add shipping to the total amount, if 
+          total is 60 Euro or more shipping will be free, and this will be stated in the column.
+        - Shipping page does not contain footer nor header to make user focus on buying procces rather then give some extra thoughts or distractions.
+        - The "Continue to payment" button leads the user to the payment page hosted by Stripe.
+
+    <br/>
+
+    ***
+
+    3. **Payment**
+
+    <br/>
+        <div align="center">
+    <img src="    https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/credit-cards.jpg" alt="TheNutristore credit-cards" aria-label="Nutristore" />
+    </div>
+
+    <br/>
+
+    - The Stripe payment page includes a summary of what the user is buying, and fields to enter credit card information.
+    - All the validation and messages to the user on this page are handled by stripe.
+    - On clicking the "Pay" button and on successful completion of payment.
+    - On the end a confirmation email is send to customer, thanking for shopping.
+
+  
