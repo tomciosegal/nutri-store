@@ -162,6 +162,7 @@ to build formula.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-tablet.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
+<br/>
 
 - In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
     the navigation bar changes to dropdown toggle with categories to choose from.
@@ -431,5 +432,34 @@ mobile and tablet same same feature provided.
     - All the validation and messages to the user on this page are handled by stripe.
     - On clicking the "Pay" button and on successful completion of payment.
     - On the end a confirmation email is send to customer, thanking for shopping.
+    
+### Features for Future Releases
+
+- Live Chat
+    - This feature would allow user to have a direct chat to the member of staff that could direct or give 
+     a proper advise what items should be suitble for buyer.
+- Sending an email to customer when their new order has been placed.
+    - Seems like in order to implement it requires changing settings in my private gmail account to less secure ones.    
+- Build staff pages to view all order and keep record of actual sale by seller.
+    - Giving staff the ability to upsell and that could increase sale
+    - Ability to print out reports of sale by seler so they could participae in upselling contest
+    - Update order as  "we have recived your payment" after "pending" then  "ready for dispach"  and finnaly "shipped"  so that the customer is updated with this information until reciving products.
+    - Integration with with delivery company while package is in transit.
+    
+- Coupons and discount codes.
+    - Checkout pages to include a field for customers to enter discount codes or coupons to adjust their final payment cost.
+
+- Additional payment methods.**
+    - The current free version of Stripe checkout only allows for customers to pay via credit card, paypal google pay to add on ass extra option.
+- Auto login when registering a new account
+
+- Ability to build combo buys with items selected by seller
+
+- Option to buy a gift vouchers
+
+- A feature that would allow to push customer to buy more by giving an extra sugesstion like "recomended to buy option", suggesting to a customer another extra items to buy in order to get best results
+
+
+    
 
   
