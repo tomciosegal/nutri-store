@@ -141,7 +141,8 @@ to build formula.
     - When user logs in a cart will remain with items picked as anonymous user.
 
     - When user logs out and will log back in again a cart also will remain will items selected in session.
-
+    
+***
 
 #### Navbar:
 
