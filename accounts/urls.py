@@ -11,6 +11,7 @@ from accounts.views import (
     subscribe_mail
 )
 from django.conf.urls import include, url
+from django.urls import path
 
 urlpatterns = [
     url(r"^logout/", logout, name="logout"),
@@ -22,5 +23,5 @@ urlpatterns = [
     url(r"^about/", about, name="about"),
     url(r"delivery/", delivery, name="delivery"),
     url(r"return-policy/", return_policy, name="return-policy"),
-    url(r"(?P<user_id>[0-9]+)/subscribe", subscribe_mail, name="subscribe_mail")
+    path("<str:mail>/subscribe", subscribe_mail, name="subscribe_mail")
 ]
