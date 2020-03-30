@@ -407,14 +407,13 @@ mobile and tablet same same feature provided.
     2. **Shipping**
 
     <div align="center">
-    <img src="    https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/credit-cards.jpg" alt="TheNutristore shipping-page" aria-label="Nutristore" />
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/shipping-page.jpg" alt="TheNutristore shipping-page" aria-label="Nutristore" />
     </div>
 
     <br/>
 
-    ***
-    - Shipping details will be autopopulated if user filled form in profile,if not after that step all the user details will be saved in profile 
-        and in future shopping it will be filled automatically for customer.        
+        - Shipping details will be autopopulated if user filled form in profile,if not after that step all the user details will be saved in profile 
+           and in future shopping it will be filled automatically for customer.        
         - As a shipping method is automatically selected, user need to add shipping to the total amount, if 
           total is 60 Euro or more shipping will be free, and this will be stated in the column.
         - Shipping page does not contain footer nor header to make user focus on buying procces rather then give some extra thoughts or distractions.
@@ -425,12 +424,6 @@ mobile and tablet same same feature provided.
     ***
 
     3. **Payment**
-
-    <br/>
-
-    <div align="center">
-    <img src="    https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/credit-cards.jpg" alt="TheNutristore credit-cards" aria-label="Nutristore" />
-    </div>
 
     <br/>
 

@@ -117,3 +117,6 @@ def order_history(request):
         order_items = OrderItem.objects.filter(order_history=order)
         orders_with_items.append({"order": order, "items": order_items})
     return render(request, "order_history.html", {"orders": orders_with_items})
+
+def order_confirmation(request):
+    return render(request, "order-confirmation.html")
