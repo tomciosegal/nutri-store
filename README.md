@@ -141,7 +141,7 @@ to build formula.
     - When user logs in a cart will remain with items picked as anonymous user.
 
     - When user logs out and will log back in again a cart also will remain will items selected in session.
-    
+
 ***
 
 #### Navbar:
@@ -170,7 +170,9 @@ to build formula.
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
 </div>
 
+***
 
+<br/>>
 
 #### Footer
 
@@ -197,6 +199,8 @@ to build formula.
 - In the mobile view footer aligns all features one under another one.
 
 <br/>
+
+***
 
 ### Home Page
 
@@ -232,6 +236,7 @@ to build formula.
 mobile and tablet same same feature provided.
 
 - Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+***
 <br/>
 
 
@@ -249,12 +254,12 @@ mobile and tablet same same feature provided.
 - From this point customer can either add desired item to basket go back shopping or  do checkout if any items in cart. 
 <br/>
 
-
+***
 ### About page
 
 - The about page features a The Nutristore logo and a informations that will bring a customer closer to a process of
   manufactiuring and ingredients used and chemical free produce.
-
+***
 <br/>
 
 
@@ -272,7 +277,7 @@ mobile and tablet same same feature provided.
 - Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
 - If the user is logged in then their email address will already be populated in the email field.
 - When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
-
+***
 <br/>
 
 
@@ -290,7 +295,7 @@ mobile and tablet same same feature provided.
 - Information about what characters are accepted by these fields is displayed with the form.
 - If a user who is already logged in tries to access this page, they are redirected to the home page.
 
-
+***
 <br/>
 
 
@@ -306,7 +311,7 @@ mobile and tablet same same feature provided.
 - Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
 
 <br/>
-
+***
 
 ### Profile Page
 <br/>
@@ -329,14 +334,14 @@ mobile and tablet same same feature provided.
     This changes will be visible with the next checkout process as input will be autopopulated.
 
 - **My Orders**, where a user can see a summary of all their previous orders and all orders are populated by date for easier search. 
-
+***
 <br/>
 
 ### Log out page
 - Any user who clicks on "Log out" from the navigation bar is automatically logged out and their session data cleared. 
   The message on top page will inform the user whataction was made. After loging back in the users cart will still remain
   with all items prevoiusly selected to buy.
-
+***
 <br/>
 
 ### Cart page
