@@ -261,27 +261,17 @@
 						
 						<br/>
 						
-						<h4>Your Order <small>{{ date | date: "%d/%m/%Y" }}</small></h4>
+						<h4>Your Order</h4>
 						<p>Thank you for placing your order with {{ shop_name }}. This email is to confirm your order has been placed successfully, and will be processed & shipped to you soon.</p>
 							
 						<br/>
 
-						<!-- Line Items -->
-						{% for line in line_items %}
-						<div class="products">
-							<img src="{{ line.product.featured_image | product_img_url: 'small' }}" />
-							<span> {{ line.quantity }}x {{ line.title }} / {{ line.price | money }}</span>
-						</div>
-						<hr>
-						<div style="clear:both;"></div>
-						{% endfor %}
-						<!-- /Line Items -->
-						
+											
 						<br/>
 						<br/>
 						
 						<!-- Totals -->
-						<h5><b>Subtotal:</b> {{ subtotal_price | money_with_currency }}</h5>
+						<h5><b>Subtotal:</b> 100</h5>
 						
 						<!-- Totals -->
 						<table class="columns" width="100%">
@@ -293,7 +283,7 @@
 										<table align="left" class="column">
 											<tr>
 												<td>
-													<p><b>Shipping:</b> {{ shipping_price | money_with_currency }}</p>
+													<p><b>Shipping:</b></p>
 												</td>
 											</tr>
 										</table>
@@ -306,7 +296,7 @@
 										<table align="left" class="column">
 											<tr>
 												<td>
-													<p><b>Discounts:</b> {{ discounts_savings | money_with_currency }}</p>
+													<p><b>Discounts:</b> </p>
 												</td>
 											</tr>
 										</table>
@@ -322,13 +312,13 @@
 						<!-- /Totals -->
 						
 						{% for tax_line in tax_lines %}
-							<p><b>{{ tax_line.title }}:</b> {{ tax_line.price | money_with_currency }}</p>
+							<p><b></b> </p>
 						{% endfor %}
 						
 						<br/>
 						<br/>
 						
-						<h4><b>Total: {{ total_price | money_with_currency }}</b></h4>
+						<h4><b>Total: </b></h4>
 						<!-- /Totals -->
 						
 						<br/>
@@ -339,7 +329,7 @@
 								<td>
 									{% if requires_shipping and shipping_address %}
 										<!--- column 1 -->
-										<table align="left" class="column">
+										<!-- <table align="left" class="column">
 											<tr>
 												<td>				
 													<h5 class="">Shipping address</h5>
@@ -353,13 +343,13 @@
 													</p>
 												</td>
 											</tr>
-										</table>
+										</table> -->
 									<!-- /column 1 -->
 									{% endif %}
 									
 									{% if billing_address %}
 										<!--- column 2 -->
-										<table align="left" class="column">
+										<!-- <table align="left" class="column">
 											<tr>
 												<td>											
 													<h5 class="">Billing address</h5>								
@@ -373,7 +363,7 @@
 	                								</p>
 												</td>
 											</tr>
-										</table>
+										</table> -->
 										<!-- /column 2 -->
 									{% endif %}
 									
@@ -387,7 +377,7 @@
 						<br/>
 						
 						<p style="text-align:center;">
-							<a class="btn" href="{{ shop.url }}/account">Log in to view your order &raquo;</a>
+							<a class="btn" href="">Log in to view your order &raquo;</a>
 						</p>
 						
 						<br/>
@@ -416,11 +406,10 @@
 				<table>
 				<tr>
 					<td align="center">
-						<p>Thank you for shopping at <a href="{{ shop.url }}" style="color:#111111;">{{ shop.name }}</a>!</p>
-						<a href="{{ shop.url }}" title="{{ shop_name }}"><img src="{{ 'logo.png' }}" style="width:40px;height:auto;" alt="{{ shop_name }}" /></a>
+						<p>Thank you for shopping at Nutristore</a>!</p>
+						<a href="" title=""> alt="" /></a>
 						<br/><br/>
-						<p><strong><a href="{{ shop.email }}" style="color:#111111;">{{ shop.email }}</a></strong></p>
-						<p><small>© {{ shop.name }}</small></p>
+						
 					</td>
 				</tr>
 			</table>
