@@ -129,3 +129,9 @@ def delivery(request):
 
 def return_policy(request):
     return render(request, "return-policy.html")
+
+def subscribe_mail(request, mail):
+    return redirect(reverse("index", kwargs={"messages": ['Thank you for you subscribtion']}))
+    
+
+

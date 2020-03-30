@@ -8,6 +8,7 @@ from accounts.views import (
     registration,
     return_policy,
     user_profile,
+    subscribe_mail
 )
 from django.conf.urls import include, url
 
@@ -21,4 +22,5 @@ urlpatterns = [
     url(r"^about/", about, name="about"),
     url(r"delivery/", delivery, name="delivery"),
     url(r"return-policy/", return_policy, name="return-policy"),
+    url(r"(?P<user_id>[0-9]+)/subscribe", subscribe_mail, name="subscribe_mail")
 ]
