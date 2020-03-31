@@ -466,13 +466,13 @@ mobile and tablet same same feature provided.
 - As a framework Django works with SQL databases. During development on my local machine I worked with the standard **sqlite3** database installed with Django.
 - On deployment, the SQL database provided by Heroku is a **PostgreSQL** database. 
 
-### Data Models
+## Data Models
 
-#### User
+### User
 
 The User model utilized for this project is the standard one provided by `django.contrib.auth.models`
 
-#### Products app model
+### Products app model
 
 Within the `products` app, the **Product** model holds all the data needed for the products in the shop.
 
@@ -487,13 +487,10 @@ Product name | name | max_length=255 | CharField
 Product info | description | ---- | TextField
 Price | price | max_digits=6, decimal_places=2, default=1 | DecimalField
 Image | image | blank=True, null=True | ImageField
-Description | description |  | TextField
+Description | description | ---- | TextField
 Price | price | max_digits=6, decimal_places=2 | DecimalField
 Currency | currency | max_length=3, default="EUR | CharField
-Category | category | blank=True,
-        null=True,
-        on_delete=models.CASCADE | ForeignKey(
-        "products.ProductCategory"
+Category | category | blank=True,null=True, on_delete=models.CASCADE | ForeignKey("products.ProductCategory")
 Quantity | quantity | ---- | IntegerField
 
 <br/>
@@ -501,15 +498,17 @@ Quantity | quantity | ---- | IntegerField
 **ProductCategory**
 | Name | Key in db | Validation | Field Type |
 --- | --- | --- | ---
-id | id | primary_key=True | AutoField
-name | name | max_length=255 | CharField
+Id | id | primary_key=True | AutoField
+Name | name | max_length=255 | CharField
 
 <br/>
 
 - The Product model uses Pillow to store all image files in an AWS S3 bucket.
 
-#### Cart app models
+### Cart app models
  
+ <br/>
+
  **Cart(TimestampedModel)**
 
 | Name | Key in db | Validation | Field Type |
@@ -528,7 +527,7 @@ Quantity | quantity | ---- | IntegerField
 
 <br/>
 
-#### Accounts app model
+### Accounts app model
 
 <br/>
 
@@ -547,7 +546,7 @@ Date ordered | date_ordered | default=datetime.date.today | DateField
 County | county | max_length=20 | CharField
 
 
-#### Checkout app models
+### Checkout app models
 
 <br/>
 
@@ -574,6 +573,67 @@ Quantity| quantity | ----- | IntegerField
 <br/>
 
 - this model holds the user order history item form admin panel
+
+# Technologies Used
+
+### Tools
+- [Gitpod](https://gitpod.io/) is the IDE used for developing this project. 
+- [Django](https://www.djangoproject.com/) as python web framework for rapid development and clean design.
+- [Stripe](https://stripe.com) as payment platform to validate and accept credit card payments securely.
+- [Travis](https://travis-ci.org/) for continuous integration.
+- [AWS S3 Bucket](https://aws.amazon.com/) to store images entered into the database.
+- [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) to enable creation, configuration and management of AWS S3.
+- [Coverage](https://coverage.readthedocs.io/en/v4.5.x/) to measure code coverage of python unittests.
+- [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) to style django forms.
+- [Django Heroku](https://pypi.org/project/django-heroku/) to improve deployment of django projects on heroku.
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/) a collection of custom storage backends with django to work with boto3 and AWS S3.
+- [Gunicorn](https://pypi.org/project/gunicorn/) WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
+- [Pillow](https://pillow.readthedocs.io/en/stable/) as python imaging library to aid in processing image files to store in database.
+- [Psycopg2](https://pypi.org/project/psycopg2/) as PostgreSQL database adapter for Python.
+- [Whitenoise](http://whitenoise.evans.io/en/stable/) to allows the web app to serve its own static files.
+- [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
+- [GitHub](https://github.com/) to store and share all project code remotely. 
+- [Heroku] (https://www.heroku.com/) for deployment
+
+
+### Databases
+- [PostgreSQL](https://www.postgresql.org/) for production database, provided by heroku.
+- [SQlite3](https://www.sqlite.org/index.html) for development database, provided by django.
+
+### Libraries
+- [JQuery](https://jquery.com) to simplify DOM manipulation.
+- [Bootstrap](https://www.bootstrapcdn.com/) to simplify the structure of the website and make the website responsive easily.
+- [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) to provide icons for The House of Mouse webshop.
+- [Google Fonts](https://fonts.google.com/) to style the website fonts.
+
+### Languages
+- This project uses HTML, CSS, JavaScript and Python programming languages.
+
+# Testing 
+
+- Testing information can be found in every app in the folder "tests", where they seperated in to:
+    - tests_view
+    - tests_models
+    - plus one test_unit in checkout app
+
+- To run test simply write in CLI this commands:
+    - to run test in all apps write
+        - python3 manage.py test
+    - to run test in desired app write command in CLI:
+        - coverage run --source=name of app manage.py test
+    - to check coverage write this commandin CLI:
+        - covearge report
+    - to check what tests are missing and display it in html view write command in CLI:
+        - coverage html
+        you need to open index.html which you will find in htmlcov file that will be auto created after installing coverage 
+        in to your IDE. in that file you will be able to see what tests are missing in html view.
+
+- MOST IMPORTANT: in order to run coverage tests you need to install coverage.
+    - In order to install coverage write in CLI this command:
+        - pip3 install covearge
+            - this will generate htmlcov file in your IDE. 
+
+
 
     
 

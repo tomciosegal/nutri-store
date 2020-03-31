@@ -54,3 +54,7 @@ class TestView(TestCase):
             )
             self.assertEqual(page.status_code, 302)
             self.assertEqual(self.client.session['cart'], dict())
+
+    def test_order_confirmation(self):
+        page = self.client.get("/checkout/order_confirmation/")
+        self.assertEqual(page.status_code, 200)
