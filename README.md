@@ -445,6 +445,7 @@ mobile and tablet same same feature provided.
     - Ability to print out reports of sale by seler so they could participae in upselling contest
     - Update order as  "we have recived your payment" after "pending" then  "ready for dispach"  and finnaly "shipped"  so that the customer is updated with this information until reciving products.
     - Integration with with delivery company while package is in transit.
+    - "Call you back" in a minute button. Where user can request a call back for more info or to talk about product. Option only for registered customers only.
     
 - Coupons and discount codes.
     - Checkout pages to include a field for customers to enter discount codes or coupons to adjust their final payment cost.
@@ -635,6 +636,26 @@ Quantity| quantity | ----- | IntegerField
         - pip3 install covearge
             - this will generate htmlcov file in your IDE. 
 
+## Code Validation
+
+- I used the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
+    - The W3C Validator tool doesn't recognise the Jinja templating, which has resulted in it showing a lot of errors in relation to the Jinja code. However, all other code is validating fine.
+- I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
+- I used the [Pep8 Online tool](http://pep8online.com/) to validate my Python syntax.
+- I used CLI to sort all my imports by using command  "isort -rc ."
+- I used CLI to make sure line length is not going above 79 in one line by using command  "black --line-length=79"
+- I used CLI to check all the errors in the code by using command  "flake8"
+- I also removed some of the remaining errors manually
+
+## Manual Testing
+
+- I used Google Chrome's Development tools to constantly test each change that I<br/> 
+made to my project and to ensure that it appeared in the desired way on different screen sizes. <br/>
+- I also tested my app on different screen sizes (mobile, tablet and desktop) to ensure <br/>
+it appeared in the desired way on different devices.
+- [Am I Responsive](http://ami.responsivedesign.is/#) - developer tried to use this website to check responsivnes,
+however Django has build in protection that does not allow to do it.
+
 # Deployment
 
 ## How to run this project locally
@@ -702,7 +723,7 @@ Please click the links above for documentation on how to set these up and retrie
 
     - If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
     
-    HOSTNAME="<enter key here>"
+    HOSTNAME="enter key here. in gitpod LOCALHOST"
     
     - HOSTNAME should be the local address for the site when running within your own IDE.
     - DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
@@ -772,6 +793,75 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 10. Once the build is complete, click the "View app" button provided.
 
 11. From the link provided add `/admin` to the end of the url, log in with your superuser account.
+
+# Credits
+
+## Content
+- Terms and conditions template provided by [Shopify](https://en.shopify.nl/tools/policy-generator/terms-and-conditions)
+
+-  Inspiration was taken from fallowing websites:
+    - [Organic Muscle](https://www.organicmuscle.com/)
+    - [Bulk Powders](https://www.bulkpowders.ie/)
+    - [Global Healing](https://globalhealing.com/natural-health/organic-supplements/)
+    - [Shopify](https://en.shopify.nl/tools/policy-generator/terms-and-conditions)
+    
+
+- Text to about page was taken from [Organic Muscle](https://www.organicmuscle.com/)
+
+### Images
+- All product photography was taken from [Bulk Powders](https://www.bulkpowders.ie/).
+
+## Text verification
+
+- To check and verify entire vocabulary in Readme.md file developer used  [Spell Checker](https://www.reverso.net/spell-checker/english-spelling-grammar/)  
+
+## Acknowledgements
+
+- I received inspiration for the style of my project from [Bulk Powders](https://www.bulkpowders.ie/)
+- Thanks to everybody on SLACK that help me when I was stuck and needed assistance. Thanks Tutors aswell. They help me to debug my Python code.
+- And finally thanks to my wife who gave me precious time so I can work on my project, she is biggest support I can imagine.
+
+### Disclaimer
+
+This project is for educational purposes only.
+
+- Special thanks to my mentor [Ignatius Ukwuoma](https://github.com/ignatiusukwuoma) for his time, expertise and friendship through my entire journey through the CodeInstitute full stack web development course
+Thank to his incredible knowledge and patience that helped me get so far.
+
+
+- Many thanks  [Simen Daehlin alias Joda](https://github.com/Eventyret) for his time to give an extra review to my last project as his remarks are
+more then profetional, well know and lot appreciated in our Code Institute environment.
+
+<br/>
+
+ <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/master-yoda.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+    </div>
+
+<br/>
+
+- With thanks also to my many coding tutors and slack friend for having patience with my question and issues thruout entire course, who have tested, helped troubleshoot and debug:
+    - Sean
+    - Tim
+    - Micheal
+    - Xavier
+    - Cormac
+    - Haley
+    - Stephen
+    - Anna 
+    - Niel
+    - Samantha
+
+<br/>
+
+# And finally thanks to my wife who gave me precious time so I can work on my projects, she is biggest support I can imagine.
+
+
+# Contact
+
+To contact me feel free to email
+
+ `tomaszcygal (at) yahoo (dot) com`
 
 
 
