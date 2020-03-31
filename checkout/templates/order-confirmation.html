@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width" /><!-- IMPORTANT -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -253,7 +255,7 @@
 				<tr>
 					<td>
 						<br/>
-						<h3>Thanks{% if billing_address.name %}, {{ billing_address.name }}{% endif %}</h3>
+						<h3>Thanks{{ user.username }}</h3>
 						
 						<!-- You may like to include a Hero Image -->
 						<p><img src="http://placekitten.com/g/600/300" alt="" /></p>
@@ -262,7 +264,8 @@
 						<br/>
 						
 						<h4>Your Order</h4>
-						<p>Thank you for placing your order with {{ shop_name }}. This email is to confirm your order has been placed successfully, and will be processed & shipped to you soon.</p>
+						<p>Thank you for placing your order with The Nutristore. This email is to confirm your order has been placed successfully, 
+                        and will be processed & shipped to you soon.</p>
 							
 						<br/>
 
@@ -271,55 +274,29 @@
 						<br/>
 						
 						<!-- Totals -->
-						<h5><b>Subtotal:</b> 100</h5>
+						<h5><b>{{total}}</b></h5>
 						
 						<!-- Totals -->
 						<table class="columns" width="100%">
 							<tr>
 								<td>
 									
-									{% if requires_shipping %}
+									
 										<!--- column 1 -->
 										<table align="left" class="column">
 											<tr>
 												<td>
-													<p><b>Shipping:</b></p>
+													<p><b>Shipping:{% if total > 50 %} free {% else %} 4.99{% endif %}</b></p>
 												</td>
 											</tr>
 										</table>
 										<!-- /column 1 -->
-									{% endif %}
-									
-									<!-- Discounts -->
-									{% if discounts %}
-										<!--- column 2 -->
-										<table align="left" class="column">
-											<tr>
-												<td>
-													<p><b>Discounts:</b> </p>
-												</td>
-											</tr>
-										</table>
-										<!-- /column 2 -->
-									{% endif %}
-									<!-- /Discounts -->
 									
 									<span class="clear"></span>	
 									
 								</td>
 							</tr>
 						</table>
-						<!-- /Totals -->
-						
-						{% for tax_line in tax_lines %}
-							<p><b></b> </p>
-						{% endfor %}
-						
-						<br/>
-						<br/>
-						
-						<h4><b>Total: </b></h4>
-						<!-- /Totals -->
 						
 						<br/>
 
@@ -329,43 +306,22 @@
 								<td>
 									{% if requires_shipping and shipping_address %}
 										<!--- column 1 -->
-										<!-- <table align="left" class="column">
+										<table align="left" class="column">
 											<tr>
 												<td>				
 													<h5 class="">Shipping address</h5>
 													<p class="">
-														{{ shipping_address.name }}<br/>
-														{{ shipping_address.street }}<br/>
-														{{ shipping_address.city }}<br/>
-														{{ shipping_address.province }}
-														{{ shipping_address.zip }}<br/>
-														{{ shipping_address.country }}</p>
+														{{ customer.full_name }}<br/>
+														{{ customer.street_address1 }}<br/>
+														{{ customer.street_address2 }}<br/>
+														{{ customer.postcode }}
+														{{ customer.town_city }}<br/>
+														{{ customer.county }}</p>
 													</p>
 												</td>
 											</tr>
 										</table> -->
-									<!-- /column 1 -->
-									{% endif %}
-									
-									{% if billing_address %}
-										<!--- column 2 -->
-										<!-- <table align="left" class="column">
-											<tr>
-												<td>											
-													<h5 class="">Billing address</h5>								
-													<p class="">
-														{{ billing_address.name }}<br/>
-														{{ billing_address.street }}<br/>
-														{{ billing_address.city }}<br/>
-														{{ billing_address.province }}
-														{{ billing_address.zip }}<br/>
-														{{ billing_address.country }}</p>
-	                								</p>
-												</td>
-											</tr>
-										</table> -->
-										<!-- /column 2 -->
-									{% endif %}
+                                    {% endif %}
 									
 									<span class="clear"></span>	
 									
@@ -373,17 +329,6 @@
 							</tr>
 						</table>
 						<!-- /address details -->
-						
-						<br/>
-						
-						<p style="text-align:center;">
-							<a class="btn" href="">Log in to view your order &raquo;</a>
-						</p>
-						
-						<br/>
-						
-						<p><small>If you can't get the button to work, paste this link into your browser: {{ shop.url }}/account</small></p>
-					
 					</td>
 				</tr>
 			</table>
@@ -406,8 +351,8 @@
 				<table>
 				<tr>
 					<td align="center">
-						<p>Thank you for shopping at Nutristore</a>!</p>
-						<a href="" title=""> alt="" /></a>
+						<p>Thank you for shopping at Nutristore</p>
+						<a href="https://nutristore-cygal.herokuapp.com/" title="Nutristore"> Nutristore</a>
 						<br/><br/>
 						
 					</td>

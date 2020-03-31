@@ -50,7 +50,7 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                send_checkout_mail(request.user, request.session["cart"])
+                send_checkout_mail(request)
                 create_order_history(request.user, request.session)
                 clear_cart(request.user)
                 messages.error(request, "You have successfully paid")
