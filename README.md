@@ -641,7 +641,7 @@ Quantity| quantity | ----- | IntegerField
 - [Pillow](https://pillow.readthedocs.io/en/stable/) as python imaging library to aid in processing image files to store in database.
 - [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
 - [GitHub](https://github.com/) to store and share all project code remotely. 
-- [Heroku] (https://www.heroku.com/) for deployment
+- [Heroku](https://www.heroku.com/) for deployment
 
 
 ### Databases
@@ -657,8 +657,6 @@ Quantity| quantity | ----- | IntegerField
 - [Stripe](https://stripe.com) as payment platform to validate and accept credit card payments securely.
 - [Psycopg2](https://pypi.org/project/psycopg2/) as PostgreSQL database adapter for Python.
 - [Gunicorn](https://pypi.org/project/gunicorn/) WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
-
-
 
 
 
@@ -737,15 +735,9 @@ To allow you to access all functionality on the site locally, ensure you have cr
 Please click the links above for documentation on how to set these up and retrieve the necessary environment variables.
 
 ### Instructions
-1. Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
-   
-   <br/>
-
-     <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/github-download.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
-    </div>
-
-<br/>
+1. Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
+at the top of the page and extracting the zip file to your chosen folder. 
+If you have Git installed on your system, you can clone the repository with the following command.
    
 2. Open your preferred IDE, open a terminal session in the unzip folder or cd to the correct location.
 
