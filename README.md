@@ -698,12 +698,12 @@ Please click the links above for documentation on how to set these up and retrie
     <br/>
 
 
-    - If using an IDE that includes a `bashrc` file, open this file and enter all the environment variables listed above using the following format: 
+    - If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
     
     HOSTNAME="<enter key here>"
     
-    - `HOSTNAME` should be the local address for the site when running within your own IDE.
-    - `DEV` environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
+    - HOSTNAME should be the local address for the site when running within your own IDE.
+    - DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
         to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
         the deployed site.
 
