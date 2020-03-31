@@ -1,5 +1,66 @@
 [![Build Status](https://travis-ci.org/tomciosegal/nutri-store.svg?branch=master)](https://travis-ci.org/tomciosegal/nutri-store)
 
+## Table of Contents
+1. [UX](#ux)
+    - [Goals](#goals)
+        - [Visitor Goals](#visitor-goals)
+        - [Business Goals](#business-goals)
+    - [User Stories](#user-stories)
+    - [Design Choices](#design-choices)
+    - [Wireframes](#wireframes)
+
+2. [Features](#features)
+    - [Existing Features](#existing-features)
+        - [Header](#header)
+        - [Navbar](#navbar)
+        - [Footer](#footer)
+        - [Home Page](#home-page)
+        - [Product Details Page](#product-details-page)
+        - [About Page](#about-page)
+        - [Contact Page](#contact-page)
+        - [Register Page](#register-page)
+        - [Login Page](#login-page)
+        - [Profile Page](#profile-page)
+        - [Checkout](#checkout)
+            - [Cart Page](#cart-page)
+            - [Shipping Page](#shipping-page)
+            - [PaymentPage](#paymentt-page)
+    - [Features for Future Releases](#features-for-future-releases)
+
+3. [Information Architecture](#information-architecture)
+    - [Database choice](#database-choice)
+    - [Data Models](#data-models)
+        - [User](#user)
+        - [Products App Model](#products-app-model)
+        - [Cart App Models](#cart-app-models)
+        - [Accounts App Models](#accounts-app-models)
+        - [Checkout app models](#checkout-app-models)
+
+4. [Technologies Used](#technologies-used)
+    - [Tools](#tools)
+    - [Databases](#databases)
+    - [Libraries](#libraries)
+    - [Languages](#languages)
+
+5. [Testing](#testing)
+    - [Code Validation](#code-validation) 
+    - [Manual Testing](#manual-testing)
+
+6. [Deployment](#deployment)
+    - [How to run this project locally](#how-to-run-this-project-locally)
+    - [Heroku Deployment](#heroku-deployment)
+
+7. [Credits](#credits)
+    - [Content](#content)
+    - [Images](#images)
+    - [Code](#code)
+    - [Acknowledgements](#acknowledgements)
+    - [Disclaimer](#disclaimer)
+8. [Contact](#contact)
+
+***
+
+<br/>
 ## Overview
 [The Nutristore](https://nutristore-cygal.herokuapp.com/) was built and deployed by Tomasz Cygal as his final project for 
 the [Code Institute Full Stack Web Development Diploma](https://codeinstitute.net/). The project has been developed using [Django](https://www.djangoproject.com/), with the goal of 
@@ -797,7 +858,7 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 # Credits
 
 ## Content
-- Terms and conditions template provided by [Shopify](https://en.shopify.nl/tools/policy-generator/terms-and-conditions)
+- Order Confirmation [Shopify](https://github.com/Cam/Shopify-HTML-Email-Templates/blob/master/Order%20Confirmation.html)
 
 -  Inspiration was taken from fallowing websites:
     - [Organic Muscle](https://www.organicmuscle.com/)
@@ -808,7 +869,7 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 
 - Text to about page was taken from [Organic Muscle](https://www.organicmuscle.com/)
 
-### Images
+## Images
 - All product photography was taken from [Bulk Powders](https://www.bulkpowders.ie/).
 
 ## Text verification
@@ -819,17 +880,25 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 
 - I received inspiration for the style of my project from [Bulk Powders](https://www.bulkpowders.ie/)
 - Thanks to everybody on SLACK that help me when I was stuck and needed assistance. Thanks Tutors aswell. They help me to debug my Python code.
-- And finally thanks to my wife who gave me precious time so I can work on my project, she is biggest support I can imagine.
 
-### Disclaimer
+
+## Disclaimer
 
 This project is for educational purposes only.
 
 - Special thanks to my mentor [Ignatius Ukwuoma](https://github.com/ignatiusukwuoma) for his time, expertise and friendship through my entire journey through the CodeInstitute full stack web development course
 Thank to his incredible knowledge and patience that helped me get so far.
 
+<br/>
 
-- Many thanks  [Simen Daehlin alias Joda](https://github.com/Eventyret) for his time to give an extra review to my last project as his remarks are
+ <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/mentor-ci.jpg" alt="TheNutristore master-yoda" aria-label="Nutristore" />
+    </div>
+
+<br/>
+
+
+- Many thanks  [Simen Daehlin alias Yoda](https://github.com/Eventyret) for his time to give an extra review to my last project as his remarks are
 more then profetional, well know and lot appreciated in our Code Institute environment.
 
 <br/>
@@ -841,7 +910,6 @@ more then profetional, well know and lot appreciated in our Code Institute envir
 <br/>
 
 - With thanks also to my many coding tutors and slack friend for having patience with my question and issues thruout entire course, who have tested, helped troubleshoot and debug:
-    - Sean
     - Tim
     - Micheal
     - Xavier
@@ -850,7 +918,9 @@ more then profetional, well know and lot appreciated in our Code Institute envir
     - Stephen
     - Anna 
     - Niel
-    - Samantha
+    - Sammy
+    - Scott
+    - 
 
 <br/>
 
