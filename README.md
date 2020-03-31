@@ -590,7 +590,6 @@ Quantity| quantity | ----- | IntegerField
 - [Gunicorn](https://pypi.org/project/gunicorn/) WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
 - [Pillow](https://pillow.readthedocs.io/en/stable/) as python imaging library to aid in processing image files to store in database.
 - [Psycopg2](https://pypi.org/project/psycopg2/) as PostgreSQL database adapter for Python.
-- [Whitenoise](http://whitenoise.evans.io/en/stable/) to allows the web app to serve its own static files.
 - [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
 - [GitHub](https://github.com/) to store and share all project code remotely. 
 - [Heroku] (https://www.heroku.com/) for deployment
@@ -617,7 +616,7 @@ Quantity| quantity | ----- | IntegerField
     - plus one test_unit in checkout app
 
 - To run test simply write in CLI this commands:
-    - to run test in all apps write
+    - to run test in all apps write in CLI:
         - python3 manage.py test
     - to run test in desired app write command in CLI:
         - coverage run --source=name of app manage.py test
@@ -625,6 +624,9 @@ Quantity| quantity | ----- | IntegerField
         - covearge report
     - to check what tests are missing and display it in html view write command in CLI:
         - coverage html
+        
+        <br/>
+
         you need to open index.html which you will find in htmlcov file that will be auto created after installing coverage 
         in to your IDE. in that file you will be able to see what tests are missing in html view.
 
@@ -632,6 +634,143 @@ Quantity| quantity | ----- | IntegerField
     - In order to install coverage write in CLI this command:
         - pip3 install covearge
             - this will generate htmlcov file in your IDE. 
+
+# Deployment
+
+## How to run this project locally
+
+To run this project on your own IDE follow the instructions below:
+
+Ensure you have the following tools: 
+    - An IDE such as [Gitpod](https://gitpod.io/)
+
+The following **must be installed** on your machine:
+    - [PIP](https://pip.pypa.io/en/stable/installing/)
+    - [Python 3](https://www.python.org/downloads/)
+    
+To allow you to access all functionality on the site locally, ensure you have created free accounts with the following services:
+    - [Stripe](https://dashboard.stripe.com/register)
+    - [AWS](https://aws.amazon.com/) and [set up an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
+    - [emailjs](https://www.emailjs.com/)
+
+Please click the links above for documentation on how to set these up and retrieve the necessary environment variables.
+
+### Instructions
+1. Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
+   
+   <br/>
+
+     <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/github-download.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+    </div>
+
+<br/>
+   
+2. Open your preferred IDE, open a terminal session in the unzip folder or cd to the correct location.
+
+3. A virtual environment is recommended for the Python interpreter, I recommend using Pythons built in virtual environment. 
+
+4. Activate the .venv with the command:
+    ```
+    .venv\Scripts\activate 
+    ```
+5. If needed, Upgrade pip locally with
+    ```
+    pip install --upgrade pip.
+    ```
+
+6. Install all required modules with the command 
+    ```
+    pip -r requirements.txt.
+    ```
+
+7. Set up the following environment variables within your IDE. 
+
+    - In gitpod create env.py in file main directory, where you will keep all variables. In the file you need to import os.
+    In order to do it write in first line: import os
+  
+  <br/>
+
+    <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/env.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+    </div>
+    
+    <br/>
+
+
+    - If using an IDE that includes a `bashrc` file, open this file and enter all the environment variables listed above using the following format: 
+    ```
+    HOSTNAME="<enter key here>"
+    ```
+    - `HOSTNAME` should be the local address for the site when running within your own IDE.
+    - `DEV` environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
+        to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
+        the deployed site.
+
+8. Migrate the admin panel models to create your database template with the terminal command
+    ```
+    python manage.py migrate
+    ```
+
+9. Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
+    ```
+    python manage.py createsuperuser
+    ```
+
+10. You can now run the program locally with the following command: 
+    ```
+    python manage.py runserver
+    ```
+
+11. Once the program is running, go to the local link provided and add `/admin` to the end of the url. 
+
+
+
+## Heroku Deployment
+
+To deploy The Nutristore webshop to heroku, take the following steps:
+
+1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
+
+2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
+
+3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+
+3. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. 
+    Give it a name and set the region to whichever is applicable for your location.
+
+4. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
+   For your convinience is recomended to set in heroku an autodeploy from github. This way every time you do push to github
+   heroku will read changes and built up an app with latest push.
+
+5. Confirm the linking of the heroku app to the correct GitHub repository.
+
+6. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+
+7. Set the following config vars:
+
+    <br/>
+
+    <div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/config-vars.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+    </div>
+
+    <br/>
+
+
+8. From the command line of your local IDE:
+    - Enter the heroku postres shell 
+    - Migrate the database models 
+    - Create your superuser account in your new database
+    
+     Instructions on how to do these steps can be found in the [heroku devcenter documentation](https://devcenter.heroku.com/articles/heroku-postgresql).
+
+9. In your heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
+
+10. Once the build is complete, click the "View app" button provided.
+
+11. From the link provided add `/admin` to the end of the url, log in with your superuser account.
+
 
 
 
