@@ -686,16 +686,18 @@ Please click the links above for documentation on how to set these up and retrie
 
 7. Set up the following environment variables within your IDE. 
 
-    - In gitpod create env.py in file main directory, where you will keep all variables. In the file you need to import os.
-    In order to do it write in first line: import os
-  
-  <br/>
+      <br/>
 
     <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/env.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
     </div>
     
     <br/>
+
+    - In gitpod create env.py in file main directory, where you will keep all variables. In the file you need to import os.
+    In order to do it write in first line: import os
+  
+
 
 
     - If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
