@@ -835,7 +835,7 @@ more then profetional, well know and lot appreciated in our Code Institute envir
 <br/>
 
  <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/master-yoda.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/master-yoda.jpg" alt="TheNutristore master-yoda" aria-label="Nutristore" />
     </div>
 
 <br/>
