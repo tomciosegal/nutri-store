@@ -55,13 +55,14 @@
     - [Images](#images)
     - [Code](#code)
     - [Acknowledgements](#acknowledgements)
-    - [Disclaimer](#disclaimer)
+    
 8. [Contact](#contact)
 
 ***
 
 <br/>
-## Overview
+
+# Overview
 [The Nutristore](https://nutristore-cygal.herokuapp.com/) was built and deployed by Tomasz Cygal as his final project for 
 the [Code Institute Full Stack Web Development Diploma](https://codeinstitute.net/). The project has been developed using [Django](https://www.djangoproject.com/), with the goal of 
 fulfilling the requirements of the final, Full-Stack Milestone Project of the Code Institute Full-Stack Software Developer Course.
@@ -117,31 +118,31 @@ The Goals of The Nutristore business are:
 
 A Visitor to The Nutristore website  expects/wants/needs:
 
-1. The site to be easy to navigate from any device, desktop, tablet or phone. For the content to look good and be useable on all of these devices.
+1. As user I want The site to be easy to navigate from any device, desktop, tablet or phone. For the content to look good and be useable on all of these devices.
 
-1. The ability to search through small amounts of information to find what I need, and then be able to easily click to get more detailed information.
+1. As new visitor I want ability to search through small amounts of information to find what I need, and then be able to easily click to get more detailed information.
 
-1. Not to be confused by the layout or process of payment, and be able to easy find what i am looking for.
+1. As new customer I dont want to be confused by the layout or process of payment, and be able to easy find what i am looking for.
 
-1. The information presented on the site must be clear and easy to understand. they cannot cause misinformation
+1. I want the information presented on the site must be clear and easy to understand. they cannot cause misinformation
 
-1. To be able to subscribe for the newest products and promotions.
+1. As customer I expect be able to subscribe for the newest products and promotions.
 
-1. All information and photos must be arranged in a clear and eye-catching manner, regardless of the size of the screen I use
+1. As new user I expect information and photos must be arranged in a clear and eye-catching manner, regardless of the size of the screen I use
 
-1. In order to avoid unawareness of purchase, product information must be sufficiently clear to understand.
+1. In order to avoid unawareness of purchase, I want product information must be sufficiently clear to understand.
 
-1. A clear terms and conditions and privacy policy.
+1. As ne user i expect a clear terms and conditions and privacy policy.
 
 1. A text search function so that I can quickly narrow down my search when looking for something specific.
 
-1. To be able to see a summary of my order on every page of the checkout process.
+1. I need To be able to see a summary of my order on every page of the checkout process.
 
 1. When I am logged in I can access my account details and update them if I need to. 
 
-1. To be able to find information on my past orders. 
+1. I expect to be able to find information on my past orders. 
 
-1. To be able to easily get in contact with the shop owner via a contact form.
+1. I expect to be able to easily get in contact with the shop owner via a contact form.
 
 
 ## Design Choices
@@ -150,7 +151,7 @@ The Nutristore website has an overall Lab style, where viewer can feel cleannese
 to build formula.
 
 ### Fonts
-- The primary font 'Work Sans' was chosen for the main text of the site because of it clear readability.
+- The primary font [Work Sans](https://fonts.google.com/specimen/Work+Sans?selection.family=Roboto:wght@400;700&query=work) was chosen for the main text of the site because of it clear readability.
 
 ### Colours
 
@@ -159,7 +160,7 @@ to build formula.
 - light grey: #e3e1e1
 
 - The brand colours for this project were chosen to make to create the impression of a clean, sterile room where natural supplements are produced. thus, we want to ensure a potential customer about the purity of our product.
-- The grenn was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
+- The green was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
 
 ## Wireframes
 
@@ -474,12 +475,12 @@ mobile and tablet same same feature provided.
 
     <br/>
 
-        - Shipping details will be autopopulated if user filled form in profile,if not after that step all the user details will be saved in profile 
+    - Shipping details will be auto populated if user filled form in profile,if not after that step all the user details will be saved in profile 
            and in future shopping it will be filled automatically for customer.        
-        - As a shipping method is automatically selected, user need to add shipping to the total amount, if 
+    - As a shipping method is automatically selected, user need to add shipping to the total amount, if 
           total is 60 Euro or more shipping will be free, and this will be stated in the column.
-        - Shipping page does not contain footer nor header to make user focus on buying procces rather then give some extra thoughts or distractions.
-        - The "Continue to payment" button leads the user to the payment page hosted by Stripe.
+    - Shipping page does not contain footer nor header to make user focus on buying procces rather then give some extra thoughts or distractions.
+    - The "Continue to payment" button leads the user to the payment page hosted by Stripe.
 
     <br/>
 
@@ -497,10 +498,7 @@ mobile and tablet same same feature provided.
 ### Features for Future Releases
 
 - Live Chat
-    - This feature would allow user to have a direct chat to the member of staff that could direct or give 
-     a proper advise what items should be suitble for buyer.
 - Sending an email to customer when their new order has been placed.
-    - Seems like in order to implement it requires changing settings in my private gmail account to less secure ones.    
 - Build staff pages to view all order and keep record of actual sale by seller.
     - Giving staff the ability to upsell and that could increase sale
     - Ability to print out reports of sale by seler so they could participae in upselling contest
@@ -509,17 +507,10 @@ mobile and tablet same same feature provided.
     - "Call you back" in a minute button. Where user can request a call back for more info or to talk about product. Option only for registered customers only.
     
 - Coupons and discount codes.
-    - Checkout pages to include a field for customers to enter discount codes or coupons to adjust their final payment cost.
-
-- Additional payment methods.**
-    - The current free version of Stripe checkout only allows for customers to pay via credit card, paypal google pay to add on ass extra option.
+- Additional payment methods.
 - Auto login when registering a new account
-
 - Ability to build combo buys with items selected by seller
-
 - Option to buy a gift vouchers
-
-- A feature that would allow to push customer to buy more by giving an extra sugesstion like "recomended to buy option", suggesting to a customer another extra items to buy in order to get best results
 
 # Information Architecture
 
@@ -640,8 +631,6 @@ Quantity| quantity | ----- | IntegerField
 
 ### Tools
 - [Gitpod](https://gitpod.io/) is the IDE used for developing this project. 
-- [Django](https://www.djangoproject.com/) as python web framework for rapid development and clean design.
-- [Stripe](https://stripe.com) as payment platform to validate and accept credit card payments securely.
 - [Travis](https://travis-ci.org/) for continuous integration.
 - [AWS S3 Bucket](https://aws.amazon.com/) to store images entered into the database.
 - [Boto3](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html) to enable creation, configuration and management of AWS S3.
@@ -649,9 +638,7 @@ Quantity| quantity | ----- | IntegerField
 - [Django Crispy Forms](https://django-crispy-forms.readthedocs.io/en/latest/) to style django forms.
 - [Django Heroku](https://pypi.org/project/django-heroku/) to improve deployment of django projects on heroku.
 - [Django Storages](https://django-storages.readthedocs.io/en/latest/) a collection of custom storage backends with django to work with boto3 and AWS S3.
-- [Gunicorn](https://pypi.org/project/gunicorn/) WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
 - [Pillow](https://pillow.readthedocs.io/en/stable/) as python imaging library to aid in processing image files to store in database.
-- [Psycopg2](https://pypi.org/project/psycopg2/) as PostgreSQL database adapter for Python.
 - [PIP](https://pip.pypa.io/en/stable/installing/) for installation of tools needed in this project.
 - [GitHub](https://github.com/) to store and share all project code remotely. 
 - [Heroku] (https://www.heroku.com/) for deployment
@@ -666,9 +653,21 @@ Quantity| quantity | ----- | IntegerField
 - [Bootstrap](https://www.bootstrapcdn.com/) to simplify the structure of the website and make the website responsive easily.
 - [FontAwesome](https://www.bootstrapcdn.com/fontawesome/) to provide icons for The House of Mouse webshop.
 - [Google Fonts](https://fonts.google.com/) to style the website fonts.
+- [Django](https://www.djangoproject.com/) as python web framework for rapid development and clean design.
+- [Stripe](https://stripe.com) as payment platform to validate and accept credit card payments securely.
+- [Psycopg2](https://pypi.org/project/psycopg2/) as PostgreSQL database adapter for Python.
+- [Gunicorn](https://pypi.org/project/gunicorn/) WSGI HTTP Server for UNIX to aid in deployment of the Django project to heroku.
+
+
+
+
 
 ### Languages
-- This project uses HTML, CSS, JavaScript and Python programming languages.
+- This project uses:
+- HTML
+- CSS
+- JavaScript
+- [Python](https://www.python.org/)
 
 # Testing 
 
@@ -881,11 +880,6 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 - I received inspiration for the style of my project from [Bulk Powders](https://www.bulkpowders.ie/)
 - Thanks to everybody on SLACK that help me when I was stuck and needed assistance. Thanks Tutors aswell. They help me to debug my Python code.
 
-
-## Disclaimer
-
-This project is for educational purposes only.
-
 - Special thanks to my mentor [Ignatius Ukwuoma](https://github.com/ignatiusukwuoma) for his time, expertise and friendship through my entire journey through the CodeInstitute full stack web development course
 Thank to his incredible knowledge and patience that helped me get so far.
 
@@ -899,7 +893,7 @@ Thank to his incredible knowledge and patience that helped me get so far.
 
 
 - Many thanks  [Simen Daehlin alias Yoda](https://github.com/Eventyret) for his time to give an extra review to my last project as his remarks are
-more then profetional, well know and lot appreciated in our Code Institute environment.
+more then professional, well know and lot appreciated in our Code Institute environment.
 
 <br/>
 
@@ -919,8 +913,7 @@ more then profetional, well know and lot appreciated in our Code Institute envir
     - Anna 
     - Niel
     - Sammy
-    - Scott
-    - 
+    - Scott 
 
 <br/>
 
@@ -932,6 +925,8 @@ more then profetional, well know and lot appreciated in our Code Institute envir
 To contact me feel free to email
 
 tomaszcygal@yahoo.com
+
+## This project is for educational purposes only.
 
 
 
