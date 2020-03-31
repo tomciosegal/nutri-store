@@ -627,8 +627,8 @@ Quantity| quantity | ----- | IntegerField
         
         <br/>
 
-        you need to open index.html which you will find in htmlcov file that will be auto created after installing coverage 
-        in to your IDE. in that file you will be able to see what tests are missing in html view.
+        - you need to open index.html which you will find in htmlcov file that will be auto created after installing coverage 
+          in to your IDE. in that file you will be able to see what tests are missing in html view.
 
 - MOST IMPORTANT: in order to run coverage tests you need to install coverage.
     - In order to install coverage write in CLI this command:
@@ -699,9 +699,9 @@ Please click the links above for documentation on how to set these up and retrie
 
 
     - If using an IDE that includes a `bashrc` file, open this file and enter all the environment variables listed above using the following format: 
-    ```
+    
     HOSTNAME="<enter key here>"
-    ```
+    
     - `HOSTNAME` should be the local address for the site when running within your own IDE.
     - `DEV` environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
         to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
