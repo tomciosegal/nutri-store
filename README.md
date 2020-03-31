@@ -931,7 +931,7 @@ more then profetional, well know and lot appreciated in our Code Institute envir
 
 To contact me feel free to email
 
- `tomaszcygal (at) yahoo (dot) com`
+tomaszcygal@yahoo.com
 
 
 
