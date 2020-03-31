@@ -228,9 +228,7 @@
 				<div class="content">
 					<table bgcolor="#ff4259">
 						<tr>
-							<td>
-								<a href="{{ shop.url }}" title="{{ shop_name }}" alt="{{ shop_name }}" /><img src="{{ 'logo.png' }}" style="width:70px;height:auto;" /></a>
-							</td>
+							
 							<td align="right">
 								<h6 class="collapse">Order Confirmed</h6>	
 							</td>
@@ -255,10 +253,10 @@
 				<tr>
 					<td>
 						<br/>
-						<h3>Thanks{{ user.username }}</h3>
+						<h3>Thanks {{ user.username }}</h3>
 						
 						<!-- You may like to include a Hero Image -->
-						<p><img src="http://placekitten.com/g/600/300" alt="" /></p>
+						<p><img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/main-bg.jpg" alt="main-bg" /></p>
 						<!-- /Hero Image -->
 						
 						<br/>
@@ -268,6 +266,17 @@
                         and will be processed & shipped to you soon.</p>
 							
 						<br/>
+
+                        <!-- Line Items -->
+						{% for product in products %}
+						<div class="products">
+							<img src="{{ MEDIA_URL }}{{ product.product.image }}" />
+							<span> {{ product.quantity }}x {{ product.product.name }} / {{ product.prooduct.price }}</span>
+						</div>
+						<hr>
+						<div style="clear:both;"></div>
+						{% endfor %}
+						<!-- /Line Items -->
 
 											
 						<br/>
@@ -300,11 +309,11 @@
 						
 						<br/>
 
-						<!-- address detals -->
+						<!-- address details -->
 						<table class="columns" width="100%">
 							<tr>
 								<td>
-									{% if requires_shipping and shipping_address %}
+									
 										<!--- column 1 -->
 										<table align="left" class="column">
 											<tr>
@@ -320,8 +329,8 @@
 													</p>
 												</td>
 											</tr>
-										</table> -->
-                                    {% endif %}
+										</table> 
+                                    
 									
 									<span class="clear"></span>	
 									

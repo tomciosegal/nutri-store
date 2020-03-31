@@ -13,7 +13,10 @@ def send_checkout_mail(request):
     products = []
     for product_id, quantity in request.session['cart'].items():
         product = Product.objects.get(pk=product_id)
-        products.append(product)
+        products.append({
+            'product': product,
+            'quantity': quantity
+        })
      
     context = {
         'user': request.user, 
