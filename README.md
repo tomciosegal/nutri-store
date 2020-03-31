@@ -459,6 +459,121 @@ mobile and tablet same same feature provided.
 
 - A feature that would allow to push customer to buy more by giving an extra sugesstion like "recomended to buy option", suggesting to a customer another extra items to buy in order to get best results
 
+# Information Architecture
+
+### Database Choice
+
+- As a framework Django works with SQL databases. During development on my local machine I worked with the standard **sqlite3** database installed with Django.
+- On deployment, the SQL database provided by Heroku is a **PostgreSQL** database. 
+
+### Data Models
+
+#### User
+
+The User model utilized for this project is the standard one provided by `django.contrib.auth.models`
+
+#### Products app model
+
+Within the `products` app, the **Product** model holds all the data needed for the products in the shop.
+
+**Product model**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+Title | title | max_length=100 | CharField
+Shop category | category | choices=CATEGORY_CHOICES | CharField
+Product id| id | primary_key=True | AutoField
+Product name | name | max_length=255 | CharField
+Product info | description | ---- | TextField
+Price | price | max_digits=6, decimal_places=2, default=1 | DecimalField
+Image | image | blank=True, null=True | ImageField
+Description | description |  | TextField
+Price | price | max_digits=6, decimal_places=2 | DecimalField
+Currency | currency | max_length=3, default="EUR | CharField
+Category | category | blank=True,
+        null=True,
+        on_delete=models.CASCADE | ForeignKey(
+        "products.ProductCategory"
+Quantity | quantity | ---- | IntegerField
+
+<br/>
+
+**ProductCategory**
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+id | id | primary_key=True | AutoField
+name | name | max_length=255 | CharField
+
+<br/>
+
+- The Product model uses Pillow to store all image files in an AWS S3 bucket.
+
+#### Cart app models
+ 
+ **Cart(TimestampedModel)**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+User | user | User, on_delete=models.CASCADE | OneToOneField
+
+<br/>
+
+**CartItem**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+Cart | cart | Cart, on_delete=models.CASCADE| ForeignKey
+Product_id | product_id | ----- | IntegerField
+Quantity | quantity | ---- | IntegerField
+
+<br/>
+
+#### Accounts app model
+
+<br/>
+
+**Customer model**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+User | user | OneToOneField to| User
+Full Name | full_name | max_length=150 | CharField
+Address line 1 | street_address1 | max_length=50, blank=True | CharField
+Address line 2 | street_address2 | max_length=50, null=True, blank=True | CharField
+Town / City | town_or_city | max_length=150 | CharField
+County | county | max_length=20, blank=True | CharField
+Postcode | postcode | max_length=10 | CharField
+Date ordered | date_ordered | default=datetime.date.today | DateField
+County | county | max_length=20 | CharField
+
+
+#### Checkout app models
+
+<br/>
+
+**Order model**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+customer | customer | Customer, on_delete=models.CASCADE| ForeignKey
+Total Cost | total_cost | decimal_places=2, max_digits=6 | DecimalField
+
+    
+- this model holds the user order history for admin panel
+    
+<br/>
+
+**OrderItem model**
+
+| Name | Key in db | Validation | Field Type |
+--- | --- | --- | ---
+Order History | order_history | Order, on_delete=models.CASCADE| ForeignKey
+Product | product | "products.Product", on_delete=models.CASCADE | ForeignKey
+Quantity| quantity | ----- | IntegerField
+
+<br/>
+
+- this model holds the user order history item form admin panel
 
     
 
