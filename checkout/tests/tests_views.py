@@ -41,6 +41,7 @@ class TestView(TestCase):
         )
         session = self.client.session
         session["cart"] = {product.id: 7}
+        session["total"] = 50
         session.save()
         with mock.patch("stripe.Charge.create") as stripe:
             stripe.return_value.paid = True
