@@ -164,10 +164,7 @@ to build formula.
 
 ## Wireframes
 
-- [Home](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/lg-screen-nutristore.jpg)
-- [About](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/about.jpg)
-- [Profile](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/profile.jpg)
-- [Contact](https://nutri-store.s3-eu-west-1.amazonaws.com/media/wireframes/contact.jpg)
+Please click here to see all the [Wireframes](https://github.com/tomciosegal/nutri-store/tree/master/wireframes)created.
 
 # Features
  
