@@ -164,7 +164,7 @@ to build formula.
 
 ## Wireframes
 
-Please click here to see all the [Wireframes](https://github.com/tomciosegal/nutri-store/tree/master/wireframes)created.
+Please click here to see all the [Wireframes](https://github.com/tomciosegal/nutri-store/tree/master/wireframes) created.
 
 # Features
  
