@@ -262,7 +262,7 @@
                         <!-- Line Items -->
 						{% for product in products %}
 						<div class="products">
-							<img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/{{ product.product.image }}" />
+							<img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/{{ product.product.image }}" />
 							<span> {{ product.quantity }}x {{ product.product.name }} / {{ product.prooduct.price }}</span>
 						</div>
 						<hr>
