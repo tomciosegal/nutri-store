@@ -149,9 +149,6 @@
 	}
 	
 	
-	/* ------------------------------------- 
-			Shopify
-	------------------------------------- */
 
 	.products {
 		width:100%;
@@ -171,10 +168,9 @@
 	
 	/* --------------------------------------------------- 
 			RESPONSIVENESS
-			Nuke it from orbit. It's the only way to be sure. 
-	------------------------------------------------------ */
+    ------------------------------------------------------ */
 	
-	/* Set a max-width, and make it display as block so it will automatically stretch to that width, but will also shrink down on a phone or something */
+	
 	.container {
 		display:block!important;
 		max-width:600px!important;
@@ -182,7 +178,7 @@
 		clear:both!important;
 	}
 	
-	/* This should also be a block element, so that it will fill 100% of the .container */
+	
 	.content {
 		padding:15px;
 		max-width:600px;
@@ -190,18 +186,14 @@
 		display:block; 
 	}
 	
-	/* Let's make sure tables in the content area are 100% wide */
+	
 	.content table { width: 100%; }
 	
-	/* Be sure to place a .clear element after each set of columns, just to be safe */
+	
 	.clear { display: block; clear: both; }
 	
 	
-	/* ------------------------------------------- 
-			PHONE
-			For clients that support media queries.
-			Nothing fancy. 
-	-------------------------------------------- */
+
 	@media only screen and (max-width: 600px) {
 		
 		a[class="btn"] { display:block!important; margin-bottom:10px!important; background-image:none!important; margin-right:0!important;}
@@ -270,7 +262,7 @@
                         <!-- Line Items -->
 						{% for product in products %}
 						<div class="products">
-							<img src="{{ MEDIA_URL }}{{ product.product.image }}" />
+							<img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/{{ product.product.image }}" />
 							<span> {{ product.quantity }}x {{ product.product.name }} / {{ product.prooduct.price }}</span>
 						</div>
 						<hr>

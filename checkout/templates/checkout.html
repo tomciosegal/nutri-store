@@ -13,7 +13,7 @@
 	{% endblock %}
 
 	{% block content %}
-<div class="checkout wrapper flex-container>">
+<div class="checkout-wrapper">
 
     <div class="form-group checkout-form">
         <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
@@ -35,7 +35,7 @@
             </div>
         </form>
     </div>
-    	<div class="row total-price">
+    	<div class="total-price">
 		<p>Total: </p>
 		<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
         {% if request.session.total >= 60 %}
