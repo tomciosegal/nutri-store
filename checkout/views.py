@@ -9,7 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from products.models import Product
-
+from smtplib import SMTPAuthenticationError
 from .forms import MakePaymentForm
 from .models import Order, OrderItem
 
@@ -50,7 +50,10 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
 
             if customer.paid:
-                send_checkout_mail(request)
+                try:
+                    send_checkout_mail(request)
+                except SMTPAuthenticationError:
+                    messages.error(request, "Your order confirmation email send failed")
                 create_order_history(request.user, request.session)
                 clear_cart(request.user)
                 messages.error(request, "You have successfully paid")

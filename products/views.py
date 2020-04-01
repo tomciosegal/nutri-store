@@ -2,7 +2,6 @@ from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render
 from products.mails import send_subscribe_mail
-
 from .models import Product, ProductCategory
 
 

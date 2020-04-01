@@ -17,6 +17,19 @@ class TestViews(TestCase):
         self.client.login(username="temporary", password="temporary")
         response = self.client.get("/accounts/profile/")
         self.assertEqual(response.status_code, 200)
+        
+        data={
+            "full_name": 'test name',
+            "phone_number": '01230123',
+            "postcode": '235',
+            "town_city": 'tets',
+            "street_address1":'adres',
+            "street_address2": 'adres2',
+            "county": 'dub'
+        }
+        response = self.client.post("/accounts/profile/", data)
+        self.assertEqual(response.status_code, 200)
+
 
     def test_logout(self):
         self.client.login(username="temporary", password="temporary")
