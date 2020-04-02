@@ -11,7 +11,7 @@
         <div class=" col-lg-3 col-md-4 col-sm-6 display panel panel-default">
             <div class="panel-body">
                 <a href="{% url 'product_details' product.id %}">
-                    <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" />
+                    <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" alt = products-image/>
                 </a>
 
                 <a href="{% url 'product_details' product.id %}"><h3 class="product-header">{{ product.name }}</h3></a>

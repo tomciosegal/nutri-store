@@ -3,6 +3,7 @@
     <!DOCTYPE html>
 
     <html lang="en">
+    <head>
     <meta charset="UTF-8">
     <title>Nutristore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,15 +14,15 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    
+    </head>
     {% block head_js %}
     {% endblock %}
     
         
 
-    <head>
-    <title>{% block page_title %}{% endblock %}</title>
-</head>
+    
+   
+
 
 <body>
 
@@ -34,7 +35,7 @@
             <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
             <div class="card-search d-none d-sm-block">
                 <form class="d-flex">
-                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search"type="search" aria-label="Search" />
+                    <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search" type="search" aria-label="Search" />
                     <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x search-btn" title="Search"></button>
                 </form>
             </div>
@@ -150,6 +151,7 @@
                     </div>
             <div class="col-md-4 footer-info ml-auto">
                 <div class="social-icons">
+                <ul>
                     <li class="list-inline-item">
                         <a href="https://github.com/tomciosegal" target="_blank">
                             <i class="fab fa-github foot-fab fa-2x"></i>
@@ -170,6 +172,7 @@
                             <i class="fab fa-youtube foot-fab fa-2x"></i>
                         </a>
                     </li>
+                </ul>    
                 </div>
                 <div class="customer-service">
                     <div class= "customer-service--phone-number">
