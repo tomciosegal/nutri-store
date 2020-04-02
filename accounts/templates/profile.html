@@ -7,24 +7,21 @@
     <div class="container-fluid profile-background">
         <div class="row justify-content-center contact-row">
             <div class="col-12 col-md-6 profile-form-wrapper">
-                <div class="mx-auto my-3">
+                <!-- <div class="mx-auto my-3"> -->
                     <h4 class="profile-welcome">Welcome {{user.username}}. specify your details below</h4>
                     <a href= "{% url 'order_history' %}">My Orders</a>
                         <form method="POST" class="post-form">{% csrf_token %}
                             {% for field in form %}
                             <div class="forms-group">
-                                
-                                <div class="col-xs-6">
+                                <div class="col-sm-6 col-md-6 col-lg-6">
                                     <label><h4 class= "input-details">{{field.label_tag}} <span class="asteriskField">*</span></h4></label>
                                     {{field}}
-                                    <!-- <input  class="form-control profile-input" name={{field.label_tag}} id="password" placeholder="county" title="enter your password."> -->
                                 </div>
-                                
                             </div>
                                 {% endfor %}
                                 <div class="text-center"><button type="submit" class="save btn btn-default btn-success">Update</button></div>
                         </form>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>

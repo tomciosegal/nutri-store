@@ -60,7 +60,7 @@
 <section class="newsletter-row"><h3 class="text-center">Stay in Touch</h3>
     <p class="text-center">Fancy discounts and fitness tips delivered straight to your inbox? You know what to do. </p> 
     
-    <form class="newsletter-form text-center" novalidate="novalidate" action="" method="post" id="newsletter-validate-detail">
+    <form class="newsletter-form text-center" novalidate="novalidate" method="post" id="newsletter-validate-detail">
          {% csrf_token %}
         <input name="email" type="email" id="newsletter" class="newsletter-input" placeholder="Enter your email address" data-validate="{required:true, 'validate-email':true}">
         <button class="secondary-button no-select touched" title="Subscribe" type="submit"><span class="text-uppercase subscribe-btn">Subscribe</span></button> 
