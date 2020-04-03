@@ -2,6 +2,7 @@
     
     {% load static from staticfiles %}
     {% block content %}
+<div class="order-history-wrapper">
     <div class="container">
          <div class="row">
             <div class="container">
@@ -63,13 +64,13 @@
                </div>
                     
                      <div class="container col-xs-12 tfoot">
-                    <p class="row total"><span class="pull-left col-xs-6">Total Amount</span><span class="col-xs-6 pull-right text-right">{{order.order.total_cost}}</span></p>
+                    <p class="row total"><span class="pull-left col-xs-6">Total Amount</span><span class="col-xs-6 pull-right text-right"><i class="fas fa-euro-sign"></i>{{order.order.total_cost}}</span></p>
                   </div>
                     {% endfor %}
             </div>   
          </div>
       </div>
-
+</div>
     {% endblock %}
 
 

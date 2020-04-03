@@ -3,12 +3,10 @@
 {% block content %}
 
 <div class="shipping-wrapper">
-    <div class="container position-relative">
-                <h3 class="checkout-heading">Shipping address</h3>
-                
-                <!-- Form to collect shipping information -->
+    <div class="container">
 
-        <div class="shipping-form-wrapper">
+                <h3 class="checkout-heading">Shipping address</h3>
+        <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5 shipping-form-wrapper">
             <form method="POST" class="post-form-shipping">{% csrf_token %}
                             {{form | as_bootstrap}}
 
