@@ -3,7 +3,7 @@ from django import forms
 
 class MakePaymentForm(forms.Form):
 
-    MONTH_CHOICES = [(i, i) for i in range(1, 12)]
+    MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2020, 2036)]
 
     cardholder_name = forms.CharField(max_length=200)
