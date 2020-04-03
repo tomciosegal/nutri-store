@@ -3,24 +3,22 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-
+    <div class ="cart-wrapper">
                 {% if not cart_items %}
+    
     <div class="row justify-content-center">
-
             <heading class="col-11 col-md-8 col-lg-6 text-center">
-                    
-                    <h1 class="cart-heading">Your cart is empty!</h1>
-                    <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5">Let's go shopping</a>
-                                
-                </heading>
+                <h1 class="cart-heading">Your cart is empty!</h1>
+                <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5">Let's go shopping</a>
+            </heading>
     </div>
                 {% endif %}
 
-    <div class ="cart-wrapper">
+    
         <div class="row row-flex cart-row">
             {% for item in cart_items %}
             
-            <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel cart-panel">
+            <div class="col-md-6 col-lg-6 col-sm-12 display panel cart-panel">
                 
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
                 
@@ -30,7 +28,7 @@
                     <p>Price: <i class="fas fa-euro-sign"></i>{{ item.product.price }}</p>
                     <p>
                         <div class="flex-container position-relative">
-                            <form class="form-inline justify-content-center" method="post" action="{% url 'adjust_cart' item.id %}">
+                            <form class="form-inline justify-content-center " method="post" action="{% url 'adjust_cart' item.id %}">
                                 {% csrf_token %}
                                 
                                 <label for="exampleInputAmount" class="sr-only">New Qty</label>
@@ -40,10 +38,10 @@
                                     <div class="input-group-addon">{{item.quantity}}</div>
                                 </div>
                         </div>
-                                <div class="flex-container position-relative">
+                                <div class="flex-container delete-wrapper">
                                     <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
                             </form> 
-                                        <form action="{% url 'cart_item_delete' item.id %}" method="post">
+                                        <form class="delete-form" action="{% url 'cart_item_delete' item.id %}" method="post">
                                             {% csrf_token %}
                                             <button type="submit" class="bin-btn"><span><i class="fas fa-trash-alt"></i></span></button>
                                         </form>

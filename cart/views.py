@@ -6,7 +6,7 @@ from products.models import Product
 
 def view_cart(request):
     """A View that renders the cart contents page"""
-    return render(request, "cart.html", {"disable_navbar": True, "disable_footer": True})
+    return render(request, "cart.html", {"disable_footer": True})
                                         
 
 def add_to_cart(request, id):
