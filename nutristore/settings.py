@@ -158,7 +158,7 @@ STATICFILES_STORAGE = "custom_storages.StaticStorage"
 STATICFILES_LOCATION = "static"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
 STRIPE_SECRET = os.getenv("STRIPE_SECRET")
