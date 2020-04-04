@@ -737,30 +737,24 @@ To allow you to access all functionality on the site locally, ensure you have cr
 
 Please click the links above for documentation on how to set these up and retrieve the necessary environment variables.
 
-### Instructions
-> Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
+
+<dl>
+  <dt>Instructions</dt>
+  <dd>Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
 at the top of the page and extracting the zip file to your chosen folder. 
-If you have Git installed on your system, you can clone the repository with the following command.
-   
-> Open your preferred IDE (I used Gitpod), open a terminal session in the unzip folder or cd to the correct location.
+If you have Git installed on your system, you can clone the repository with the following command.</dd>
+  <dd>Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.</dd>
+  <dd>The easiest way to install a new Python version is to use pyenv install <VERSION></dd>
+  <dd>You will need to create requirements.txt file to manage dependencies </dd>
+  <dd>pip3 install -r requirements.txt</dd>
+  <dd>If needed, Upgrade pip locally with: pip install --upgrade pip.</dd>
+  <dd>Set up the following environment variables within your IDE.</dd>
+  <dd>pip3 install -r requirements.txt</dd>
+</dl>
 
-> Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.
+<br/>
 
-> > The easiest way to install a new Python version is to use pyenv install <VERSION>
-
-> You will need to create requirements.txt file to manage dependencies 
-
-> > pip3 install -r requirements.txt
-
-
-> If needed, Upgrade pip locally with
-
-> >pip install --upgrade pip.
-    
-
-> Set up the following environment variables within your IDE. 
-
-> >In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
+### In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
 
       <br/>
 
