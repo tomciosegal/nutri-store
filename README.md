@@ -327,12 +327,6 @@ mobile and tablet same same feature provided.
 
 <br/>
 
-<div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
-</div>
-<br/>
-
-
 - The contact page contains a form for the user to fill in to send the shop owner an email.
 - Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
 - If the user is logged in then their email address will already be populated in the email field.
@@ -342,11 +336,6 @@ mobile and tablet same same feature provided.
 
 
 ### Register Page
-
-<br/>
-<div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/register-page.jpg" alt="TheNutristore register-form" aria-label="Nutristore" />
-</div>
 
 <br/>
 
@@ -360,12 +349,6 @@ mobile and tablet same same feature provided.
 
 
 ### Login Page
-
-<div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/login-page.jpg" alt="TheNutristore login-form" aria-label="Nutristore" />
-</div>
-<br/>
-
 
 - The login page features a standard login form asking for username and password.
 - Validation for this form is handled in the back end and relevant feedback is sent to the user when they sign in.
