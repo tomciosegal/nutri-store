@@ -773,7 +773,7 @@ Date ordered | date_ordered | default=datetime.date.today | DateField
 County | county | max_length=20 | CharField
 
 | Default quote | Your key | 
---- | --- | --- | ---
+--- | --- 
 os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com" | 
 os.environ.setdefault | EMAIL_PASSWORD", "your_password" | 
 os.environ.setdefault | "DATABASE_URL", "postgres://your postgres key, you get it from heroku") | 
