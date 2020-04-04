@@ -711,23 +711,21 @@ it appeared in the desired way on different devices.
 - [Am I Responsive](http://ami.responsivedesign.is/#) - developer tried to use this website to check responsivnes,
 however Django has build in protection that does not allow to do it.
 
+<br/>
+
 # Deployment
 
-## How to run this project locally
+<dl>
+  <dt>How to run this project locally</dt>
+  <dd>Install heroku with npm install heroku</dd>
+  <dd>Login with heroku login -i</dd>
+  <dd>Create a new heroku app with heroku create appname </dd>
+  <dd>Go to the heroku dashboard and set config variables</dd>
+  <dd>Restart dynos</dd>
+  <dd>Push to heroku with git push heroku master </dd>
+</dl>
 
-> To run this project in Gitpod follow the instructions below:
-
->> Install heroku with npm install heroku 
-
->> Login with heroku login -i 
-
->> Create a new heroku app with heroku create appname 
-
->> Go to the heroku dashboard and set config variables
-
->> Restart dynos
-
->> Push to heroku with git push heroku master 
+<br/>
 
     
 To allow you to access all functionality on the site locally, ensure you have created free accounts with the following services:
@@ -739,10 +737,10 @@ Please click the links above for documentation on how to set these up and retrie
 
 
 <dl>
-  <dt>Instructions</dt>
+  <dt>Instructionsaly</dt>
   <dd>Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
-at the top of the page and extracting the zip file to your chosen folder. 
-If you have Git installed on your system, you can clone the repository with the following command.</dd>
+    at the top of the page and extracting the zip file to your chosen folder. 
+    If you have Git installed on your system, you can clone the repository with the following command.</dd>
   <dd>Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.</dd>
   <dd>The easiest way to install a new Python version is to use pyenv install <VERSION></dd>
   <dd>You will need to create requirements.txt file to manage dependencies </dd>
@@ -754,9 +752,9 @@ If you have Git installed on your system, you can clone the repository with the 
 
 <br/>
 
-### In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
+#### In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
 
-      <br/>
+<br/>
 
 
 | Default quote | Your key | 
@@ -771,34 +769,27 @@ os.environ.setdefault | "AWS_ACCESS_KEY_ID", "access_key_goes_here" |
 os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" |  
 
 
+<br/>
 
-> If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
-    
-> HOSTNAME="enter key here. in gitpod LOCALHOST"
-
-> > HOSTNAME should be the local address for the site when running within your own IDE.
-
-> > DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
+<dl>
+  <dt>If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format:</dt> 
+    <dd>HOSTNAME="enter key here. in gitpod LOCALHOST"</dd>
+<dt>HOSTNAME should be the local address for the site when running within your own IDE.</dt>
+    <dd>DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
     to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
-    the deployed site.
+    the deployed site.</dd>
+<dt>Migrate the admin panel models to create your database template with the terminal command:</dt>
+  <dd>python manage.py migrate</dd>
+<dt>Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
+</dt>
+  <dd>python manage.py createsuperuser</dd>
+<dt>You can now run the program locally with the following command:</dt>
+  <dd>python manage.py runserver</dd>
+  <dd>Restart dynos</dd>
+  <dd>Once the program is running, go to the local link provided and add `/admin` to the end of the url.</dd>
+ </dl>
 
-> Migrate the admin panel models to create your database template with the terminal command
-
-> > python manage.py migrate
-    
-
-> Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
-    
-> > python manage.py createsuperuser
-    
-
-> You can now run the program locally with the following command: 
-    
-> > python manage.py runserver
-    
-
-> Once the program is running, go to the local link provided and add `/admin` to the end of the url. 
-
+<br/>
 
 
 ## Heroku Deployment
