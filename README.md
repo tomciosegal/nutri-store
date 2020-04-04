@@ -715,14 +715,20 @@ however Django has build in protection that does not allow to do it.
 
 ## How to run this project locally
 
-To run this project on your own IDE follow the instructions below:
+> To run this project in Gitpod follow the instructions below:
 
-Ensure you have the following tools: 
-    - An IDE such as [Gitpod](https://gitpod.io/)
+>> Install heroku with npm install heroku 
 
-The following **must be installed** on your machine:
-    - [PIP](https://pip.pypa.io/en/stable/installing/)
-    - [Python 3](https://www.python.org/downloads/)
+>> Login with heroku login -i 
+
+>> Create a new heroku app with heroku create appname 
+
+>> Go to the heroku dashboard and set config variables
+
+>> Restart dynos
+
+>> Push to heroku with git push heroku master 
+
     
 To allow you to access all functionality on the site locally, ensure you have created free accounts with the following services:
     - [Stripe](https://dashboard.stripe.com/register)
@@ -732,45 +738,32 @@ To allow you to access all functionality on the site locally, ensure you have cr
 Please click the links above for documentation on how to set these up and retrieve the necessary environment variables.
 
 ### Instructions
-1. Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
+> Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
 at the top of the page and extracting the zip file to your chosen folder. 
 If you have Git installed on your system, you can clone the repository with the following command.
    
-2. Open your preferred IDE, open a terminal session in the unzip folder or cd to the correct location.
+> Open your preferred IDE (I used Gitpod), open a terminal session in the unzip folder or cd to the correct location.
 
-3. A virtual environment is recommended for the Python interpreter, I recommend using Pythons built in virtual environment. 
+> Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.
 
-4. Activate the .venv with the command:
-    ```
-    .venv\Scripts\activate 
-    ```
-5. If needed, Upgrade pip locally with
-    ```
-    pip install --upgrade pip.
-    ```
+>> The easiest way to install a new Python version is to use pyenv install <VERSION>
 
-6. Install all required modules with the command 
-    ```
-    pip -r requirements.txt.
-    ```
+> You will need to create requirements.txt file to manage dependencies 
 
-7. Set up the following environment variables within your IDE. 
+>> pip3 install -r requirements.txt
+
+
+> If needed, Upgrade pip locally with
+
+>>pip install --upgrade pip.
+    
+
+> Set up the following environment variables within your IDE. 
+
+>>In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
 
       <br/>
 
-
-
-| Name | Key in db | Validation | Field Type |
---- | --- | --- | ---
-User | user | OneToOneField to| User
-Full Name | full_name | max_length=150 | CharField
-Address line 1 | street_address1 | max_length=50, blank=True | CharField
-Address line 2 | street_address2 | max_length=50, null=True, blank=True | CharField
-Town / City | town_or_city | max_length=150 | CharField
-County | county | max_length=20, blank=True | CharField
-Postcode | postcode | max_length=10 | CharField
-Date ordered | date_ordered | default=datetime.date.today | DateField
-County | county | max_length=20 | CharField
 
 | Default quote | Your key | 
 --- | --- 
@@ -781,39 +774,36 @@ os.environ.setdefault | "STRIPE_PUBLISHABLE", "pk_test_your_key_goes_here" |
 os.environ.setdefault | "STRIPE_SECRET", "sk_test_dtripe_key_goes_here" | 
 os.environ.setdefault | "SECRET_KEY", "secret_key_goes_here" | 
 os.environ.setdefault | "AWS_ACCESS_KEY_ID", "access_key_goes_here" | 
-os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" | 
-
-    - In gitpod create env.py in file main directory, where you will keep all variables. In the file you need to import os.
-    In order to do it write in first line: import os
-  
+os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" |  
 
 
 
-    - If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
+> If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format: 
     
-    HOSTNAME="enter key here. in gitpod LOCALHOST"
+> HOSTNAME="enter key here. in gitpod LOCALHOST"
+
+>> HOSTNAME should be the local address for the site when running within your own IDE.
+
+>> DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
+    to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
+    the deployed site.
+
+> Migrate the admin panel models to create your database template with the terminal command
+
+>> python manage.py migrate
     
-    - HOSTNAME should be the local address for the site when running within your own IDE.
-    - DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
-        to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
-        the deployed site.
 
-8. Migrate the admin panel models to create your database template with the terminal command
-    ```
-    python manage.py migrate
-    ```
+> Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
+    
+>> python manage.py createsuperuser
+    
 
-9. Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
-    ```
-    python manage.py createsuperuser
-    ```
+> You can now run the program locally with the following command: 
+    
+>> python manage.py runserver
+    
 
-10. You can now run the program locally with the following command: 
-    ```
-    python manage.py runserver
-    ```
-
-11. Once the program is running, go to the local link provided and add `/admin` to the end of the url. 
+> Once the program is running, go to the local link provided and add `/admin` to the end of the url. 
 
 
 
