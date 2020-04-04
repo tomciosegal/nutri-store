@@ -758,9 +758,23 @@ If you have Git installed on your system, you can clone the repository with the 
 
       <br/>
 
-    |Default quote | Your key | 
+
+
+| Name | Key in db | Validation | Field Type |
 --- | --- | --- | ---
-os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com"| 
+User | user | OneToOneField to| User
+Full Name | full_name | max_length=150 | CharField
+Address line 1 | street_address1 | max_length=50, blank=True | CharField
+Address line 2 | street_address2 | max_length=50, null=True, blank=True | CharField
+Town / City | town_or_city | max_length=150 | CharField
+County | county | max_length=20, blank=True | CharField
+Postcode | postcode | max_length=10 | CharField
+Date ordered | date_ordered | default=datetime.date.today | DateField
+County | county | max_length=20 | CharField
+
+    | Default quote | Your key | 
+--- | --- | --- | ---
+os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com" | 
 os.environ.setdefault | EMAIL_PASSWORD", "your_password" | 
 os.environ.setdefault | "DATABASE_URL", "postgres://your postgres key, you get it from heroku") | 
 os.environ.setdefault | "STRIPE_PUBLISHABLE", "pk_test_your_key_goes_here" | 
