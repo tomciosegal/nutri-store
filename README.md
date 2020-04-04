@@ -746,21 +746,21 @@ If you have Git installed on your system, you can clone the repository with the 
 
 > Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.
 
->> The easiest way to install a new Python version is to use pyenv install <VERSION>
+> > The easiest way to install a new Python version is to use pyenv install <VERSION>
 
 > You will need to create requirements.txt file to manage dependencies 
 
->> pip3 install -r requirements.txt
+> > pip3 install -r requirements.txt
 
 
 > If needed, Upgrade pip locally with
 
->>pip install --upgrade pip.
+> >pip install --upgrade pip.
     
 
 > Set up the following environment variables within your IDE. 
 
->>In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
+> >In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
 
       <br/>
 
@@ -782,25 +782,25 @@ os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" |
     
 > HOSTNAME="enter key here. in gitpod LOCALHOST"
 
->> HOSTNAME should be the local address for the site when running within your own IDE.
+> > HOSTNAME should be the local address for the site when running within your own IDE.
 
->> DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
+> > DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
     to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
     the deployed site.
 
 > Migrate the admin panel models to create your database template with the terminal command
 
->> python manage.py migrate
+> > python manage.py migrate
     
 
 > Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
     
->> python manage.py createsuperuser
+> > python manage.py createsuperuser
     
 
 > You can now run the program locally with the following command: 
     
->> python manage.py runserver
+> > python manage.py runserver
     
 
 > Once the program is running, go to the local link provided and add `/admin` to the end of the url. 
