@@ -68,12 +68,12 @@ the [Code Institute Full Stack Web Development Diploma](https://codeinstitute.ne
 fulfilling the requirements of the final, Full-Stack Milestone Project of the Code Institute Full-Stack Software Developer Course.
 The  purpose of The Nutristore online shop is to promote organic food suplemennts. The advantages of organic
 Unlike synthetic supplements, which can contain chemical compounds that don't occur in nature, organic supplements are free of pesticides, insecticides and other toxic ingredients.
-Every athlete knows healthy food is 70% of success and suplements fill the rest to suplly vitamins and nutritions. Suplements most of thetime dont come from 
-the nature they are Lab built, therefore using and promoting organic and vegan suplements can help reduce intake of unwated substances.
-This website is designed to create an impession of cleanneses and richness of the product accompanied with smooth and effortless online shopping experience. 
+Every athlete knows healthy food is 70% of success and supplements fill the rest to suplly vitamins and nutrition's. supplements most of thetime dont come from 
+the nature they are Lab built, therefore using and promoting organic and vegan supplements can help reduce intake of unwantedsubstances.
+This website is designed to create an impression of cleanness  and richness of the product accompanied with smooth and effortless online shopping experience. 
 Specifically targeted at customers who want to support they effort with the cleanest, pure, raw materials, to provide pure clean recovery to their body. 
 
-All images displayed are stored in an [AWS S3](https://aws.amazon.com/s3/) bucket, as are static files like CSS, icons and user-uploded profile pictures.
+All images displayed are stored in an [AWS S3](https://aws.amazon.com/s3/) bucket, as are static files like CSS, icons and user-uploaded profile pictures.
 
 The project is hosted at [Heroku](https://www.heroku.com/). A [Postgresql](https://www.postgresql.org/) database, also hosted at Heroku, is used to store image data and user data.
 
@@ -84,15 +84,15 @@ The project is hosted at [Heroku](https://www.heroku.com/). A [Postgresql](https
 ### Visitor Goals
 
 The central target audience for Nutristore are:
-- People who are looking for suplements free of artificial fillers and excipients.
-- Athlets who will experience better taste & nutrient absorption.
-- People who value suplements with no toxic chemicals or harmful toxins.
+- People who are looking for supplements free of artificial fillers and excipients.
+- Athletes who will experience better taste & nutrient absorption.
+- People who value supplements with no toxic chemicals or harmful toxins.
 - Visitors to the site are interested in how the product was produced and where it came from.
 
 User goals are:
 - Find a supplements that wont harm your body.
-- Find a product that will provide cleanest source of nutritions.
-- Enjoy the amazing taste and flavour.
+- Find a product that will provide cleanest source of nutrition's.
+- Enjoy the amazing taste and flavor.
 - Buy from a trustworthy online shop.
 - Show total price and number of items in cart.
 - Be able to navigate the shop easily, find what I need and make a safe and secure purchase.
@@ -108,7 +108,7 @@ The Nutristore online shop is a great way to meet these needs because:
 
 The Goals of The Nutristore business are:
 - Provide a professional online shop that helps the user to feel safe that they are buying from a trustworthy source. 
-- Build brand awareness by including all the colours, fonts and logo associated with The Nutristore.
+- Build brand awareness by including all the colors, fonts and logo associated with The Nutristore.
 - Build The Nutristore newsletter subscriptions.
 - Fast and efficient delivery.
 - Make sales of products easy for buyers to increase sales conversion.
@@ -118,7 +118,7 @@ The Goals of The Nutristore business are:
 
 A Visitor to The Nutristore website  expects/wants/needs:
 
-1. As user I want The site to be easy to navigate from any device, desktop, tablet or phone. For the content to look good and be useable on all of these devices.
+1. As user I want The site to be easy to navigate from any device, desktop, tablet or phone. For the content to look good and be usable on all of these devices.
 
 1. As new visitor I want ability to search through small amounts of information to find what I need, and then be able to easily click to get more detailed information.
 
@@ -147,19 +147,19 @@ A Visitor to The Nutristore website  expects/wants/needs:
 
 ## Design Choices
 
-The Nutristore website has an overall Lab style, where viewer can feel cleanneses of the product and used clean ingredients
+The Nutristore website has an overall Lab style, where viewer can feel cleanness  of the product and used clean ingredients
 to build formula.
 
 ### Fonts
 - The primary font [Work Sans](https://fonts.google.com/specimen/Work+Sans?selection.family=Roboto:wght@400;700&query=work) was chosen for the main text of the site because of it clear readability.
 
-### Colours
+### colors
 
 - light green: #77ac3c;
 - green: #79b03e
 - light grey: #e3e1e1
 
-- The brand colours for this project were chosen to make to create the impression of a clean, sterile room where natural supplements are produced. thus, we want to ensure a potential customer about the purity of our product.
+- The brand colors for this project were chosen to make to create the impression of a clean, sterile room where natural supplements are produced. thus, we want to ensure a potential customer about the purity of our product.
 - The green was chosen to provide a highlighting contrast for links, prices and important buttons for the user such as "add to cart" and "checkout now".
 
 ## Wireframes
@@ -182,7 +182,7 @@ Please click here to see all the [Wireframes](https://github.com/tomciosegal/nut
 
 - Next to the The Nutristore logo a free shipping icon is placed, this link will direct to a details how user can avail free shipping.
 
-- In the middle of the header user can find a usefull search box where you look for desired item for example "protein"
+- In the middle of the header user can find a useful search box where you look for desired item for example "protein"
   
 - On the right side of the header visitor can find the links to login,and shopping cart.
 
@@ -224,7 +224,7 @@ Please click here to see all the [Wireframes](https://github.com/tomciosegal/nut
 <br/>
 
 - In mobile view the logo moves to the top center of the page, search input is not displayed to save room on small screens
-    the navigation bar changes to dropdown toggle with categories to choose from.
+    the navigation bar changes to drop downtoggle with categories to choose from.
 
 <div align="center">
     <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/navbar-mobile.jpg" alt="TheNutristore Header on desktop devices" aria-label="Nutristore" />
@@ -248,10 +248,10 @@ Please click here to see all the [Wireframes](https://github.com/tomciosegal/nut
 
 - The footer features the copyright information for The Nutristore.
 
-- In the center of the footer icons with ways of payment swoing acceped ways to finalise trnasaction. 
+- In the center of the footer icons with ways of payment accepted ways to finalize transaction. 
 
 - A social media icons are listed on the right hand side of the footer. Under media icons visitor can find
-  usefull info about store (opening times phone number location)
+  useful info about store (opening times phone number location)
 
 - Footer also contains about, delivery information, return policy, contact pages where user would expect to find important
     information about policy and store it self.
@@ -274,7 +274,7 @@ Please click here to see all the [Wireframes](https://github.com/tomciosegal/nut
 
 <br/>
 
-- The home page comprises of two rows of products devided on 4 colums in each row, and it will display maximum of
+- The home page comprises of two rows of products divided on 4 columns in each row, and it will display maximum of
   8 products per page. 
 
 - Every product is wrapped in panel-body that nicely hovers when mouse on.
@@ -292,10 +292,10 @@ Please click here to see all the [Wireframes](https://github.com/tomciosegal/nut
 <br/>
 
 
-- At the bottom of the page user will find paginator that is responsible for dispalying maximum of 8 products per page,
+- At the bottom of the page user will find pagination that is responsible for displaying maximum of 8 products per page,
 mobile and tablet same same feature provided.
 
-- Directly under paginator visitor will find subscribtion button for customers willing to get most updated offers.
+- Directly under pagination visitor will find subscription button for customers willing to get most updated offers.
 ***
 <br/>
 
@@ -317,8 +317,8 @@ mobile and tablet same same feature provided.
 ***
 ### About page
 
-- The about page features a The Nutristore logo and a informations that will bring a customer closer to a process of
-  manufactiuring and ingredients used and chemical free produce.
+- The about page features a The Nutristore logo and a information's that will bring a customer closer to a process of
+  manufacturing and ingredients used and chemical free produce.
 ***
 <br/>
 
@@ -392,7 +392,7 @@ mobile and tablet same same feature provided.
   saved and auto populated in shipping page from the first purchase.
 
 - **Profile Info** has also very important feature where user can update any of the details.by clicking update button.
-    This changes will be visible with the next checkout process as input will be autopopulated.
+    This changes will be visible with the next checkout process as input will be auto populated.
 
 - **My Orders**, where a user can see a summary of all their previous orders and all orders are populated by date for easier search. 
 ***
@@ -400,8 +400,8 @@ mobile and tablet same same feature provided.
 
 ### Log out page
 - Any user who clicks on "Log out" from the navigation bar is automatically logged out and their session data cleared. 
-  The message on top page will inform the user whataction was made. After loging back in the users cart will still remain
-  with all items prevoiusly selected to buy.
+  The message on top page will inform the user what action was made. After login back in the users cart will still remain
+  with all items previously selected to buy.
 ***
 <br/>
 
@@ -434,14 +434,14 @@ mobile and tablet same same feature provided.
 
 - Each list item includes a picture of the item, the item title and price.
 
-- The total amount and cart view is availible to see in top right corner of the page.
+- The total amount and cart view is available to see in top right corner of the page.
 
 - A quantity field is displayed with each cart item, giving the user the ability to adjust the quantity in their cart. Any time a quantity is adjusted the subtotal displayed is updated to reflect the change.
 
 - User can avail 10% discount when spending at least 50 Euro, and this message will be populated under summary order
-  center of the page with exatc amount saved depending on total amount.
+  center of the page with exact amount saved depending on total amount.
 
-- User that is not logged in will be directed to login page that also gives option to register. Only registered customer will be able to proceed tothe checkout page. 
+- User that is not logged in will be directed to login page that also gives option to register. Only registered customer will be able to proceed to the checkout page. 
 
 - Very important feature that starts in cart is that the user always have a two buttons to click KEEP SHOPPING or
  CONTINUE to Payment, this way user is never forced to use back button in the browser.
@@ -452,7 +452,7 @@ mobile and tablet same same feature provided.
 - If applicable, amount saved thanks to discount provided will be displayed next to total.
 - Here the user has option to:
     - amend amount of items purchased
-    - delete item if neccessary 
+    - delete item if necessary 
     - keep shopping
     - proceed to checkout
 
@@ -476,7 +476,7 @@ mobile and tablet same same feature provided.
            and in future shopping it will be filled automatically for customer.        
     - As a shipping method is automatically selected, user need to add shipping to the total amount, if 
           total is 60 Euro or more shipping will be free, and this will be stated in the column.
-    - Shipping page does not contain footer nor header to make user focus on buying procces rather then give some extra thoughts or distractions.
+    - Shipping page does not contain footer nor header to make user focus on buying processes rather then give some extra thoughts or distractions.
     - The "Continue to payment" button leads the user to the payment page hosted by Stripe.
 
     <br/>
@@ -497,9 +497,9 @@ mobile and tablet same same feature provided.
 - Live Chat
 - Sending an email to customer when their new order has been placed.
 - Build staff pages to view all order and keep record of actual sale by seller.
-    - Giving staff the ability to upsell and that could increase sale
-    - Ability to print out reports of sale by seler so they could participae in upselling contest
-    - Update order as  "we have recived your payment" after "pending" then  "ready for dispach"  and finnaly "shipped"  so that the customer is updated with this information until reciving products.
+    - Giving staff the ability to up selland that could increase sale
+    - Ability to print out reports of sale by seler so they could participate in up selling contest
+    - Update order as  "we have received your payment" after "pending" then  "ready for dispatch"  and finally "shipped".
     - Integration with with delivery company while package is in transit.
     - "Call you back" in a minute button. Where user can request a call back for more info or to talk about product. Option only for registered customers only.
     
@@ -666,7 +666,7 @@ Quantity| quantity | ----- | IntegerField
 
 # Testing 
 
-- Testing information can be found in every app in the folder "tests", where they seperated in to:
+- Testing information can be found in every app in the folder "tests", where they separated in to:
     - tests_view
     - tests_models
     - plus one test_unit in checkout app
@@ -676,8 +676,8 @@ Quantity| quantity | ----- | IntegerField
         - python3 manage.py test
     - to run test in desired app write command in CLI:
         - coverage run --source=name of app manage.py test
-    - to check coverage write this commandin CLI:
-        - covearge report
+    - to check coverage write this command in CLI:
+        - coverage report
     - to check what tests are missing and display it in html view write command in CLI:
         - coverage html
         
@@ -688,13 +688,13 @@ Quantity| quantity | ----- | IntegerField
 
 - MOST IMPORTANT: in order to run coverage tests you need to install coverage.
     - In order to install coverage write in CLI this command:
-        - pip3 install covearge
+        - pip3 install coverage
             - this will generate htmlcov file in your IDE. 
 
 ## Code Validation
 
 - I used the [W3C HTML Validator tool](https://validator.w3.org/#validate_by_input) to validate my HTML code.
-    - The W3C Validator tool doesn't recognise the Jinja templating, which has resulted in it showing a lot of errors in relation to the Jinja code. However, all other code is validating fine.
+    - The W3C Validator tool doesn't recognize the Jinja templating, which has resulted in it showing a lot of errors in relation to the Jinja code. However, all other code is validating fine.
 - I used the [W3C CSS Validator tool](https://jigsaw.w3.org/css-validator/#validate_by_input) to validate my CSS code.
 - I used the [Pep8 Online tool](http://pep8online.com/) to validate my Python syntax.
 - I used CLI to sort all my imports by using command  "isort -rc ."
@@ -708,7 +708,7 @@ Quantity| quantity | ----- | IntegerField
 made to my project and to ensure that it appeared in the desired way on different screen sizes. <br/>
 - I also tested my app on different screen sizes (mobile, tablet and desktop) to ensure <br/>
 it appeared in the desired way on different devices.
-- [Am I Responsive](http://ami.responsivedesign.is/#) - developer tried to use this website to check responsivnes,
+- [Am I Responsive](http://ami.responsivedesign.is/#) - developer tried to use this website to check responsiveness,
 however Django has build in protection that does not allow to do it.
 
 <br/>
@@ -863,7 +863,7 @@ To deploy The Nutristore webshop to heroku, take the following steps:
 - I received inspiration for the style of my project from [Bulk Powders](https://www.bulkpowders.ie/)
 - Thanks to everybody on SLACK that help me when I was stuck and needed assistance. Thanks Tutors aswell. They help me to debug my Python code.
 
-- Special thanks to my mentor [Ignatius Ukwuoma](https://github.com/ignatiusukwuoma) for his time, expertise and friendship through my entire journey through the CodeInstitute full stack web development course
+- Special thanks to my mentor [Ignatius Ukwuoma](https://github.com/ignatiusukwuoma) for his time, expertise and friendship through my entire journey through the Code Institute full stack web development course
 Thank to his incredible knowledge and patience that helped me get so far.
 
 <br/>
