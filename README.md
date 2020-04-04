@@ -345,7 +345,7 @@ mobile and tablet same same feature provided.
 
 <br/>
 <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/contact-form.jpg" alt="TheNutristore contact-form" aria-label="Nutristore" />
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/register-page.jpg" alt="TheNutristore register-form" aria-label="Nutristore" />
 </div>
 
 <br/>
@@ -737,7 +737,7 @@ Please click the links above for documentation on how to set these up and retrie
 
 
 <dl>
-  <dt>Instructionsaly</dt>
+  <dt>Instructions</dt>
   <dd>Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
     at the top of the page and extracting the zip file to your chosen folder. 
     If you have Git installed on your system, you can clone the repository with the following command.</dd>
