@@ -758,11 +758,16 @@ If you have Git installed on your system, you can clone the repository with the 
 
       <br/>
 
-    <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/env.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
-    </div>
-    
-    <br/>
+    |Default quote | Your key | 
+--- | --- | --- | ---
+os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com"| 
+os.environ.setdefault | EMAIL_PASSWORD", "your_password" | 
+os.environ.setdefault | "DATABASE_URL", "postgres://your postgres key, you get it from heroku") | 
+os.environ.setdefault | "STRIPE_PUBLISHABLE", "pk_test_your_key_goes_here" | 
+os.environ.setdefault | "STRIPE_SECRET", "sk_test_dtripe_key_goes_here" | 
+os.environ.setdefault | "SECRET_KEY", "secret_key_goes_here" | 
+os.environ.setdefault | "AWS_ACCESS_KEY_ID", "access_key_goes_here" | 
+os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" | 
 
     - In gitpod create env.py in file main directory, where you will keep all variables. In the file you need to import os.
     In order to do it write in first line: import os
