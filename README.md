@@ -772,7 +772,7 @@ Postcode | postcode | max_length=10 | CharField
 Date ordered | date_ordered | default=datetime.date.today | DateField
 County | county | max_length=20 | CharField
 
-    | Default quote | Your key | 
+| Default quote | Your key | 
 --- | --- | --- | ---
 os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com" | 
 os.environ.setdefault | EMAIL_PASSWORD", "your_password" | 
