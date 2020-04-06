@@ -25,7 +25,7 @@
                     <table class="table table-bordered" id="cart_summary">
                         <thead>
                             <tr>
-                            <th colspan="2" class="cart_product first_item">Product Image</th>
+                            <th class="cart_product first_item">Product Image</th>
                             <th>ORDER DATE</th>
                             <th>PRODUCT NAME</th>
                             <th>QUANTITY</th>
@@ -37,11 +37,6 @@
                             <tr class="cart_item first_item address_0 odd dd-product-group">
                             <td class="cart_product">
                                 <img alt="product-name" class="img-history"src="{{ MEDIA_URL }}{{ item.product.image }}">
-                            </td>
-                            <td class="cart_description">
-                                <p class="product-name">
-                                    <a href="product-page.html"></a>
-                                </p>
                             </td>
                             <td data-title="ORDER DATE" class="table-history">
                                 <span>{{ order.order.created_at }} </span>
@@ -62,9 +57,9 @@
                     
                 </div>
                         
-                        <div class="container col-xs-12">
-                        <p class="row total-history"><span class="pull-left col-xs-6">Total Amount</span><span class="col-xs-6 pull-right text-right"><i class="fas fa-euro-sign"></i>{{order.order.total_cost}}</span></p>
-                    </div>
+                        
+                <p class="row total-history"><span class="pull-left col-xs-6">Total Amount</span><span class="col-xs-6 pull-right text-right"><i class="fas fa-euro-sign"></i>{{order.order.total_cost}}</span></p>
+                   
                         {% endfor %}
                 </div>   
             </div>
