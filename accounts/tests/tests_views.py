@@ -42,12 +42,23 @@ class TestViews(TestCase):
     def test_registration(self):
         page = self.client.get("/accounts/register/")
         self.assertEqual(page.status_code, 200)
+        self.client.login(username="temporary", password="temporary")
+        page = self.client.get("/accounts/register/")
+        self.assertEqual(page.status_code, 302)
+
 
     def test_contact(self):
         page = self.client.get("/accounts/contact/")
         self.assertEqual(page.status_code, 200)
-        with mock.patch("accounts.views.send_contact_mail"):
-            page = self.client.post("/accounts/contact/")
+        with mock.patch("accounts.mails.send_mail"):
+            page = self.client.post(
+                "/accounts/contact/",
+                {
+                    'email': 'test@test.com',
+                    'message': 'test',
+                    'name': 'test'
+                }
+            )
         self.assertEqual(page.status_code, 200)
 
     def test_about(self):
@@ -77,6 +88,12 @@ class TestViews(TestCase):
         self.assertEqual(page.status_code, 302)
         page = self.client.post("/accounts/login/", data)
         self.assertEqual(page.status_code, 302)
+        with mock.patch('accounts.views.auth.authenticate'):
+            response = self.client.post("/accounts/login/", data=data)  
+            self.assertEqual(response.status_code, 302)
+        page = self.client.get("/accounts/login/", data)
+        self.assertEqual(page.status_code, 302)
+
 
 
 class RegisterTestCases(TestCase):
@@ -92,3 +109,6 @@ class RegisterTestCases(TestCase):
         User = get_user_model()
         user = User.objects.get(email="test@test.com")
         self.assertIsNotNone(user)
+        with mock.patch('accounts.views.auth.authenticate'):
+            response = self.client.post("/accounts/register/", data=data)  
+            self.assertEqual(response.status_code, 302) 
