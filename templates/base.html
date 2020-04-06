@@ -7,13 +7,10 @@
     <meta charset="UTF-8">
     <title>Nutristore</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <link rel="stylesheet" href="{% static 'font-awesome/css/fontawesome.min.css' %}">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     {% block head_js %}
     {% endblock %}
@@ -29,7 +26,7 @@
                 <div class= "d-none d-md-block"> <a class="delivery-link" href= "{% url 'delivery' %}"> <p><i class="fas fa-shipping-fast fa-2x"></i> FREE SHIPPING</p></a></div>
                 <div class="card-search d-none d-sm-block">
                     <form class="d-flex">
-                        <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search" type="search" aria-label="Search" />
+                        <input class="form-control mr-sm-2 search-input" id="search_input" maxlength = "20" name= "q" placeholder= "Search" type="search" aria-label="Search" required/>
                         <button type= "submit" class= "fas fa-search navbar-search-icon fa-2x search-btn" title="Search"></button>
                     </form>
                 </div>
@@ -108,16 +105,16 @@
                 <!-- Links -->
                     <ul class="list-unstyled footer-list">
                         <li class="links-footer">
-                            <a href="{% url 'about' %}">About</a>
+                            <a href="{% url 'about' %}" aria-label="About">About</a>
                         </li>
                         <li class="links-footer">
-                            <a href="{% url 'contact' %}">Contact</a>
+                            <a href="{% url 'contact' %}" aria-label="Contact">Contact</a>
                         </li>
                         <li class="links-footer">
-                            <a href="{% url 'return-policy' %}">Return Policy</a>
+                            <a href="{% url 'return-policy' %}" aria-label="Return Policy">Return Policy</a>
                         </li>
                         <li class="links-footer">
-                            <a href="{% url 'delivery' %}">Delivery Information</a>
+                            <a href="{% url 'delivery' %}" aria-label="Delivery Information">Delivery Information</a>
                         </li>
                     </ul>
             </div>
@@ -183,8 +180,13 @@
     </footer>
 
     {% endif%}
+        <!-- scripts for search box -->
         <script src="{% static 'js/search.js' %}"></script>
-    
+
+        <!-- scripts for bootstrap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
   
 </body>
 </html>

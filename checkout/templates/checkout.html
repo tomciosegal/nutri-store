@@ -2,56 +2,53 @@
 	{% load static from staticfiles %}
 	{% load bootstrap_tags %}
 
-	{% block head_js %}
-	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+
+	{% block content %}
+
+
+<main>
+    <div class="checkout-wrapper">
+        <div class="container">
+            <div class="form-group">
+            <h3 class="text-white checkout-header">Payment Details</h3>
+            <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5 checkout-form">
+                <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+                    <div id="credit-card-errors" style="display: none;">
+                        <div id="stripe-error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        {{ payment_form | as_bootstrap }}
+                    </div>
+
+                    {% csrf_token %}
+                    <div class="form-group col-md-12">
+                        <input class=" btn btn-success btn-succes-cart" id="submit_payment_btn" name="commit" 
+                        type="submit" value="Submit Payment" aria-label="Payment">
+                        <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button" aria-label="Go Back"><span aria-hidden="true"></span>Go Back</a>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <div class="total-price">
+                <p class="total-checkout">Total: </p>
+                <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+                {% if request.session.total >= 60 %}
+                {{ request.session.total_after_discount | floatformat:2}} - free shipping
+                {% else %}
+                {{ request.session.total_after_discount | floatformat:2}} + 4.99 shipping
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 	<script type="text/javascript">
 		//<![CDATA[
 			Stripe.publishableKey = '{{ publishable }}';
 		//]]>
 	</script>
 	<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
-	{% endblock %}
-
-	{% block content %}
-
-
-
-<div class="checkout-wrapper">
-    <div class="container">
-        <div class="form-group">
-        <h3 class="text-white checkout-header">Payment Details</h3>
-        <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5 checkout-form">
-            <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-                
-
-                <div id="credit-card-errors" style="display: none;">
-                    <div id="stripe-error-message"></div>
-                </div>
-
-                <div class="form-group">
-                    {{ payment_form | as_bootstrap }}
-                </div>
-
-                {% csrf_token %}
-                <div class="form-group col-md-12">
-                    <input class=" btn btn-success btn-succes-cart" id="submit_payment_btn" name="commit" 
-                    type="submit" value="Submit Payment">
-                    <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Go Back</a>
-                </div>
-            </form>
-        </div>
-        </div>
-        <div class="total-price">
-            <p class="total-checkout">Total: </p>
-            <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-            {% if request.session.total >= 60 %}
-            {{ request.session.total_after_discount | floatformat:2}} - free shipping
-            {% else %}
-            {{ request.session.total_after_discount | floatformat:2}} + 4.99 shipping
-                {% endif %}
-            </p>
-        
-        </div>
-    </div>
-</div>
 	{% endblock %}

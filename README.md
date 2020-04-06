@@ -389,7 +389,7 @@ mobile and tablet same same feature provided.
 <br/>
 
 
-#### Checkout
+### Checkout
 
 <br/>
 
@@ -696,21 +696,128 @@ however Django has build in protection that does not allow to do it.
 
 <br/>
 
-# Deployment
+## Deployment
 
-<dl>
-  <dt>How to run this project locally</dt>
-  <dd>Install heroku with npm install heroku</dd>
-  <dd>Login with heroku login -i</dd>
-  <dd>Create a new heroku app with heroku create appname </dd>
-  <dd>Go to the heroku dashboard and set config variables</dd>
-  <dd>Restart dynos</dd>
-  <dd>Push to heroku with git push heroku master </dd>
-</dl>
+I used GitHub for my version control and Heroku to host the live version of my project. To deploy my website to Heroku, I used use the following steps:
+
+1. Created the app in Heroku.
+2. Went to the **Resources** tab in Heroku and searched for **Heroku Postgres** in the 'Add-Ons' section.
+3. Selected the free **Hobby** level.
+4. Updated the `.bashrc` file within my local workspace with the `DATABASE_URL` details, and the `settings.py` to connect to the database using the `dj_database_url` package.
+5. Ran the `python3 manage.py makemigrations`, `python3 manage.py migrate`, `python3 manage.py createsuperuser` commands to migrate the models into Heroku Postgres and create a new super user in the new PostgreSQL database.
+5. Went to the **Settings** tab in Heroku and clicked on the **Reveal Config Vars** button.
+6. Copied and paste all of the default variables from env.py  in to Heroku's Config Vars section.
+
+| Default quote | Your key | 
+--- | --- 
+os.environ.setdefault | "EMAIL_ADDRESS","your_mail@gmail.com" | 
+os.environ.setdefault | EMAIL_PASSWORD", "your_password" | 
+os.environ.setdefault | "DATABASE_URL", "postgres://your postgres key, you get it from heroku") | 
+os.environ.setdefault | "STRIPE_PUBLISHABLE", "pk_test_your_key_goes_here" | 
+os.environ.setdefault | "STRIPE_SECRET", "sk_test_dtripe_key_goes_here" | 
+os.environ.setdefault | "SECRET_KEY", "secret_key_goes_here" | 
+os.environ.setdefault | "AWS_ACCESS_KEY_ID", "access_key_goes_here" | 
+os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" |  
+
+7. Went to the **Deploy** tab in Heroku, connected my app to my GitHub repository and selected **Enable Automatic Deployment** as the deployment method.
+8. Went to the **Developers** section in Stripe and clicked on **API Keys**.
+9. Copied and pasted the **Publishable Key** and **Secret Key** and set them as the `STRIPE_PUBLISHABLE` and `STRIPE_SECRET` environment variables in the `.bashrc` file within my local workspace.
+10. Updated the `settings.py` with the new Stripe environment variables.
+11. Went to the **S3** section of AWS and created a new S3 bucket.
+12. Updated the `settings.py` file in my local workspace with the relevant S3 bucket details:
+
+    ```
+    AWS_S3_OBJECT_PARAMETERS = {
+        "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
+        "CacheControl": "max-age=94608000",
+    }
+    AWS_STORAGE_BUCKET_NAME = "<s3-bucket-name>"
+    AWS_S3_REGION_NAME = "<region-name>"
+    AWS_ACCESS_KEY_ID = <access-key-id>
+    AWS_SECRET_ACCESS_KEY = <secret-access-key>
+    AWS_S3_CUSTOM_DOMAIN = "%s.s3.amazonaws.com" % AWS_STORAGE_BUCKET_NAME
+    AWS_DEFAULT_ACL = None
+    ```
+13. Created a `custom_storages.py` file with classes to route to the relevant location settings for static and media files.
+14. Updated the `settings.py` file with the relevant configuration for static and media file storage.
+15. Ran the `python3 manage.py collectstatic` command to push the static files to my S3 bucket.
+16. Created a requirements.txt file using the following command in the terminal window:
+
+    ```pip3 freeze --local > requirements.txt```
+
+17. Created a Procfile using the following command in the terminal window:
+
+    ```web: gunicorn nutristore.wsgi:application> Procfile```
+
+18. Ran the `git add .`, `git commit -m "<commit-message>"` and `git push` commands to push all changes to my GitHub repository.
+
+The app was successfully deployed to Heroku at this stage.
+
+### Live App Link
+
+Click the link below to run my project in the live environment:
+
+[Nutristore](https://nutristore-cygal.herokuapp.com/)
+
+### Repository Link
+
+Click the link below to visit my project's GitHub repository:
+
+[Nutristore GitHub Repository](https://github.com/tomciosegal/nutri-store)
+
+### Running Code Locally
+
+To run my code locally, users can download a local copy of my code to their desktop by completing the following steps:
+
+1. Go to [my GitHub repository]https://github.com/tomciosegal/nutri-store)
+2. Click on 'Clone or download' under the repository name.
+3. Copy the clone URL for the repository in the 'Clone with HTTPs section'.
+4. Open 'Git Bash' in your local IDE.
+5. Change the current working directory to the location where you want the cloned directory to be made.
+6. Type `git clone`, then paste the URL you copied in Step 3:
+
+    ```git clone https://github.com/USERNAME/REPOSITORY```
+
+7. Press `Enter` to complete the process and create your local clone.
+8. Complete one of the two below steps in your local workspace to set your own credentials for the environment variables:
+    - Enter and save your own credentials in the `.baschrc` file; or
+    - Create a `.env,py` file with your own credentials and import this into the `settings.py` file
+9. Install the `requirements.txt` file by running the below command in your CLI Terminal:
+
+    ```pip3 install -r requirements.txt```
+
+10. Run one of the following commands in your Terminal to launch the Django project:
+
+    ```python3 manage.py runserver```
+
+11. Click the `http://` link that loads, and the project should load. If it doesn't load when you click the link, copy and paste it into a new browser tab instead.
+12. Run the following commands to migrate the database models and create a super user:
+
+    ```
+    python3 manage.py makemigrations
+    python3 manage.py migrate
+    python3 manage.py createsuperuser
+    ```
+
+13. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+14. Set the following config vars in heroku :
+
+<div align="center">
+    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/config-vars.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
+</div>
 
 <br/>
 
-    
+Once the migrations are completed and the super user has been created successfully, the site should be running locally.
+
+### Media And Static Folders
+
+During development, my `static` and `media` folders weren't pushed to GitHub only in the early parts of the project.
+During the progress developer was instructed to keep them in .gitignore file, as they are hosted in my S3 bucket for 
+the live version of the site.
+
+
+  
 To allow you to access all functionality on the site locally, ensure you have created free accounts with the following services:
     - [Stripe](https://dashboard.stripe.com/register)
     - [AWS](https://aws.amazon.com/) and [set up an S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/gsg/CreatingABucket.html)
@@ -719,23 +826,7 @@ To allow you to access all functionality on the site locally, ensure you have cr
 Please click the links above for documentation on how to set these up and retrieve the necessary environment variables.
 
 
-<dl>
-  <dt>Instructions</dt>
-  <dd>Save a copy of the github repository located at https://github.com/tomciosegal/nutri-store by clicking the "download zip" button 
-    at the top of the page and extracting the zip file to your chosen folder. 
-    If you have Git installed on your system, you can clone the repository with the following command.</dd>
-  <dd>Gitpod workspaces come with Python versions: 2.7.17, and 3.7.3 pre-installed by default.</dd>
-  <dd>The easiest way to install a new Python version is to use pyenv install <VERSION></dd>
-  <dd>You will need to create requirements.txt file to manage dependencies </dd>
-  <dd>pip3 install -r requirements.txt</dd>
-  <dd>If needed, Upgrade pip locally with: pip install --upgrade pip.</dd>
-  <dd>Set up the following environment variables within your IDE.</dd>
-  <dd>pip3 install -r requirements.txt</dd>
-</dl>
-
-<br/>
-
-#### In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
+### In Gitpod you create env.py file in main directory and write in first line: import os. Use table below to copy required fields.
 
 <br/>
 
@@ -751,74 +842,7 @@ os.environ.setdefault | "SECRET_KEY", "secret_key_goes_here" |
 os.environ.setdefault | "AWS_ACCESS_KEY_ID", "access_key_goes_here" | 
 os.environ.setdefault | "AWS_SECRET_ACCESS_KEY","secret_access_key_goes_here" |  
 
-
 <br/>
-
-<dl>
-  <dt>If using an IDE that includes a bashrc file, open this file and enter all the environment variables listed above using the following format:</dt> 
-    <dd>HOSTNAME="enter key here. in gitpod LOCALHOST"</dd>
-<dt>HOSTNAME should be the local address for the site when running within your own IDE.</dt>
-    <dd>DEV environment variable is set only within the development environment, it does not exist in the deployed version, making it possible 
-    to have different settings for the two environments. For example setting DEBUG to True only when working in development and not on 
-    the deployed site.</dd>
-<dt>Migrate the admin panel models to create your database template with the terminal command:</dt>
-  <dd>python manage.py migrate</dd>
-<dt>Create your superuser to access the django admin panel and database with the following command, and then follow the steps to add your admin username and password:
-</dt>
-  <dd>python manage.py createsuperuser</dd>
-<dt>You can now run the program locally with the following command:</dt>
-  <dd>python manage.py runserver</dd>
-  <dd>Restart dynos</dd>
-  <dd>Once the program is running, go to the local link provided and add `/admin` to the end of the url.</dd>
- </dl>
-
-<br/>
-
-
-## Heroku Deployment
-
-To deploy The Nutristore webshop to heroku, take the following steps:
-
-1. Create a `requirements.txt` file using the terminal command `pip freeze > requirements.txt`.
-
-2. Create a `Procfile` with the terminal command `echo web: python app.py > Procfile`.
-
-3. `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
-
-3. Create a new app on the [Heroku website](https://dashboard.heroku.com/apps) by clicking the "New" button in your dashboard. 
-    Give it a name and set the region to whichever is applicable for your location.
-
-4. From the heroku dashboard of your newly created application, click on "Deploy" > "Deployment method" and select GitHub.
-   For your convinience is recomended to set in heroku an autodeploy from github. This way every time you do push to github
-   heroku will read changes and built up an app with latest push.
-
-5. Confirm the linking of the heroku app to the correct GitHub repository.
-
-6. In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
-
-7. Set the following config vars:
-
-    <br/>
-
-    <div align="center">
-    <img src="https://nutri-store.s3-eu-west-1.amazonaws.com/media/images/config-vars.jpg" alt="TheNutristore github-download" aria-label="Nutristore" />
-    </div>
-
-    <br/>
-
-
-8. From the command line of your local IDE:
-    - Enter the heroku postres shell 
-    - Migrate the database models 
-    - Create your superuser account in your new database
-    
-     Instructions on how to do these steps can be found in the [heroku devcenter documentation](https://devcenter.heroku.com/articles/heroku-postgresql).
-
-9. In your heroku dashboard, click "Deploy". Scroll down to "Manual Deploy", select the master branch then click "Deploy Branch".
-
-10. Once the build is complete, click the "View app" button provided.
-
-11. From the link provided add `/admin` to the end of the url, log in with your superuser account.
 
 # Credits
 

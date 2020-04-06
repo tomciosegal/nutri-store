@@ -9,19 +9,15 @@
     <div class="row justify-content-center">
             <heading class="col-11 col-md-8 col-lg-6 text-center">
                 <h1 class="cart-heading">Your cart is empty!</h1>
-                <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5">Let's go shopping</a>
+                <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5" aria-label="Go Shopping">Let's go shopping</a>
             </heading>
     </div>
                 {% endif %}
-
-    
         <div class="row row-flex cart-row">
             {% for item in cart_items %}
             
             <div class="col-md-6 col-lg-6 col-sm-12 display panel cart-panel">
-                
                 <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image }}')"></div>
-                
                 <div class="caption">
                     <h3>{{ item.product.name }}</h3>
                     <p class="product-description">{{ item.product.description }}</p>
@@ -34,7 +30,7 @@
                                 <label for="exampleInputAmount" class="sr-only">New Qty</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">Qty</div>
-                                    <input name="quantity" type="number" min="0" max="999" class="form-control">
+                                    <input name="quantity" type="number" min="0" max="999" class="form-control" aria-label="quantity">
                                     <div class="input-group-addon">{{item.quantity}}</div>
                                 </div>
                         </div>
@@ -59,8 +55,8 @@
                 {% else %}
                 <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total | floatformat:2}} <span class="text-danger">get 10% off when over <i class="fas fa-euro-sign"></i> 50 </span></p>
                 {% endif %}
-                <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Checkout</a>
-                <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button"><span aria-hidden="true"></span>Keep Shopping</a>
+                <a href="{% url 'shipping' %}" class="btn btn-success btn-succes-cart" role="button" ><span aria-hidden="true"></span>Checkout</a>
+                <a href="{% url 'index' %}" class="btn btn-success btn-succes-cart" role="button" ><span aria-hidden="true"></span>Keep Shopping</a>
             </div>
 
                 {% endif %}
