@@ -1,4 +1,5 @@
 from unittest import mock
+
 from accounts.models import Customer
 from django.contrib.auth import get_user_model
 from django.test import TestCase
@@ -54,7 +55,7 @@ class TestView(TestCase):
                 },
             )
             self.assertEqual(page.status_code, 302)
-            self.assertEqual(self.client.session['cart'], dict())
+            self.assertEqual(self.client.session["cart"], dict())
 
     def test_order_confirmation(self):
         page = self.client.get("/checkout/order_confirmation/")

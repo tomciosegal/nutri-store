@@ -1,3 +1,5 @@
+from smtplib import SMTPAuthenticationError
+
 import stripe
 from accounts.forms import CustomerForm
 from accounts.models import Customer
@@ -9,7 +11,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404, redirect, render, reverse
 from products.models import Product
-from smtplib import SMTPAuthenticationError
+
 from .forms import MakePaymentForm
 from .models import Order, OrderItem
 
@@ -53,7 +55,9 @@ def checkout(request):
                 try:
                     send_checkout_mail(request)
                 except SMTPAuthenticationError:
-                    messages.error(request, "Your order confirmation email send failed")
+                    messages.error(
+                        request, "Your order confirmation email send failed"
+                    )
                 create_order_history(request.user, request.session)
                 clear_cart(request.user)
                 messages.error(request, "You have successfully paid")
@@ -110,7 +114,9 @@ def shipping(request):
 
 
 def order_history(request):
-    customer = Customer.objects.filter(user=request.user).first()
+    customer = None
+    if request.user.is_authenticated():
+        customer = Customer.objects.filter(user=request.user).first()
     orders = []
     if customer:
         orders = Order.objects.filter(customer=customer).order_by(
@@ -121,6 +127,7 @@ def order_history(request):
         order_items = OrderItem.objects.filter(order_history=order)
         orders_with_items.append({"order": order, "items": order_items})
     return render(request, "order_history.html", {"orders": orders_with_items})
+
 
 def order_confirmation(request):
     return render(request, "order-confirmation.html")

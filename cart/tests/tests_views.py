@@ -46,9 +46,7 @@ class TestViews(TestCase):
         session = self.client.session
         session["cart"] = {self.product.id: 7}
         session.save()
-        self.client.post(
-            f"/cart/adjust/{self.product.id}/", {"quantity": 3}
-        )
+        self.client.post(f"/cart/adjust/{self.product.id}/", {"quantity": 3})
 
         self.assertEqual(
             self.client.session["cart"], {str(self.product.id): 3}
@@ -60,16 +58,12 @@ class TestViews(TestCase):
         )
 
         # check if no amend is made when we try to update with to high quantity
-        self.client.post(
-            f"/cart/adjust/{self.product.id}/", {"quantity": 12}
-        )
+        self.client.post(f"/cart/adjust/{self.product.id}/", {"quantity": 12})
         self.assertEqual(
             self.client.session["cart"], {str(self.product.id): 3}
         )
         # check if the is no update when quantity=0
-        self.client.post(
-            f"/cart/adjust/{self.product.id}/", {"quantity": 0}
-        )
+        self.client.post(f"/cart/adjust/{self.product.id}/", {"quantity": 0})
         self.assertEqual(
             self.client.session["cart"], {str(self.product.id): 3}
         )

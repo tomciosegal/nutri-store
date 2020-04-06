@@ -165,7 +165,7 @@ STRIPE_SECRET = os.getenv("STRIPE_SECRET")
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = "smtp.gmail.com"
-FROM_EMAIL = "tomaszcygal429@gmail.com"
+FROM_EMAIL = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_USER = os.environ.get("EMAIL_ADDRESS")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587

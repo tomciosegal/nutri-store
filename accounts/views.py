@@ -1,11 +1,12 @@
 from accounts.forms import CustomerForm, UserLoginForm, UserRegistrationForm
+from accounts.mails import send_contact_mail
 from accounts.models import Customer
 from cart.utils import load_cart
+from checkout.models import Order
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, reverse
-from checkout.models import Order
-from accounts.mails import send_contact_mail
+
 
 @login_required
 def logout(request):
@@ -110,10 +111,12 @@ def user_profile(request):
         form = CustomerForm(instance=customer)
     has_order = False
     if customer:
-        has_order = Order.obcjects.filter(customer=customer).exists()
-        
+        has_order = Order.objects.filter(customer=customer).exists()
+
     return render(
-        request, "profile.html", {"user": request.user, "form": form, "has_order":has_order}
+        request,
+        "profile.html",
+        {"user": request.user, "form": form, "has_order": has_order},
     )
 
 
@@ -135,10 +138,7 @@ def delivery(request):
 def return_policy(request):
     return render(request, "return-policy.html")
 
+
 def subscribe_mail(request, mail):
     messages.success(request, "Thank You For Subscription")
     return redirect(reverse("index"))
-
-    
-
-

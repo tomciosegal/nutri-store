@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render
 from products.mails import send_subscribe_mail
+
 from .models import Product, ProductCategory
 
 
@@ -21,7 +22,7 @@ def all_products(request):
         products = products.filter(name__icontains=name)
 
     page = request.GET.get("page", 1)
-    products = products.order_by('name')
+    products = products.order_by("name")
     paginator = Paginator(products, 8)
     try:
         products = paginator.page(page)
