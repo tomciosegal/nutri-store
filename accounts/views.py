@@ -4,7 +4,8 @@ from cart.utils import load_cart
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render, reverse
-
+from checkout.models import Order
+from accounts.mails import send_contact_mail
 
 @login_required
 def logout(request):
@@ -101,20 +102,24 @@ def user_profile(request):
     if request.method == "POST":
         form = CustomerForm(request.POST, instance=customer)
         if form.is_valid():
-
             customer = form.save(commit=False)
             customer.user = request.user
             customer.save()
             messages.success(request, "You have updated your profile")
     else:
         form = CustomerForm(instance=customer)
+    has_order = False
+    if customer:
+        has_order = Order.obcjects.filter(customer=customer).exists()
+        
     return render(
-        request, "profile.html", {"user": request.user, "form": form}
+        request, "profile.html", {"user": request.user, "form": form, "has_order":has_order}
     )
 
 
 def contact(request):
     if request.method == "POST":
+        send_contact_mail(request)
         messages.success(request, "Thank You For Contatcting Us!")
     return render(request, "contact.html")
 

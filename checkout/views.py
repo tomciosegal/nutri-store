@@ -110,9 +110,10 @@ def shipping(request):
 
 
 def order_history(request):
+    customer = Customer.objects.filter(user=request.user).first()
     orders = []
-    if request.user.is_authenticated():
-        orders = Order.objects.filter(customer=request.user.customer).order_by(
+    if customer:
+        orders = Order.objects.filter(customer=customer).order_by(
             "-created_at"
         )
     orders_with_items = []
