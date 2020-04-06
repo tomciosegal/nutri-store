@@ -12,12 +12,9 @@
                         <a href="{% url 'product_details' product.id %}">
                             <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" alt = products-image/>
                         </a>
-
                         <a href="{% url 'product_details' product.id %}"><h3 class="product-header">{{ product.name }}</h3></a>
                         <p class="price-tag"><i class="fas fa-euro-sign"></i> {{ product.price }} </p>
                         <p class="product-description">{{ product.description }}</p>
-                        
-
                         <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
                             {% csrf_token %}
                             <div style="display: flex; justify-content: center;">
@@ -64,22 +61,25 @@
         <div class="message"><span class="loading-message"></span></div>
     </form>
 </section>
+                                
+                                
+                                <!--modal for addng to cart-->
 
 <div class="modal" tabindex="-1" role="dialog" style="display: none;" id="cart_modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
+      <div class="modal-header text-justify">
+        <h4 class="modal-title  text-success">Nutristore</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Product added to basket!</p>
+        <p class="text-justify">Product added to basket!</p>
       </div>
       <div class="modal-footer">
-        <a href="/checkout/shipping" class="btn btn-primary">Go to checkout</a>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Continue shopping</button>
+        <a href="/checkout/shipping" class="btn btn-success btn-modal">Go to checkout</a>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Continue shopping</button>
       </div>
     </div>
   </div>
