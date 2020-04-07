@@ -155,8 +155,8 @@ to build formula.
 
 ### colors
 
-- light green: #77ac3c;
-- green: #79b03e
+- light green: #79ba18;
+- green: #008000
 - light grey: #e3e1e1
 
 - The brand colors for this project were chosen to make to create the impression of a clean, sterile room where natural supplements are produced. thus, we want to ensure a potential customer about the purity of our product.
