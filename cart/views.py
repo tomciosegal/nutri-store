@@ -5,12 +5,26 @@ from products.models import Product
 
 
 def view_cart(request):
-    """A View that renders the cart contents page"""
+
+    """
+    render shopping cart page, removes footer from this
+    page to fit conventions of other
+    eCommerce sites.
+    """
+
     return render(request, "cart.html", {"disable_footer": True})
 
 
 def add_to_cart(request, id):
-    """Add a quantity of the specified product to the cart"""
+
+    """
+    Add a quantity of the specified
+    product to the cart stored in session.
+    Update total price of all products in cart.
+    Creates or updates user cart, which is later loaded
+    after login.
+    """
+
     quantity = int(request.POST.get("quantity") or 1)
 
     product = Product.objects.get(id=id)
@@ -48,10 +62,12 @@ def add_to_cart(request, id):
 
 
 def adjust_cart(request, id):
+
     """
     Adjust the quantity of the specified product to the specified
-    amount
+    amount or delete selected item form the cart.
     """
+
     quantity = request.POST.get("quantity")
     if not quantity:
         messages.error(request, "Choose quantity")
@@ -97,6 +113,12 @@ def adjust_cart(request, id):
 
 
 def cart_item_delete(request, item_id):
+
+    """
+    User will be able to remove selected items from the shopping
+    cart. This option is availible in the cart view
+    """
+
     if request.method == "POST":
         if request.user.is_authenticated():
             cart_object, created = Cart.objects.get_or_create(

@@ -21,11 +21,13 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
 
-    """The view will render the html page and
-        pass in forms and contents of the cart
-        Links up the backend data to the frontend
-        user interface
     """
+    Renders checkout info page with navbar and
+    footer removed to fit with conventions of online shops.
+    Provides Stripe with the necessary keys to process
+    payment when user clicks the "Submit Payment" button.
+    """
+
     customer = None
     if request.user.is_authenticated():
         customer = Customer.objects.filter(user=request.user).first()
@@ -86,6 +88,14 @@ def checkout(request):
 
 
 def shipping(request):
+
+    """
+    Renders checkout shipping page with navbar and footer
+    removed to fit with conventions of online shops.
+    If user not logged in getting to this stage is blocked,
+    and user is asked to login.
+    """
+
     customer = None
     if request.user.is_authenticated():
         customer = Customer.objects.filter(user=request.user).first()
@@ -114,6 +124,12 @@ def shipping(request):
 
 
 def order_history(request):
+
+    """
+    Displays order history to the user listed
+    by date of purchase.
+    """
+
     customer = None
     if request.user.is_authenticated():
         customer = Customer.objects.filter(user=request.user).first()

@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["localhost", "nutristore-cygal.herokuapp.com"]
 
@@ -158,7 +158,7 @@ STATICFILES_STORAGE = "custom_storages.StaticStorage"
 STATICFILES_LOCATION = "static"
 
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 STRIPE_PUBLISHABLE = os.getenv("STRIPE_PUBLISHABLE")
 STRIPE_SECRET = os.getenv("STRIPE_SECRET")

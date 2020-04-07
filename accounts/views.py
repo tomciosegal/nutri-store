@@ -12,7 +12,7 @@ from django.shortcuts import redirect, render, reverse
 def logout(request):
 
     """
-    Log the user out
+    Logout the user
     """
 
     username = request.user.username
@@ -57,8 +57,10 @@ def login(request):
 def registration(request):
 
     """
-    Render the registration page
-    will create a new user
+    View for users to register a new account.
+    Checks if form is valid, and responds accordingly,
+    then redirects users to the login page on successfully
+    creating a new account.
     """
 
     if request.user.is_authenticated():
@@ -96,7 +98,8 @@ def registration(request):
 def user_profile(request):
 
     """
-    The user's profile page
+    Renders profile page for user with a form to update
+    their information. When posted creates a new customer.
     """
 
     customer = Customer.objects.filter(user=request.user).first()

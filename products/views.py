@@ -7,6 +7,12 @@ from .models import Product, ProductCategory
 
 
 def all_products(request):
+
+    """
+    Renders home page - products list
+    with pagination
+    """
+
     if request.method == "POST":
         send_subscribe_mail(request.POST)
         messages.success(
@@ -23,6 +29,7 @@ def all_products(request):
 
     page = request.GET.get("page", 1)
     products = products.order_by("name")
+    # paginator responsible for displaiyng max 8 products per page
     paginator = Paginator(products, 8)
     try:
         products = paginator.page(page)
