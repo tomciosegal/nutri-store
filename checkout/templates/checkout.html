@@ -13,8 +13,8 @@
             <h3 class="text-white checkout-header">Payment Details</h3>
             <div class="col-12 col-md-6 mt-4 pt-3 px-3 px-lg-5 checkout-form">
                 <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
-                    <div id="credit-card-errors">
-                        <div id="stripe-error-message"></div>
+                    <div id="credit-card-errors" class="text-white">
+                        <div id="stripe-error-message" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         {{ payment_form | as_bootstrap }}
