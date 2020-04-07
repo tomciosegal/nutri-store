@@ -9,11 +9,11 @@
     <div class="row justify-content-center">
             <heading class="col-11 col-md-8 col-lg-6 text-center">
                 <h1 class="cart-heading">Your cart is empty!</h1>
-                <a href="{% url 'products' %}" class="btn btn-green btn-cta my-5" aria-label="Go Shopping">Let's go shopping</a>
+                <a href="{% url 'products' %}" class="btn btn-success btn-cta my-5" aria-label="Go Shopping">Let's go shopping</a>
             </heading>
     </div>
                 {% endif %}
-        <div class="row row-flex cart-row">
+        <div class="row row-flex">
             {% for item in cart_items %}
             
             <div class="col-md-6 col-lg-6 col-sm-12 display panel cart-panel">
@@ -48,7 +48,7 @@
             {% endfor %}
     </div>
                 {% if cart_items %}
-            <div class="row summary-cart total-price">
+            <div class="row summary-cart">
                 <p>Total</p>
                 {% if total > 50 %}
                 <p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total_after_discount | floatformat:2}} <span class="text-danger">you saved <i class="fas fa-euro-sign"></i> {{diference | floatformat:2}}</span></p>

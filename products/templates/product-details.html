@@ -20,14 +20,14 @@
                             <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
                                 {% csrf_token %}
                                 <div class= "col-12">
-                                    <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Quantity" aria-label="quantity">
+                                    <input name="quantity" type="number" min="1" max="{{ product.quantity }}" class="quantity-input" value="{{ request.session.cart }}" placeholder="Qty" aria-label="quantity">
                                 </div>
                         </div>
 					</div>
                         <div class=" col-12 buttons-wrapper">
-                                        <button class="btn btn-success" type="submit">Add</button>
+                                        <button class="btn btn-success add-btn" type="submit">Add</button>
                             </form>
-                                        <a href="{% url 'index' %}" class="btn-success btn btn-default" role="button"></span>Back Shppping</a>
+                                        <a href="{% url 'index' %}" class="btn-success btn btn-default" role="button"></span>Back Shoppping</a>
                                         <a href="{% url 'checkout' %}" class="btn-success btn btn-default" role="button"></span>Checkout</a>
                         </div>
 				</div>
