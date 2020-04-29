@@ -330,7 +330,7 @@ mobile and tablet same same feature provided.
 - The contact page contains a form for the user to fill in to send the shop owner an email.
 - Name, email address and message are all required fields so that the shop owner receives all the information she needs to respond.
 - If the user is logged in then their email address will already be populated in the email field.
-- When the user clicks "send" the email is processed and sent via emailjs to The House of Mouse email address.
+- When the user clicks "send" the email is processed and sent via emailjs to The Nutristore.
 ***
 <br/>
 
