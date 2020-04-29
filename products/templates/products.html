@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load staticfiles %}
+
+<main>
+    <div class="container product-wrapper">
+        <div class="row row-flex">
+            {% for product in products %}
+                <div class=" col-lg-3 col-md-4 col-sm-6 display panel panel-default">
+                    <div class="panel-body">
+                        <a href="{% url 'product_details' product.id %}">
+                            <img src="{{ MEDIA_URL }}{{ product.image }}" class="product_image" alt = products-image/>
+                        </a>
+                        <a href="{% url 'product_details' product.id %}"><h3 class="product-header">{{ product.name }}</h3></a>
+                        <p class="price-tag"><i class="fas fa-euro-sign"></i> {{ product.price }} </p>
+                        <p class="product-description">{{ product.description }}</p>
+                        <form method="post" action="{% url 'add_to_cart' product.id %}" data-add-basket-form>
+                            {% csrf_token %}
+                            <div style="display: flex; justify-content: center;">
+                                <input name="quantity" type="number" min="1" max="5" class="quantity-input" value="{{ request.session.cart }}" placeholder="Qty" aria-label="quantity">
+                                <button class="btn btn-success add-btn" type="submit">Add</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+        <div class= "pagination-wrapper">
+                    {% if products.has_other_pages %}
+            <ul class="pagination">
+                    {% if products.has_previous %}
+                <li><a href="?page={{ products.previous_page_number }}">&laquo;</a></li>
+                    {% else %}
+                <li class="disabled"><span>&laquo;</span></li>
+                    {% endif %}
+                    {% for i in products.paginator.page_range %}
+                    {% if products.number == i %}
+                    <li class="active"><span >{{ i }} <span class="sr-only">(current)</span></span></li>
+                    {% else %}
+                    <li><a href="?page={{ i }}">{{ i }}</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if products.has_next %}
+                <li><a href="?page={{ products.next_page_number }}">&raquo;</a></li>
+                    {% else %}
+                <li class="disabled"><span>&raquo;</span></li>
+                    {% endif %}
+            </ul>
+                    {% endif %}
+    </div>
+</main>
+<section class="newsletter-row"><h3 class="text-center">Stay in Touch</h3>
+    <p class="text-center">Fancy discounts and fitness tips delivered straight to your inbox? You know what to do. </p> 
+    
+    <form class="newsletter-form text-center" novalidate="novalidate" method="post" id="newsletter-validate-detail">
+         {% csrf_token %}
+        <input name="email" type="email" id="newsletter" class="newsletter-input" placeholder="Enter your email address" data-validate="{required:true, 'validate-email':true}">
+        <button class="btn-success" title="Subscribe" type="submit"><span class="text-uppercase">Subscribe</span></button> 
+        <div class="message"><span class="loading-message"></span></div>
+    </form>
+</section>
+                                
+                                
+                                <!--modal for addng to cart-->
+
+<div class="modal" tabindex="-1" role="dialog" style="display: none;" id="cart_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-justify">
+        <h4 class="modal-title  text-success">Nutristore</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p class="text-justify">Product added to basket!</p>
+      </div>
+      <div class="modal-footer">
+        <a href="/checkout/shipping" class="btn btn-success btn-modal">Go to checkout</a>
+        <button type="button" class="btn btn-success" data-dismiss="modal">Continue shopping</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="{% static 'js/basket.js' %}"></script>
+
+{% endblock %}
+
+

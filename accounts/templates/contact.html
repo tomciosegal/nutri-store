@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="container-fluid p-0">
+        <div class="row no-gutters">
+        {% if messages %}
+
+        {% endif %}
+        </div>
+    </div>
+<main>
+    <div class="contact-wrapper footer-push-down">
+        <div class="container-fluid">
+            <div class="row justify-content-center contact-row">
+                <div class="col-12 col-md-6 contact-wrapper">
+                    <div class="contact-form-wrapper mx-auto my-3">
+                        <form id="contact-form" method="POST">
+                            {% csrf_token %}
+                            <fieldset class="form-group">
+                                <legend>Get in touch</legend>
+                                <p>Got a question?<br>
+                                    Send me a message!</p>
+                                <hr>
+                        <div id="div_id_name" class="form-group"> <label for="id_name" class=" requiredField">
+                            Name<span class="asteriskField">*</span> </label> 
+                            <div> <input type="text" name="name" class="textinput textInput form-control contact-control" aria-label="name" required id="id_name"> 
+                            </div> 
+                        </div> 
+                        <div id="div_id_email" class="form-group"> <label for="id_email" class=" requiredField">
+                            Email<span class="asteriskField">*</span> </label> 
+                            <div> <input type="email" name="email" value="" class="emailinput form-control contact-control" aria-label="email" required id="id_email"> 
+                            </div> 
+                        </div> 
+                        <div id="div_id_message" class="form-group"> <label for="id_message" class=" requiredField">
+                            Message<span class="asteriskField">*</span> </label> 
+                            <div> <textarea name="message" cols="40" rows="8" class="textarea form-control contact-control" required id="id_message">
+                                </textarea> 
+                            </div> 
+                        </div>
+                            </fieldset>
+                            <div class="form-group">
+                                <button class="btn btn-success btn-contact-send" type="submit">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>    
+{% endblock %}

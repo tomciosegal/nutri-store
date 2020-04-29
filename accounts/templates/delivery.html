@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<main>
+    <div class="footer-push-down">
+        <h2 class="text-uppercase delivery-info text-white">delivery</h2>
+        <div class= "container delivery-wrapper">
+            <div class= "row delivery-row">
+                <div class = "col-md-3 sidebar d-none d-md-block">
+                    <strong class= "sidebar-phone">Phone Number</strong>
+                    <p>012345678</p>
+                    <strong class= "sidebar-office-hours">Office Hours</strong>
+                    <p>
+                        08:00 - 21:00 Monday to Friday
+                        <br>
+                        09:00 - 17:00 Saturday and Sunday
+                        </p>
+                </div>
+                <div class = "col-md-9 delivery-main">
+                    <h2 class="delivery-info">
+                    <span class= "delivery_underline text-capitalize"> what can we help you with?</span>
+                    </h2>
+                    <h3 class="delivery-info">
+                    <span class= "delivery_underline text-capitalize"> what are my options for delivery and much does it cost me?</span>
+                    </h3>
+                    <p class= "text-danger text-capitalize text-center">ireland shipping only</p>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">SERVICE</th>
+                                <th scope="col">VALUE</th>
+                                <th scope="col">PRICE</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>2 working days</td>
+                                <td>up to 59.99 euro</td>
+                                <td>4.99 euro</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>2 working days</td>
+                                <td>60.00 euro +</td>
+                                <td>FREE</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

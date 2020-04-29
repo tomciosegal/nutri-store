@@ -1,0 +1,10 @@
+*.sqlite3
+*.pyc
+__pycache__/
+.theia/
+env.py
+media/*
+static/
+htmlcov/
+.coverage
+staticfiles/
