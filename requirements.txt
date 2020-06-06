@@ -3,7 +3,7 @@ botocore==1.15.5
 chardet==3.0.4
 coverage==5.0.3
 dj-database-url==0.5.0
-Django==1.11.28
+Django==1.11.29
 django-forms-bootstrap==3.1.0
 django-storages==1.9.1
 docutils==0.15.2
